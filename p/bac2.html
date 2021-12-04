@@ -22,13 +22,11 @@
 
   <!-- 页面元数据 -->
   
-  <title>ThreadLocal源码解读 - 才刚的博客</title>
+  <title>递归逆置链表 - 才刚的博客</title>
   
-    <meta name="keywords" content="源码">
+    <meta name="keywords" content="递归">
   
 
-  
-    <meta name="description" content="ThreadLocal源码解读一、ThreadLocal的set方法​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到Threa...">
   
 
   <!-- feed -->
@@ -399,7 +397,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        ThreadLocal源码解读
+        递归逆置链表
       </h1>
       <div class='new-meta-box'>
         
@@ -419,7 +417,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+      <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
     </a>
   </div>
 
@@ -430,7 +428,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021年11月25日</p>
+    <p>发布于：2021年12月3日</p>
   </a>
 </div>
 
@@ -441,13 +439,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：508字</p>
+      <p>字数：1.3k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
+      <p>时长：5分钟</p>
     </a>
   </div>
 
@@ -461,19 +459,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h3 id="ThreadLocal源码解读"><a href="#ThreadLocal源码解读" class="headerlink" title="ThreadLocal源码解读"></a>ThreadLocal源码解读</h3><h4 id="一、ThreadLocal的set方法"><a href="#一、ThreadLocal的set方法" class="headerlink" title="一、ThreadLocal的set方法"></a>一、ThreadLocal的set方法</h4><p>​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；<span id="more"></span> 如果为空的话，就以获取的当前线程为键，自定义的对象为值来创建；如果不为空，就覆盖掉原来的值；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        ThreadLocalMap map = getMap(t);</span><br><span class="line">        <span class="keyword">if</span> (map != <span class="keyword">null</span>)</span><br><span class="line">            map.set(<span class="keyword">this</span>, value);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            createMap(t, value);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+  <h3 id="递归逆置链表"><a href="#递归逆置链表" class="headerlink" title="递归逆置链表"></a>递归逆置链表</h3><h4 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h4><p>  对于一个不带头结点的单链表，设计递归算法逆置所有结点。</p>
+<h4 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h4><p>  <strong>1.递归介绍</strong></p>
+<p>​        程序调用自身的编程技巧称为递归；一个过程或函数在其定义或说明中有直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。递归必须具备两个条件，一个是<wavy>调用自己</wavy>，一个是有<wavy>终止条件</wavy>。这两个条件必须同时具备，且一个都不能少。并且终止条件必须是在递归最开始的地方如下面的代码一样:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">recursion</span><span class="params">(参数<span class="number">0</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (终止条件) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    recursion(参数<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>下面来看看getMap()方法的实现：看到它直接返回threadLocals；而threadLocals是每一个线程都拥有的成员变量；注意：这个map以及map中的key和value都是保存在线程中的，而不是保存在ThreadLocal中；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ThreadLocalMap <span class="title">getMap</span><span class="params">(Thread t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> t.threadLocals;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="二、ThreadLocal的get方法"><a href="#二、ThreadLocal的get方法" class="headerlink" title="二、ThreadLocal的get方法"></a>二、ThreadLocal的get方法</h4><p>​       get()方法是用来获取到ThreadLocal对象自己set的成员变量，那么get()是如何实现的呢？以下就是get()方法的实现；可以看到它首先通过currentThread()方法获取到当前的线程；然后在去看当前线程中的ThreadLocalMap是否为空；如果map为空，说明前面没有对其进行初始化，则执行InitialValue()来进行初始化；反之，则使用getEntry()方法将当前的ThreadLocal在map键值对中对应的值获取到；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        ThreadLocalMap map = getMap(t);</span><br><span class="line">        <span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ThreadLocalMap.Entry e = map.getEntry(<span class="keyword">this</span>);</span><br><span class="line">            <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">                T result = (T)e.value;</span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> setInitialValue();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="三、ThreadLocal的remove方法"><a href="#三、ThreadLocal的remove方法" class="headerlink" title="三、ThreadLocal的remove方法"></a>三、ThreadLocal的remove方法</h4><p>​      remove方法用来删除保存的实际需要的成员变量；这里要注意的是，从线程中获取到的ThreadLocalMap对象是包含了很多个ThreadLocal的，但需要删除的只是当前的ThreadLocal对象，所以使用this引用作为参数执行m.remove()方法；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ThreadLocalMap m = getMap(Thread.currentThread());</span><br><span class="line">    <span class="keyword">if</span> (m != <span class="keyword">null</span>)</span><br><span class="line">        m.remove(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.逆置方法</strong></p>
+<p>​        对于单链表的递归逆置虽然只有几行代码，但刚开始接触可能会有点绕，所以我尽可能详细的把思路理出来；</p>
+<p>​        对于有n个结点的链表的逆置，利用递归的思想可以先将前n-1个结点逆置；当链表为空或者链表只有一个结点的时候终止递归；每一次调用逆置函数R()完成后返回链表已经逆置完成的部分的第一个结点(设为newNode)；因为在当前结点(设为p)前面的结点都已经完成了逆置，所以当前结点指向的下一个结点(p-&gt;next)，成为了已经逆置完成的部分的最后一个结点；如果要进行逆置的话，当前结点应该要变成最后一个结点；所以将p-&gt;next的下一个结点设置为当前结点，即指向p：<strong>p-&gt;next</strong>-&gt;next=<strong>p</strong>;  p变为最后一个结点后，其下一个结点为空，即p-&gt;next=NULL;这样就完成了以当前结点为第一个结点的链表部分的逆置，返回当前的第一个结点，继续进行逆置，直到所有递归函数调用完毕；</p>
+<p>​        我们来看一个例子，比如要对链表a-&gt;b-&gt;c-&gt;d进行逆置；调用逆置函数R(a),R(a)中会递归调用R(a-&gt;next)即R(b),而R(b)中又会调用R(b-&gt;next)即R(c);这样依次下来：（递归完成部分加粗显示，按照调用完成的顺序）</p>
+<p>①R(d),对d进行逆置，由于d-&gt;next为空，所以直接返回d;此时有newNode=d, a-&gt;b-&gt;c-&gt;<strong>d-&gt;NULL</strong>;</p>
+<p>②R(c),对c-&gt;d进行逆置,当前结点为c，要进行逆置，c应该为最后一个结点，则有：c-&gt;next(d)-&gt;next=c;c-&gt;next=NULL; 此时有newNode=d,<strong>d-&gt;c-&gt;NULL</strong>; a-&gt;b-&gt;c-&gt;NULL;注意这里没有任何结点指向d了，因为已经将c-&gt;next设置为空；</p>
+<p>③R(b),对b-&gt;c-&gt;d进行逆置，由于c-&gt;d部分已经逆置成<strong>d-&gt;c-&gt;NULL</strong>了，所以只需要将b设置为最后一个结点即可；b-&gt;next(c)-&gt;next=b; b-&gt;next=NULL;返回d；此时有newNode=d,<strong>d-&gt;c-&gt;b-&gt;NULL</strong>; a-&gt;b-&gt;NULL;</p>
+<p>④R(a),对a-&gt;b-&gt;c-&gt;d进行逆置,由于b-&gt;c-&gt;d部分已经逆置成<strong>d-&gt;c-&gt;b-&gt;NULL</strong>，所以像③一样，a-&gt;next(b)-&gt;next=a, a-&gt;next=NULL;至此，所有的递归函数都已经调用完毕；得到了newNode=d，<strong>d-&gt;c-&gt;b-&gt;a-&gt;NULL</strong>完成了所有节点的逆置；</p>
+<h4 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h4><div class="tabs" id="tab-id"><ul class="nav-tabs"><li class="tab active"><a class="#tab-id-1">完整代码</a></li><li class="tab"><a class="#tab-id-2">运行结果</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125; LinkNode;</span><br><span class="line"></span><br><span class="line"><span class="function">LinkNode* <span class="title">CreateList</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	LinkNode* head = <span class="keyword">new</span> <span class="built_in">LinkNode</span>();</span><br><span class="line">	LinkNode* p = <span class="keyword">new</span> <span class="built_in">LinkNode</span>();</span><br><span class="line">	p = head;</span><br><span class="line">	head-&gt;data = a[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">		LinkNode* node = <span class="keyword">new</span> <span class="built_in">LinkNode</span>();</span><br><span class="line">		node-&gt;data = a[i];</span><br><span class="line">		p-&gt;next = node;</span><br><span class="line">		p = node;</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next = <span class="literal">NULL</span>;  <span class="comment">// 尾结点next域置为空</span></span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DispList</span><span class="params">(LinkNode* ln)</span> </span>&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	<span class="keyword">if</span> (ln != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		cout &lt;&lt; ln-&gt;data;</span><br><span class="line">		<span class="built_in">DispList</span>(ln-&gt;next);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LinkNode* <span class="title">Release</span><span class="params">(LinkNode* ln)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (ln == <span class="literal">NULL</span> || ln-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> ln;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		LinkNode* newNode = <span class="built_in">Release</span>(ln-&gt;next);</span><br><span class="line">		ln-&gt;next-&gt;next = ln;<span class="comment">//将当前结点接在逆置完成部分的最后结点后面,使其成为最后结点</span></span><br><span class="line">		ln-&gt;next = <span class="literal">NULL</span>;<span class="comment">//逆置后，最后一个结点的下一个结点为空</span></span><br><span class="line">		<span class="keyword">return</span> newNode;<span class="comment">//返回逆置完成部分的第一个结点      </span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="built_in"><span class="keyword">sizeof</span></span>(a) / <span class="built_in"><span class="keyword">sizeof</span></span>(a[<span class="number">0</span>]);</span><br><span class="line">	LinkNode* L, *N;</span><br><span class="line">	L = <span class="built_in">CreateList</span>(a,n);</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;初始链表:&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">DispList</span>(L);</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;逆置链表:&quot;</span> &lt;&lt; endl;</span><br><span class="line">	N = <span class="built_in">Release</span>(L);</span><br><span class="line">	<span class="built_in">DispList</span>(N);</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">delete</span> L;</span><br><span class="line">	<span class="keyword">delete</span> N;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tab-id-2"><p><img src="https://s2.loli.net/2021/12/04/7paNHP2b4qVyj58.png" class="lazyload" data-srcset="https://s2.loli.net/2021/12/04/7paNHP2b4qVyj58.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p></div></div></div>
 
 
   
@@ -492,7 +491,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=https://618dt.github.io/p/4fbd.html>https://618dt.github.io/p/4fbd.html</a></p>
+                <p>本文永久链接是：<a href=https://618dt.github.io/p/bac2.html>https://618dt.github.io/p/bac2.html</a></p>
               
             
           </blockquote>
@@ -509,10 +508,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-25T20:07:26+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-04T13:15:28+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年11月25日</p>
+    <p>更新于：2021年12月4日</p>
   </a>
 </div>
 
@@ -521,7 +520,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%BA%90%E7%A0%81/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>源码</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%80%92%E5%BD%92/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>递归</p></a></div>
 
 
         
@@ -530,9 +529,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div class="new-meta-item comments-count">
   
-  <a href="/p/4fbd.html#comments">
+  <a href="/p/bac2.html#comments">
     <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/p/4fbd.html">0</span>
+    <span class="valine-comment-count" data-xid="/p/bac2.html">0</span>
     <span class="leancloud-comments-count">&nbsp;</span>
   </a>
 </div>
@@ -545,7 +544,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="ThreadLocal源码解读" data-path="/p/4fbd.html">
+      <div id="lc-pv" data-title="递归逆置链表" data-path="/p/bac2.html">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -564,7 +563,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/4fbd.html&title=ThreadLocal源码解读 - 才刚的博客&summary=ThreadLocal源码解读一、ThreadLocal的set方法​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/bac2.html&title=递归逆置链表 - 才刚的博客&summary="
           
           >
           
@@ -576,7 +575,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/4fbd.html&title=ThreadLocal源码解读 - 才刚的博客&summary=ThreadLocal源码解读一、ThreadLocal的set方法​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/bac2.html&title=递归逆置链表 - 才刚的博客&summary="
           
           >
           
@@ -588,7 +587,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/4fbd.html&title=ThreadLocal源码解读 - 才刚的博客&summary=ThreadLocal源码解读一、ThreadLocal的set方法​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/bac2.html&title=递归逆置链表 - 才刚的博客&summary="
           
           >
           
@@ -618,18 +617,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/p/6380.html'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>【转载】如何成为优秀的程序员</p>
+      
+        <a class='next' href='/p/6380.html'>
+          <p class='title'>【转载】如何成为优秀的程序员<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>​        本文转自:http://www.akaedu.org/pages/news_detail.php?id=294 
 ​        我们的老师每天都要应对报名者和学员提出的很多...</p>
-        </a>
-      
-      
-        <a class='next' href='/p/1023.html'>
-          <p class='title'>测试文章<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>测试标题这是一个测试页面,以下内容为余华的《活着》
-
- &emsp;&emsp; 我比现在年轻十岁的时候，获得了一个游手好闲的职业，去乡间收集民间歌谣。那一年的整个夏天，我如同一只乱飞的麻雀，游...</p>
         </a>
       
     </div>
@@ -672,7 +664,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-text">ThreadLocal源码解读</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81ThreadLocal%E7%9A%84set%E6%96%B9%E6%B3%95"><span class="toc-text">一、ThreadLocal的set方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81ThreadLocal%E7%9A%84get%E6%96%B9%E6%B3%95"><span class="toc-text">二、ThreadLocal的get方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81ThreadLocal%E7%9A%84remove%E6%96%B9%E6%B3%95"><span class="toc-text">三、ThreadLocal的remove方法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E9%80%86%E7%BD%AE%E9%93%BE%E8%A1%A8"><span class="toc-text">递归逆置链表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="toc-text">实验内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="toc-text">实验原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="toc-text">代码演示</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -691,7 +683,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="ThreadLocal源码解读";
+  pdata.postTitle="递归逆置链表";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
