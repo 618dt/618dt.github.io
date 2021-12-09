@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2021/10 - 才刚的博客</title>
+  <title>删除功能出现的BUG - 才刚的博客</title>
+  
+    <meta name="keywords" content="BUG">
   
 
   
@@ -104,7 +104,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -355,7 +355,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://i.loli.net/2021/11/26/71WgxIQpnCPbl5F.jpg"></div>
           
@@ -387,74 +387,276 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
-      
+    
+    
+      <h1 class="title">
+        删除功能出现的BUG
+      </h1>
+      <div class='new-meta-box'>
         
           
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/1023.html">
-        测试文章
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        测试标题这是一个测试页面,以下内容为余华的《活着》
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/imgs/head.png">
+    <p>lcg</p>
+  </a>
+</div>
 
- &emsp;&emsp; 我比现在年轻十岁的时候，获得了一个游手好闲的职业，去乡间收集民间歌谣。那一年的整个夏天，我如同一只乱飞的麻雀，游荡在知了和阳光充斥的村舍田野。 &emsp;&emsp; 我喜欢喝农民那种带有苦味的茶水，他们的茶桶就放在田埂的树下，我毫无顾忌地拿起漆满茶垢的茶碗舀水喝，还把自己的水壶灌满，与田里干活的男人说上几句...
-      
-    
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Java%E5%BC%80%E5%8F%91/">Java开发</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2021-10-23</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年12月9日</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/">分类测试</a>
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：2.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：9分钟</p>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <h3 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h3><p>​        开发一个删除油画功能模块，要求能够在前台中点击某一油画进行删除后，弹出对话框进行确认删除，若确认则发送ajax请求到后台，然后后台根据发送过来的id进行相应的删除，并且使用json对象返回处理的结果；</p>
+<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><p>​        对于底层的数据删除，使用dom4j进行对xml的删除操作；首先根据id筛选出指定的节点p；然后根据此节点获取到其父节点，使用父节点的remove方法来删除此节点；代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到P的根节点然后用根节点删去P;</span></span><br><span class="line">p.getParent().remove(p);</span><br></pre></td></tr></table></figure>
+
+<p>​        然后就是根据MVC的调用要求，依次创建Dao、Service、Controller中的方法；在Controller方法中进行与前台的交互即可；</p>
+<h3 id="出现的BUG"><a href="#出现的BUG" class="headerlink" title="出现的BUG"></a>出现的BUG</h3><p>​        当在前台页面点击删除油画后，发现删除成功，然后不刷新页面。再次删除此油画，这幅油画实际上已经被删除了，所以根据后台的逻辑，应该会删除失败，并提示该油画已经被删除或者不存在；但是前台确提示删除成功，按F12查看浏览器控制台打印的json对象如下:</p>
+<p><img src="https://s2.loli.net/2021/12/09/oAaKdbu2tNm4iYP.png" class="lazyload" data-srcset="https://s2.loli.net/2021/12/09/oAaKdbu2tNm4iYP.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="console.png"></p>
+<p>这说明在控制器中根本没有执行catch块里的代码，而是执行了try里的代码，<wavy>没有捕捉到</wavy>XmlDataSource中抛出的异常；后端控制台打印的信息如下：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">获取ajax请求发送过来的id为:16</span><br><span class="line">/F:/JAVA/Tomcat/apache-tomcat-8.5.34/webapps/mgallery/WEB-INF/classes/painting.xml</span><br><span class="line">java.lang.RuntimeException: 编号为16的油画不存在或已删除</span><br><span class="line">	at com.lcg.mgallery.utils.XmlDataSource.delete(XmlDataSource.java:186)</span><br><span class="line">	at com.lcg.mgallery.dao.PaintingDao.delete(PaintingDao.java:68)</span><br><span class="line">	at com.lcg.mgallery.service.PaintingService.delete(PaintingService.java:69)</span><br><span class="line">	at com.lcg.mgallery.controller.ManagementController.delete(ManagementController.java:247)</span><br><span class="line">	at com.lcg.mgallery.controller.ManagementController.doGet(ManagementController.java:64)</span><br><span class="line">	at com.lcg.mgallery.controller.ManagementController.doPost(ManagementController.java:73)</span><br><span class="line">	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)</span><br><span class="line">	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)</span><br><span class="line">	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)</span><br><span class="line">	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)</span><br><span class="line">	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)</span><br><span class="line">	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)</span><br><span class="line">	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)</span><br><span class="line">	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)</span><br><span class="line">	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)</span><br><span class="line">	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)</span><br><span class="line">	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)</span><br><span class="line">	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)</span><br><span class="line">	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:650)</span><br><span class="line">	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)</span><br><span class="line">	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)</span><br><span class="line">	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)</span><br><span class="line">	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)</span><br><span class="line">	at org.apache.coyote.AbstractProtocol<span class="built_in">$</span>ConnectionHandler.process(AbstractProtocol.java:806)</span><br><span class="line">	at org.apache.tomcat.util.net.NioEndpoint<span class="built_in">$</span>SocketProcessor.doRun(NioEndpoint.java:1498)</span><br><span class="line">	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor<span class="built_in">$</span>Worker.run(Unknown Source)</span><br><span class="line">	at org.apache.tomcat.util.threads.TaskThread<span class="built_in">$</span>WrappingRunnable.run(TaskThread.java:61)</span><br><span class="line">	at java.lang.Thread.run(Unknown Source)</span><br><span class="line">/F:/JAVA/Tomcat/apache-tomcat-8.5.34/webapps/mgallery/WEB-INF/classes/painting.xml</span><br><span class="line">成功执行了删除的操作</span><br></pre></td></tr></table></figure>
+
+<p>​        可以发现确实出现了异常，但出现异常后确仍然打印出”成功执行了删除的操作”；这是什么原因呢？<strong>为什么在控制器的方法中无法捕捉到XmlDataSource中抛出的异常？</strong>我们来分析一下后台的代码；</p>
+<p>对Xml文件进行直接操作的XmlDataSource类中的删除方法代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Integer id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			document = reader.read(dataFile);</span><br><span class="line">			List&lt;Node&gt; nodes = document.selectNodes(<span class="string">&quot;/root/painting[@id=&quot;</span> + id + <span class="string">&quot;]&quot;</span>);</span><br><span class="line">			<span class="keyword">if</span>(nodes.size() == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;编号为&quot;</span> + id + <span class="string">&quot;的油画不存在或已删除&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">             <span class="comment">//省略执行删除操作代码..</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;编号为&quot;</span> + id + <span class="string">&quot;的油画不存在或已删除&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//...部分代码</span></span><br><span class="line">			reload();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        控制器中的删除方法代码如下(控制器中调用的是Service中的delete方法，按照MVC的架构模式会<u>逐级调用</u>到XmlDataSource中的方法)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除油画</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    String id = request.getParameter(<span class="string">&quot;id&quot;</span>);<span class="comment">//获取ajax请求发送过来的参数</span></span><br><span class="line">    System.out.println(<span class="string">&quot;获取ajax请求发送过来的id为:&quot;</span>+id);</span><br><span class="line">    Map result = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//调用方法进行油画的删除</span></span><br><span class="line">        paintingService.delete(Integer.parseInt(id));</span><br><span class="line">        result.put(<span class="string">&quot;code&quot;</span>, <span class="string">&quot;0&quot;</span>);</span><br><span class="line">        result.put(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;success&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;成功执行了删除的操作&quot;</span>);</span><br><span class="line">    &#125;<span class="keyword">catch</span>(Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        result.put(<span class="string">&quot;code&quot;</span>, <span class="string">&quot;1&quot;</span>);</span><br><span class="line">        result.put(<span class="string">&quot;msg&quot;</span>, e.getMessage());</span><br><span class="line">        System.out.println(<span class="string">&quot;遇到了异常&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    String json = JSON.toJSONString(result);</span><br><span class="line">    response.setContentType(<span class="string">&quot;text/html;charset=UTF-8&quot;</span>);</span><br><span class="line">    response.getWriter().println(json);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        通过对控制台中的打印结果分析想到，既然在Controller中并没有捕捉到，那么为什么会打印出异常的信息呢？很快就想到可能在XmlDataSource中就把异常给捕捉了，于是在XmlDataSource中将catch块中的e.printStackTrace();注释掉，在前台执行重复删除的操作，发现后台<emp>果然没有打印出</emp>异常信息!</p>
+<h3 id="BUG解决方法"><a href="#BUG解决方法" class="headerlink" title="BUG解决方法"></a>BUG解决方法</h3><p>​        在知道了为什么在控制器的方法中无法捕捉到XmlDataSource中抛出的异常后，就能想到出错的原因在哪里了；因为在XmlDataSource的删除方法中，前面的一些代码也会抛出异常，为了寻求方便我索性使用Exception来捕捉这些异常，这就导致将我们自定义的异常给捕获并处理了（因为RuntimeException继承自Exception），进而在Controller中无法捕捉到异常，给前台的反馈消息总是删除成功的；</p>
+<p>​        所以解决方法是分别捕捉可能出现的每一种异常(除RuntimeException以外)；修改后的方法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">public static void delete(Integer id) &#123;</span><br><span class="line">		SAXReader reader = new SAXReader();</span><br><span class="line">		Writer writer = null;</span><br><span class="line">		Document document;</span><br><span class="line">		try &#123;</span><br><span class="line">			document = reader.read(dataFile);</span><br><span class="line">			List&lt;Node&gt; nodes = document.selectNodes(&quot;/root/painting[@id=&quot; + id + &quot;]&quot;);</span><br><span class="line">			if(nodes.size() == 0) &#123;</span><br><span class="line">				throw new RuntimeException(&quot;编号为&quot; + id + &quot;的油画不存在或已删除&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			Element p = (Element)nodes.get(0);</span><br><span class="line">			//得到P的根节点然后用根节点删去P;</span><br><span class="line">			p.getParent().remove(p);</span><br><span class="line">			//修改后的数据回写到原来的xml文件中;</span><br><span class="line">			writer = new OutputStreamWriter(new FileOutputStream(dataFile),&quot;UTF-8&quot;);</span><br><span class="line">			document.write(writer);</span><br><span class="line">		&#125; catch (DocumentException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; catch (UnsupportedEncodingException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; catch (FileNotFoundException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; catch (IOException e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;finally &#123;</span><br><span class="line">			if(writer != null) &#123;</span><br><span class="line">				try &#123;</span><br><span class="line">					writer.close();</span><br><span class="line">				&#125; catch (IOException e) &#123;</span><br><span class="line">					// TODO Auto-generated catch block</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			reload();</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        这样以后，成功解决了前面出现的问题；这里附上前台页面的代码，弹出窗口使用了<a target="_blank" rel="noopener" href="https://sweetalert2.github.io/">SweetAlert</a></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">//提示删除</span></span><br><span class="line">	<span class="function">function <span class="title">del</span><span class="params">(previewObj)</span></span>&#123;</span><br><span class="line">		<span class="keyword">var</span> preview = $(previewObj).attr(<span class="string">&quot;data-preview&quot;</span>);<span class="comment">//获取自定义属性</span></span><br><span class="line">		<span class="keyword">var</span> pname = $(previewObj).attr(<span class="string">&quot;data-pname&quot;</span>);</span><br><span class="line">		<span class="keyword">var</span> id = $(previewObj).attr(<span class="string">&quot;data-id&quot;</span>);		</span><br><span class="line">		Swal.fire(&#123;</span><br><span class="line">			  title: <span class="string">&#x27;删除&#x27;</span>+pname+<span class="string">&#x27;?&#x27;</span>,</span><br><span class="line">			  html: <span class="string">&quot;&lt;img src=&#x27;&quot;</span> + preview + <span class="string">&quot;&#x27; style=&#x27;width:361px;height:240px&#x27;&gt;&quot;</span>,</span><br><span class="line">			  icon: <span class="string">&#x27;warning&#x27;</span>,</span><br><span class="line">			  showCancelButton: <span class="keyword">true</span>,</span><br><span class="line">			  confirmButtonColor: <span class="string">&#x27;#3085d6&#x27;</span>,</span><br><span class="line">			  cancelButtonColor: <span class="string">&#x27;#d33&#x27;</span>,</span><br><span class="line">			  confirmButtonText: <span class="string">&#x27;是的&#x27;</span>,</span><br><span class="line">			  cancelButtonText: <span class="string">&#x27;取消&#x27;</span></span><br><span class="line">			&#125;).then(function(isConfirm)&#123;</span><br><span class="line">			  <span class="keyword">if</span> (isConfirm.value) &#123;</span><br><span class="line">				<span class="comment">//发送ajax请求</span></span><br><span class="line">					$.ajax(&#123;</span><br><span class="line">						<span class="string">&quot;url&quot;</span> : <span class="string">&quot;/management?method=delete&quot;</span>,</span><br><span class="line">						<span class="string">&quot;type&quot;</span> : <span class="string">&quot;post&quot;</span>,</span><br><span class="line">						<span class="string">&quot;data&quot;</span> : &#123;<span class="string">&quot;id&quot;</span>:id&#125;,</span><br><span class="line">						<span class="string">&quot;dataType&quot;</span> : <span class="string">&quot;json&quot;</span>,</span><br><span class="line">						<span class="string">&quot;success&quot;</span> : function(json)&#123;</span><br><span class="line">							console.log(json);</span><br><span class="line">							<span class="keyword">if</span>(json.code==<span class="string">&quot;0&quot;</span>)&#123;</span><br><span class="line">								Swal.fire(<span class="string">&#x27;删除成功!&#x27;</span>,<span class="string">&#x27;油画已经成功删除&#x27;</span>,<span class="string">&#x27;success&#x27;</span>).then(function(isConfirm)&#123;</span><br><span class="line">									<span class="keyword">if</span> (isConfirm.value)&#123;</span><br><span class="line">										<span class="comment">//点击确认后刷新页面</span></span><br><span class="line">										window.location.reload();</span><br><span class="line">									&#125;</span><br><span class="line">								&#125;)</span><br><span class="line">							&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">								Swal.fire(<span class="string">&#x27;删除失败!&#x27;</span>,json.msg,<span class="string">&#x27;error&#x27;</span>).then(function(isConfirm)&#123;</span><br><span class="line">									<span class="keyword">if</span> (isConfirm.value)&#123;</span><br><span class="line">										<span class="comment">//点击确认后刷新页面</span></span><br><span class="line">										window.location.reload();</span><br><span class="line">									&#125;</span><br><span class="line">								&#125;)</span><br><span class="line">							&#125;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;)</span><br><span class="line">			  &#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">  &lt;!-- 省略部分代码 --&gt;</span><br><span class="line">&lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;oplink&quot;</span> data-id=<span class="string">&quot;$&#123;painting.id&#125;&quot;</span> data-preview=<span class="string">&quot;$&#123;painting.preview&#125;&quot;</span> data-pname=<span class="string">&quot;$&#123;painting.pname&#125;&quot;</span> href=<span class="string">&quot;javascript:void(0)&quot;</span> onclick=<span class="string">&quot;del(this)&quot;</span>&gt;删除&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>​        try-catch-finally执行的基本步骤是：如果try块中出现了<emp>异常</emp>,不管是自定义抛出的还是系统抛出的，在catch块中只要符合捕捉的范围，都会对该异常进行处理，最后执行finally块中的代码； 如果没有出现异常，则直接执行try块中的代码，然后执行finally中的代码；因此在开发过程中不要一时图方便，将捕捉异常的范围扩大，还应当业务逻辑进行仔细分析，采用最佳的处理方法；</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/p/1023.html'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>欢迎小伙伴的阅读♪(･ω･)ﾉ</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://618dt.github.io/p/de80.html>https://618dt.github.io/p/de80.html</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-09T17:48:49+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年12月9日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/BUG/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>BUG</p></a></div>
 
 
-	
+        
+      
+        
+          
+<div class="new-meta-item comments-count">
+  
+  <a href="/p/de80.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/p/de80.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="删除功能出现的BUG" data-path="/p/de80.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/de80.html&title=删除功能出现的BUG - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/de80.html&title=删除功能出现的BUG - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/de80.html&title=删除功能出现的BUG - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/p/bac2.html'>
+          <p class='title'>递归逆置链表<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>实验内容  对于一个不带头结点的单链表，设计递归算法逆置所有结点。
+实验原理  1.递归介绍
+​        程序调用自身的编程技巧称为递归；一个过程或函数在其定义或说明中有直接或间接调用自身...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -462,297 +664,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/blog/about/'>
-          <img no-lazy src='/imgs/head.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">才刚的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:860131794@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/618dt/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Java%E5%BC%80%E5%8F%91/" href="/categories/Java%E5%BC%80%E5%8F%91/"
-            id="categoriesJavaE5BC80E58F91"
-            ><div class='name'>Java开发</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/" href="/categories/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/"
-            id="categoriesE58886E7B1BBE6B58BE8AF95"
-            ><div class='name'>分类测试</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"
-            id="categoriesE5A49AE7BABFE7A88B"
-            ><div class='name'>多线程</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
-            id="categoriesE695B0E68DAEE7BB93E69E84"
-            ><div class='name'>数据结构</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%9D%82%E8%B0%88/" href="/categories/%E6%9D%82%E8%B0%88/"
-            id="categoriesE69D82E8B088"
-            ><div class='name'>杂谈</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B"><span class="toc-text">功能简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-text">实现思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E7%9A%84BUG"><span class="toc-text">出现的BUG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BUG%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">BUG解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/BUG/" style="font-size: 14px; color: #999">BUG</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/" style="font-size: 14px; color: #999">测试标签</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 14px; color: #999">源码</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 14px; color: #999">程序员</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 14px; color: #999">递归</a>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode shadow desktop mobile">
-  
-  <header>
-    
-      <i class="fas fa-envelope fa-fw" aria-hidden="true"></i><span class='name'>联系方式</span>
-    
-  </header>
-
-
-  <div class='content article-entry'>
-    
-      <img src='/imgs/wchatid.png'
-      
-        height='120px'
-      />
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>5 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2021/10/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>11.3k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Thu Dec 09 2021 17:50:46 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-12-09 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-12-09 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -761,21 +694,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="删除功能出现的BUG";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>

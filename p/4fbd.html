@@ -28,8 +28,6 @@
   
 
   
-    <meta name="description" content="ThreadLocal源码解读一、ThreadLocal的set方法​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到Threa...">
-  
 
   <!-- feed -->
   
@@ -461,7 +459,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h3 id="ThreadLocal源码解读"><a href="#ThreadLocal源码解读" class="headerlink" title="ThreadLocal源码解读"></a>ThreadLocal源码解读</h3><h4 id="一、ThreadLocal的set方法"><a href="#一、ThreadLocal的set方法" class="headerlink" title="一、ThreadLocal的set方法"></a>一、ThreadLocal的set方法</h4><p>​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；<span id="more"></span> 如果为空的话，就以获取的当前线程为键，自定义的对象为值来创建；如果不为空，就覆盖掉原来的值；</p>
+  <h3 id="ThreadLocal源码解读"><a href="#ThreadLocal源码解读" class="headerlink" title="ThreadLocal源码解读"></a>ThreadLocal源码解读</h3><h4 id="一、ThreadLocal的set方法"><a href="#一、ThreadLocal的set方法" class="headerlink" title="一、ThreadLocal的set方法"></a>一、ThreadLocal的set方法</h4><p>​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；如果为空的话，就以获取的当前线程为键，自定义的对象为值来创建；如果不为空，就覆盖掉原来的值；</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        ThreadLocalMap map = getMap(t);</span><br><span class="line">        <span class="keyword">if</span> (map != <span class="keyword">null</span>)</span><br><span class="line">            map.set(<span class="keyword">this</span>, value);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            createMap(t, value);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>下面来看看getMap()方法的实现：看到它直接返回threadLocals；而threadLocals是每一个线程都拥有的成员变量；注意：这个map以及map中的key和value都是保存在线程中的，而不是保存在ThreadLocal中；</p>
@@ -509,10 +507,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-25T20:07:26+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-06T19:43:05+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年11月25日</p>
+    <p>更新于：2021年12月6日</p>
   </a>
 </div>
 
@@ -564,7 +562,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/4fbd.html&title=ThreadLocal源码解读 - 才刚的博客&summary=ThreadLocal源码解读一、ThreadLocal的set方法​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/4fbd.html&title=ThreadLocal源码解读 - 才刚的博客&summary="
           
           >
           
@@ -576,7 +574,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/4fbd.html&title=ThreadLocal源码解读 - 才刚的博客&summary=ThreadLocal源码解读一、ThreadLocal的set方法​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/4fbd.html&title=ThreadLocal源码解读 - 才刚的博客&summary="
           
           >
           
@@ -588,7 +586,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/4fbd.html&title=ThreadLocal源码解读 - 才刚的博客&summary=ThreadLocal源码解读一、ThreadLocal的set方法​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/4fbd.html&title=ThreadLocal源码解读 - 才刚的博客&summary="
           
           >
           

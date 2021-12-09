@@ -415,9 +415,58 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/p/de80.html">
+        删除功能出现的BUG
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        功能简介​        开发一个删除油画功能模块，要求能够在前台中点击某一油画进行删除后，弹出对话框进行确认删除，若确认则发送ajax请求到后台，然后后台根据发送过来的id进行相应的删除，并且使用json对象返回处理的结果；
+实现思路​        对于底层的数据删除，使用dom4j进行对xml的删除操作；首先根据id筛选出指定的节点p；然后根据此节点获取到其父节点，使用父节点的remo...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-12-09</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Java%E5%BC%80%E5%8F%91/">Java开发</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/p/de80.html'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -483,10 +532,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='md'>
     
-      <p>​        本文转自:<a target="_blank" rel="noopener" href="http://www.akaedu.org/pages/news_detail.php?id=294">http://www.akaedu.org/pages/news_detail.php?id=294</a> </p>
-<p>​        我们的老师每天都要应对报名者和学员提出的很多同样的问题，以下是这类典型问题的汇总：嵌入式行业（或者IT业）有没有前途？我听说编程编到三十五 岁就没人要了，一定要转行找出路是吗？做驱动开发和做应用开发哪个更有前途？我一开始看什么书都看不懂，怎么才能理出一个学习顺序？诸如此类。这使我迫切 地感觉到，应该总结这样一份非具体技术问题的FAQ了。本文仅代表我个人观点，有问题欢迎Email: <a href="mailto:songjinshan@akaedu.org">songjinshan@akaedu.org</a>。</p>
-<p>​        在看这份FAQ之前，你必须先读完ESR的《如何成为一名黑客》（本文末尾附有中译版），该文所讲过的道理我不再重复。该文用很大的篇幅讲什么是黑客文 化，虽然态度和信仰的确是成功的最关键因素，但是你肯定会想，做不做黑客跟我没关系，我只是想学个一技之长，找个好工作而已，对吧？那么肯定更希望获得一 些具体的可操作的指导。</p>
-<h4 id="1、各种软件技术之间是怎样的关系？"><a href="#1、各种软件技术之间是怎样的关系？" class="headerlink" title="1、各种软件技术之间是怎样的关系？"></a>1、各种软件技术之间是怎样的关系？</h4><p>  我把软件技术分为三个层次：
+      
+        ​        本文转自:http://www.akaedu.org/pages/news_detail.php?id=294 
+​        我们的老师每天都要应对报名者和学员提出的很多同样的问题，以下是这类典型问题的汇总：嵌入式行业（或者IT业）有没有前途？我听说编程编到三十五 岁就没人要了，一定要转行找出路是吗？做驱动开发和做应用开发哪个更有前途？我一开始看什么书都看不懂，怎么才...
+      
     
   </div>
   
@@ -530,7 +579,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='md'>
     
-      <h3 id="ThreadLocal源码解读"><a href="#ThreadLocal源码解读" class="headerlink" title="ThreadLocal源码解读"></a>ThreadLocal源码解读</h3><h4 id="一、ThreadLocal的set方法"><a href="#一、ThreadLocal的set方法" class="headerlink" title="一、ThreadLocal的set方法"></a>一、ThreadLocal的set方法</h4><p>​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；
+      
+        ThreadLocal源码解读一、ThreadLocal的set方法​       set()方法的作用是把想要保存或者是想要共享的我们实际需要的成员变量(例如用户信息user等等)存入ThreadLocal中，以便后续拿到；那么是如何实现的呢？通过下面的源码可以看到，首先得到当前线程的对象，然后再得到ThreadLocalMap对象；如果为空的话，就以获取的当前线程为键，自定义的对象为值来...
+      
     
   </div>
   
@@ -574,9 +625,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='md'>
     
-      <h2 id="测试标题"><a href="#测试标题" class="headerlink" title="测试标题"></a>测试标题</h2><p>这是一个测试页面,以下内容为余华的《活着》<img src="https://img1.baidu.com/it/u=4151257971,460772575&fm=26&fmt=auto" class="lazyload" data-srcset="https://img1.baidu.com/it/u=4151257971,460772575&fm=26&fmt=auto" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="art"></p>
-<hr>
-<p> &emsp;&emsp; 我比现在年轻十岁的时候，获得了一个游手好闲的职业，去乡间收集民间歌谣。那一年的整个夏天，我如同一只乱飞的麻雀，游荡在知了和阳光充斥的村舍田野。
+      
+        测试标题这是一个测试页面,以下内容为余华的《活着》
+
+ &emsp;&emsp; 我比现在年轻十岁的时候，获得了一个游手好闲的职业，去乡间收集民间歌谣。那一年的整个夏天，我如同一只乱飞的麻雀，游荡在知了和阳光充斥的村舍田野。 &emsp;&emsp; 我喜欢喝农民那种带有苦味的茶水，他们的茶桶就放在田埂的树下，我毫无顾忌地拿起漆满茶垢的茶碗舀水喝，还把自己的水壶灌满，与田里干活的男人说上几句...
+      
     
   </div>
   
@@ -701,6 +754,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <ul class="entry navigation">
         
           <li><a class="flat-box"
+            title="/categories/Java%E5%BC%80%E5%8F%91/" href="/categories/Java%E5%BC%80%E5%8F%91/"
+            id="categoriesJavaE5BC80E58F91"
+            ><div class='name'>Java开发</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/categories/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/" href="/categories/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/"
             id="categoriesE58886E7B1BBE6B58BE8AF95"
             ><div class='name'>分类测试</div><div class='badge'>(1)</div></a></li>
@@ -742,7 +800,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/" style="font-size: 14px; color: #999">测试标签</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 14px; color: #999">源码</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 14px; color: #999">程序员</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 14px; color: #999">递归</a>
+      <a href="/tags/BUG/" style="font-size: 14px; color: #999">BUG</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/" style="font-size: 14px; color: #999">测试标签</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 14px; color: #999">源码</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 14px; color: #999">程序员</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 14px; color: #999">递归</a>
     </div>
   </section>
 
@@ -792,7 +850,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>4 篇</div>
+          <div>5 篇</div>
         </div>
       
 
@@ -814,7 +872,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>9.2k 字</div>
+          <div>11.3k 字</div>
         </div>
       
 
@@ -840,8 +898,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Dec 04 2021 13:20:28 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-12-04 日</div>
+            <div id="last-update" style="display: none;">Thu Dec 09 2021 17:50:46 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-12-09 日</div>
           
         </div>
         
@@ -891,7 +949,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-12-04 日';
+            document.getElementById('last-update-show').innerHTML = '2021-12-09 日';
           }
         </script>
         
