@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>Linux基础和Java环境搭建 - 才刚的博客</title>
+  
+    <meta name="keywords" content="Linux">
+  
+
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/imgs/Sitich30.gif'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/categories/
+                  
+                  
+                  
+                    id="blogcategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/tags/
+                  
+                  
+                  
+                    id="blogtags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/album/
+                  
+                  
+                  
+                    id="blogalbum"
+                  >
+                  <i class='fas fa-link fa-fw'></i>相册
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/about/
+                  
+                  
+                  
+                    id="blogabout"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/categories/
+                  
+                  
+                  
+                    id="blogcategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/tags/
+                  
+                  
+                  
+                    id="blogtags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/album/
+                  
+                  
+                  
+                    id="blogalbum"
+                  >
+                  <i class='fas fa-link fa-fw'></i>相册
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/about/
+                  
+                  
+                  
+                    id="blogabout"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/imgs/bg.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">才刚的博客</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        Linux基础和Java环境搭建
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/imgs/head.png">
+    <p>lcg</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a><span class="sep"></span><a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/Linux%E4%B8%8ERedis%E5%9F%BA%E7%A1%80/">Linux与Redis基础</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年2月3日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：4.2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：16分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h2><p>◇Linux基础入门<br><img src="/p/c40f/1629881600929-861c5540-c71f-4186-b9f5-ae2f5453bf19.png" class="lazyload" data-srcset="/p/c40f/1629881600929-861c5540-c71f-4186-b9f5-ae2f5453bf19.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇Linux进阶应用<br><img src="/p/c40f/1629902441633-e553b490-a782-4a8c-bf13-112f3324acb5.png" class="lazyload" data-srcset="/p/c40f/1629902441633-e553b490-a782-4a8c-bf13-112f3324acb5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇Redis应用入门<br><img src="/p/c40f/1629902552805-78f40e53-3374-43dc-8d18-b673821de5ad.png" class="lazyload" data-srcset="/p/c40f/1629902552805-78f40e53-3374-43dc-8d18-b673821de5ad.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="主要知识点"><a href="#主要知识点" class="headerlink" title="主要知识点"></a>主要知识点</h2><p>◇介绍Linux与CentOS      ◇讲解Linux基础命令<br>◇yum应用安装与卸载     ◇CentOS的权限与系统安全<br>◇Linux文本工具与命令   ◇部署OA项目至Linux服务器  </p>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h3 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h3><p>◇操作系统(Operating System)是应用程序运行的基础支撑环境<br>◇操作系统作用是管理和控制计算机系统的硬件与软件资源<br>◇Intel x86架构上常见的操作系统:Windows、Linux、Unix…  </p>
+<h3 id="Linux操作系统"><a href="#Linux操作系统" class="headerlink" title="Linux操作系统"></a>Linux操作系统</h3><p>◇Linux是开源的基于Intel x86架构的类Unix多用户操作系统<br>◇Linux是目前最主要的服务器端操作系统<br>◇互联网大厂都在使用Linux作为服务器主要操作系统  </p>
+<h3 id="Linux为什么受欢迎"><a href="#Linux为什么受欢迎" class="headerlink" title="Linux为什么受欢迎"></a>Linux为什么受欢迎</h3><p>◇免费使用，自由传播    ◇支持多任务、多用户、多CPU<br>◇高效而灵活                  ◇兼容任意x86架构计算机<br>◇强大易用的系统命令    ◇完整的应用软件生态  </p>
+<h3 id="Linux发行版本"><a href="#Linux发行版本" class="headerlink" title="Linux发行版本"></a>Linux发行版本</h3><p>◇Linux系统内核(kernel)提供了Linux操作系统的核心功能<br>◇不同开发商在内核基础上扩展封装,形成了不同发行版本<br>◇常见发行版：Red Hat Linux、CentOS、Ubuntu、SUSE…  </p>
+<h3 id="Linux发行版选择建议"><a href="#Linux发行版选择建议" class="headerlink" title="Linux发行版选择建议"></a>Linux发行版选择建议</h3><p>◇桌面系统:Ubuntu<br>◇服务器操作系统: CentOS（免费）、Red Hat Linux（收费）<br>◇特定需求: Debian(稳定性)、Fedora(新特性)、麒麟Linux(国产)  </p>
+<h2 id="CentOS-社区企业操作系统"><a href="#CentOS-社区企业操作系统" class="headerlink" title="CentOS - 社区企业操作系统"></a>CentOS - 社区企业操作系统</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>◇基于Red Hat Enterprice Linux 的开源企业级Linux发行版本<br>◇各版本CentOS都会获得十年的支持,与RHEL保持同步更新<br>◇CentOS采用社区支持,同时修正了RHEL许多BUG   </p>
+<h3 id="CentOS版本选择"><a href="#CentOS版本选择" class="headerlink" title="CentOS版本选择"></a>CentOS版本选择</h3><p>◇CentOS 5/6 : 历史版本,已被淘汰<br>◇CentOS 7 : 主流版本,稳定成熟,大多数服务器的首选版本<br>◇CentOS 8 : 全新版本,基于最新内核,不排除存在漏洞隐患  </p>
+<h2 id="安装CentOS-7-7"><a href="#安装CentOS-7-7" class="headerlink" title="安装CentOS 7.7"></a>安装CentOS 7.7</h2><h3 id="CentOS-7-运行要求"><a href="#CentOS-7-运行要求" class="headerlink" title="CentOS 7 运行要求"></a>CentOS 7 运行要求</h3><p>◇CPU : 1核,建议2核以上<br>◇内存 : 1G,建议2G以上<br>◇硬盘 : 预留20G可用空间  </p>
+<h3 id="开启CPU虚拟化"><a href="#开启CPU虚拟化" class="headerlink" title="开启CPU虚拟化"></a>开启CPU虚拟化</h3><p>◇Ctrl+Alt+Delete打开任务管理器-&gt;性能-&gt;查看右下角虚拟化是否已启用<br>◇若未启动,则应开启CPU虚拟化，由于电脑型号不同，具体方法可百度</p>
+<h3 id="安装VMware-Workstation虚拟机"><a href="#安装VMware-Workstation虚拟机" class="headerlink" title="安装VMware Workstation虚拟机"></a>安装VMware Workstation虚拟机</h3><p>◇<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36522099/article/details/106959969">在VMware中搭建CentOS </a> </p>
+<h2 id="Linux系统目录"><a href="#Linux系统目录" class="headerlink" title="Linux系统目录"></a>Linux系统目录</h2><p>Linux倒挂树形目录结构<br><img src="/p/c40f/1629975406516-bb1ea1f7-fab0-4da8-8303-a12633159db2.png" class="lazyload" data-srcset="/p/c40f/1629975406516-bb1ea1f7-fab0-4da8-8303-a12633159db2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇”/“是所有目录的顶点,称为”根目录”<br>◇不同目录下的数据可分布在不同磁盘,所有目录按规则组织与命名<br>◇Linux也区分绝对路径与相对路径  </p>
+<h3 id="常见系统目录"><a href="#常见系统目录" class="headerlink" title="常见系统目录"></a>常见系统目录</h3><p><img src="/p/c40f/1629975580379-b983d605-acc6-4e15-be66-c7eb638aea3d.png" class="lazyload" data-srcset="/p/c40f/1629975580379-b983d605-acc6-4e15-be66-c7eb638aea3d.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br><img src="/p/c40f/1629975605738-db5bbc1c-10c7-45fa-a10f-b3dda57685e7.png" class="lazyload" data-srcset="/p/c40f/1629975605738-db5bbc1c-10c7-45fa-a10f-b3dda57685e7.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="Linux远程管理"><a href="#Linux远程管理" class="headerlink" title="Linux远程管理"></a>Linux远程管理</h2><h3 id="SSH客户端"><a href="#SSH客户端" class="headerlink" title="SSH客户端"></a>SSH客户端</h3><p> ◇SSH是专为远程登录和其他网络服务提供的安全性协议<br>◇SSH分为两个不兼容版本1.x与2.x,默认通过SSH2.x连接<br>◇基于SSH远程连接工具有很多,最常见的是Xshell与SecureCRT </p>
+<h3 id="Xshell与Xftp"><a href="#Xshell与Xftp" class="headerlink" title="Xshell与Xftp"></a>Xshell与Xftp</h3><p>◇Xshell是著名的Linux客户端,常用于在Windows下远程访问<br>◇Xshell同时还支持Telent、RLogin、Serial等其他连接方式<br>◇Xftp是Xshell配套组件，用于向服务器上传/下载文件  </p>
+<h3 id="Xshell与Xftp安装与配置"><a href="#Xshell与Xftp安装与配置" class="headerlink" title="Xshell与Xftp安装与配置"></a>Xshell与Xftp安装与配置</h3><p>◇在官方网站安装个人版<br>◇在虚拟机终端输入ifconfig查看虚拟机的ip地址<br>◇新建xshell会话，连接后输入用户名和密码即可<br><img src="/p/c40f/1629978963671-fd31e45c-c4c0-4fc0-b4eb-a66bd9787a1c.png" class="lazyload" data-srcset="/p/c40f/1629978963671-fd31e45c-c4c0-4fc0-b4eb-a66bd9787a1c.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png" style="zoom: 67%;"><br>◇在Xshell顶部绿色的新建文件传输打开，可以进行文件的传输<br><img src="/p/c40f/1629979354707-b035a667-88ab-4732-b0de-37ad49bfbcb7.png" class="lazyload" data-srcset="/p/c40f/1629979354707-b035a667-88ab-4732-b0de-37ad49bfbcb7.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="Linux文件操作命令"><a href="#Linux文件操作命令" class="headerlink" title="Linux文件操作命令"></a>Linux文件操作命令</h2><h3 id="Linux命令格式"><a href="#Linux命令格式" class="headerlink" title="Linux命令格式"></a>Linux命令格式</h3><p>◇命令 [参数选项] [文件或路径] </p>
+<h3 id="Linux文件操作核心命令"><a href="#Linux文件操作核心命令" class="headerlink" title="Linux文件操作核心命令"></a>Linux文件操作核心命令</h3><p><img src="/p/c40f/1629979553331-35a0fe9d-22c7-4753-a083-a1a9916b591d.png" class="lazyload" data-srcset="/p/c40f/1629979553331-35a0fe9d-22c7-4753-a083-a1a9916b591d.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇clear     清屏   ◇rmdir 删除空目录<br>◇cd时输入某个路径的前一个字母后可以按Tab进行自动补全<br>◇命令 –help可以查看命令的参数等相关信息<br>◇mv 重命名格式：mv old.c  new.c ;移动格式：mv old.c /xx/xx 也可以移动整个文件夹<br>◇不要轻易使用rm -rf，这样会强制迭代删除而不进行询问，rm -r迭代删除进行询问</p>
+<h3 id="vim文本编辑器"><a href="#vim文本编辑器" class="headerlink" title="vim文本编辑器"></a>vim文本编辑器</h3><p>◇vi是Linux重要的文字编辑工具,vim是它的增强版<br>◇vim用于在远程环境下用命令形式对文本进行在线编辑<br>◇用法格式: vim [选项] [文件] </p>
+<h3 id="vim三种模式"><a href="#vim三种模式" class="headerlink" title="vim三种模式"></a>vim三种模式</h3><p>◇普通模式:默认模式,文本只读,不可编辑<br>◇编辑模式:编辑文本模式,普通模式按i键进入,Esc键退出<br>◇命令模式:执行保存、搜索、退出等操作</p>
+<h3 id="vim重要快捷键"><a href="#vim重要快捷键" class="headerlink" title="vim重要快捷键"></a>vim重要快捷键</h3><p><img src="/p/c40f/1629980002766-5c22ebbf-1dc8-4840-9a9b-44410e4e2520.png" class="lazyload" data-srcset="/p/c40f/1629980002766-5c22ebbf-1dc8-4840-9a9b-44410e4e2520.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="Linux文本工具"><a href="#Linux文本工具" class="headerlink" title="Linux文本工具"></a>Linux文本工具</h2><h3 id="常用文本工具"><a href="#常用文本工具" class="headerlink" title="常用文本工具"></a>常用文本工具</h3><p><img src="/p/c40f/1630068704114-ec0a4e45-4072-42bc-8618-ee730f5ffd2e.png" class="lazyload" data-srcset="/p/c40f/1630068704114-ec0a4e45-4072-42bc-8618-ee730f5ffd2e.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h3 id="文件输入与输出"><a href="#文件输入与输出" class="headerlink" title="文件输入与输出"></a>文件输入与输出</h3><p>◇文件输入：&lt; (重写) 或者 &lt;&lt; (追加)          ◇文件输出：&gt; (重写) 或者 &gt;&gt; (追加)<br>◇echo “xxxx” &gt;&gt; log.txt 将xxxx文本追加写入到log.txt文件中<br>◇合并文件：cat hello.txt myname.txt &gt;&gt; full.txt<br>◇tail full.txt –显示文件尾部内容;   tail -n 2 full.txt –显示文件最后两行<br>◇tail -f full.txt –动态监测文件末尾所产生的新行; ctrl+c退出<br>◇grep lcg test.txt –查找test.txt文件中包含lcg字符串的文本行,字符串可以是正则表达式<br>◇grep -v lcg test.txt –查找test.txt文件中不包含lcg字符串的文本行<br>◇ll | grep -E “log[0-9]{1,5}.txt” –进行文件的筛选，查看所有日志文件 -E表示使用扩展正则表达式；{1,5}表示数字位数为1~5；</p>
+<h2 id="文件打包与压缩"><a href="#文件打包与压缩" class="headerlink" title="文件打包与压缩"></a>文件打包与压缩</h2><h3 id="Linux压缩程序-gzip"><a href="#Linux压缩程序-gzip" class="headerlink" title="Linux压缩程序-gzip"></a>Linux压缩程序-gzip</h3><p>◇gzip是Linux系统的文件压缩程序<br>◇gzip压缩包文件扩展名.gz<br>◇大流量的网站默认都在使用gzip进行数据压缩传输   </p>
+<h3 id="tar打包与压缩"><a href="#tar打包与压缩" class="headerlink" title="tar打包与压缩"></a>tar打包与压缩</h3><p>◇tar是Linux系统将多个文件打包和压缩的工具<br>◇tar本质是打包软件，扩展名.tar<br>◇tar可结合gzip或其他压缩工具实现打包压缩，扩展名.tar.gz<br>◇压缩命令: tar zcvf tomcat.tar.gz /usr/local/tomcat<br>◇解压缩命令: tar zxvf tomcat.tar.gz -C /usr/local/tomcat   </p>
+<h3 id="tar常用可选项"><a href="#tar常用可选项" class="headerlink" title="tar常用可选项"></a>tar常用可选项</h3><img src="/p/c40f/1630068871801-23d4fefb-c44f-409e-bb11-51dd710ab2f9.png" class="lazyload" data-srcset="/p/c40f/1630068871801-23d4fefb-c44f-409e-bb11-51dd710ab2f9.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png">
+
+<h2 id="安装与卸载应用程序"><a href="#安装与卸载应用程序" class="headerlink" title="安装与卸载应用程序"></a>安装与卸载应用程序</h2><h3 id="为CentOS安装应用程序"><a href="#为CentOS安装应用程序" class="headerlink" title="为CentOS安装应用程序"></a>为CentOS安装应用程序</h3><p>◇在CentOS中安装第三方应用程序包含两种方式:<br>◇rpm:Red Hat软件包管理器,相当于应用程序安装文件的执行者<br>◇编译安装:用户自己从网站下载程序源码进行编译安装 </p>
+<h3 id="yum与rpm的关系"><a href="#yum与rpm的关系" class="headerlink" title="yum与rpm的关系"></a>yum与rpm的关系</h3><p>◇rpm安装过程中,需要用户自己解决依赖问题<br>◇yum通过引入软件仓库,联网下载rpm包及依赖,并依次自动安装<br>◇yum是rpm的前端程序,其目的就是简化rpm的安装过程</p>
+<h3 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h3><p>◇yum search 应用名 #在仓库中查询是否存在指定应用<br>◇yum install -y 应用名 #全自动下载安装应用及其依赖<br>◇yum info 应用名 #查看软件详细信息<br>◇yum list installed 应用名 #查看已安装的应用程序<br>◇rpm -ql 应用名 #查看安装后输出的文件清单<br>◇yum remove -y 应用名 #全自动卸载指定应用  ，-y表示遇到询问都用y</p>
+<h2 id="编译方式安装"><a href="#编译方式安装" class="headerlink" title="编译方式安装"></a>编译方式安装</h2><h3 id="编译方式安装应用程序"><a href="#编译方式安装应用程序" class="headerlink" title="编译方式安装应用程序"></a>编译方式安装应用程序</h3><p>◇如yum仓库未提供rpm,往往需要采用编译安装方式<br>◇编译安装是指从应用官网下载源码后,对源码进行编译后使用<br>◇编译命令: make #使用对应编译器对源码编译生成可执行文件  </p>
+<h3 id="yum与编译安装比较"><a href="#yum与编译安装比较" class="headerlink" title="yum与编译安装比较"></a>yum与编译安装比较</h3><p><img src="/p/c40f/1630070373099-9af554f6-920f-4c76-9782-70dc5c1dc783.png" class="lazyload" data-srcset="/p/c40f/1630070373099-9af554f6-920f-4c76-9782-70dc5c1dc783.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h3 id="编译安装Redis"><a href="#编译安装Redis" class="headerlink" title="编译安装Redis"></a>编译安装Redis</h3><p>◇利用xftp将下载好的压缩包文件上传到linux；然后解压；进入redis-4.0.14目录；安装gcc编译器：yum install -y gcc;<br>◇有时候第一次make编译出错后，可能改变了原来的文件结构，因此纠正错误后下一次编译时需要将解压后的目录删除重新解压；当出现Hint: It’s a good idea to run ‘make test’ ;)时代表编译成功；<br>◇编译安装后的应用程序redis-server存放在src中，在启动redis-server前需要加载上一级目录下的redis.conf配置文件;即启动命令为:./src/redis-server redis.conf  启动后ctrl+c退回命令状态</p>
+<h2 id="Linux进阶应用"><a href="#Linux进阶应用" class="headerlink" title="Linux进阶应用"></a>Linux进阶应用</h2><h3 id="Linux系统管理命令"><a href="#Linux系统管理命令" class="headerlink" title="Linux系统管理命令"></a>Linux系统管理命令</h3><p>◇使用ifconfig查看网卡ip<br><img src="/p/c40f/1630146548264-3229c8fc-d16f-4ace-9c4b-4d140a726bc0.png" class="lazyload" data-srcset="/p/c40f/1630146548264-3229c8fc-d16f-4ace-9c4b-4d140a726bc0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇netstat 查看网络端口号：netstat -tulpn 或 netstat -ano<br>◇Recv-Q:接收队列；Send-Q:发送队列; LISTEN表示网络状态正在被监听;PID:进程编号；Program name创建网络连接的应用<br><img src="/p/c40f/1630146738224-1f08c511-0871-4f93-8fdc-1b45678b64a5.png" class="lazyload" data-srcset="/p/c40f/1630146738224-1f08c511-0871-4f93-8fdc-1b45678b64a5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇netstat 常用选项<br><img src="/p/c40f/1630146946866-e7e838d8-a463-417b-9b9c-0603f83dfba4.png" class="lazyload" data-srcset="/p/c40f/1630146946866-e7e838d8-a463-417b-9b9c-0603f83dfba4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇查看进程: ps -ef ，箭头处5412指PID；杀掉进程：kill -9 PID<br>◇一般使用应用程序退出来关闭进程，而不是强制杀掉进程，因为可能造成数据丢失<br>◇ps -ef | grep vim ; | 表示通道，即ps -ef查询产生的数据像通过通道一样送入到后一个指令<br><img src="/p/c40f/1630147070833-32dca895-ace6-45ad-a972-0cb3f0471b45.png" class="lazyload" data-srcset="/p/c40f/1630147070833-32dca895-ace6-45ad-a972-0cb3f0471b45.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="应用服务化"><a href="#应用服务化" class="headerlink" title="应用服务化"></a>应用服务化</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>◇ 应用服务化是指让应用程序以服务方式在系统后台运行<br>◇ Linux系统对服务化应用进行统一管理<br>◇ 服务管理命令：systemctl    </p>
+<h3 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a>systemctl</h3><p><img src="/p/c40f/1630147494122-9ac16bd2-3b54-497a-be4c-2ef65b16ca12.png" class="lazyload" data-srcset="/p/c40f/1630147494122-9ac16bd2-3b54-497a-be4c-2ef65b16ca12.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇.pid文件用来保存进程编号<br>◇将redis服务化，需要在/usr/lib/systemd/system目录下创建 vim redis.service；在文件中写入配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Redis</span><br><span class="line">After=syslog.target network.target remote-fs.target nss-lookup.target #表示在这些服务启动以后才能启动redis</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking #forking代表后台运行</span><br><span class="line">PIDFile=/run/redis_6379.pid</span><br><span class="line">#说明启动时执行server，加载配置文件</span><br><span class="line">ExecStart=/home/lcg/0/redis-4.0.14/src/redis-server /home/lcg/0/redis-4.0.14/redis.conf</span><br><span class="line">#关闭,-s采用正常流程进行退出；-9表示强制退出</span><br><span class="line">ExecStop=/bin/kill -s QUIT $MAINPID</span><br><span class="line">PrivateTmp=True #为每一个服务设置私有的Tmp临时文件目录</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target #将当前的redis服务分配到multi-user服务组上；</span><br></pre></td></tr></table></figure>
+<p>◇systemctl daemon-reload #对所有service进行重载;<br>◇systemctl start redis #启动服务； systemctl status redis #查看状态</p>
+<h2 id="Linux用户与权限"><a href="#Linux用户与权限" class="headerlink" title="Linux用户与权限"></a>Linux用户与权限</h2><h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><p>◇ Linux是多用户多任务系统,包含两个概念:用户与用户组<br>◇ 用户与账户是同一概念,用于登录系统与区分资源权限<br>◇ 用户让系统变的更安全,同时也保护了用户的个人数字资产</p>
+<h3 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h3><p>◇ 用户组就是将用户分组,隶属用户自动拥有组权限<br>◇ 一个用户可隶属于多个组,用户可任意切换当前组<br>◇ 用户组的出现让用户权限管理变更轻松 </p>
+<h3 id="用户与用户组常用命令"><a href="#用户与用户组常用命令" class="headerlink" title="用户与用户组常用命令"></a>用户与用户组常用命令</h3><p><img src="/p/c40f/1630152748335-c52d7d9a-f0cc-4e31-a1ef-204bfebbaead.png" class="lazyload" data-srcset="/p/c40f/1630152748335-c52d7d9a-f0cc-4e31-a1ef-204bfebbaead.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇分组：usermod -g [组名] [用户名]<br>◇让用户拥有多个组： usermod -G [组名1],[组名2] [用户名];通过newgrp进行切换<br>◇将用户连接系统: 打开-&gt;创建系统副本：然后用新建的用户密码登录<br>◇groups #查看用户隶属于哪个组<br>◇chown用法：chown [用户名]:[组名] [文件名]</p>
+<h2 id="项目内部文件权限管理实践"><a href="#项目内部文件权限管理实践" class="headerlink" title="项目内部文件权限管理实践"></a>项目内部文件权限管理实践</h2><h3 id="文件权限代码表"><a href="#文件权限代码表" class="headerlink" title="文件权限代码表"></a>文件权限代码表</h3><p><img src="/p/c40f/1630153162614-19019fff-aa2c-483e-83e3-46715e47ab51.png" class="lazyload" data-srcset="/p/c40f/1630153162614-19019fff-aa2c-483e-83e3-46715e47ab51.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇每个颜色表示一组，共三组；eg:drwxr-xr-x; 其中-代表没有对应属性，此处即没有w(完整的一组是rwx)<br>◇在目录上r-x不允许写是指不准修改目录名</p>
+<h3 id="chmod命令"><a href="#chmod命令" class="headerlink" title="chmod命令"></a>chmod命令</h3><p>◇ chmod 750: 组用户可读写，其他用户不允许访问<br>◇ chmod 777: 所有用户拥有完整权限<br>◇ chmod 700: 只有属主拥有完整权限<br>◇chmod  750 dev-document/(文件名/) #示例操作，</p>
+<h3 id="sudo超级管理员命令"><a href="#sudo超级管理员命令" class="headerlink" title="sudo超级管理员命令"></a>sudo超级管理员命令</h3><p>◇ sudo可以让普通用户拥有超级管理员的执行权限<br>◇ 普通用户要进行经过超级管理员授权才能使用<br>◇ 授权命令：visudo<br>◇普通模式下输入：100gg 快速定位到100行,无法再屏幕上看到命令；在此处的root ALL-(ALL) ALL下增加一行：<br>[用户名] ALL-(ALL) ALL 即可授权用户拥有sudo命令；第一个ALL代表用户可以从任意计算机进行连接；第二个ALL表示切换用户，最后一个ALL代表运行执行所有命令；<br>◇:wq保存文件后，使用命令visudo -c进行文件的格式检查;</p>
+<h2 id="CentOS7防火墙firewall"><a href="#CentOS7防火墙firewall" class="headerlink" title="CentOS7防火墙firewall"></a>CentOS7防火墙firewall</h2><h3 id="什么是防火墙"><a href="#什么是防火墙" class="headerlink" title="什么是防火墙"></a>什么是防火墙</h3><p>◇ 防火墙是借助硬件和软件对内外部网络环境的保护措施<br>◇ CentOS 7基于firewall实现应用层防火墙,CentOS6基于iptables<br>◇ firewall-cmd是firewall的核心命令 </p>
+<h3 id="firwall-cmd"><a href="#firwall-cmd" class="headerlink" title="firwall-cmd"></a>firwall-cmd</h3><p>◇ systemctl start|restart firewalld #启动防火墙<br>◇ firewall-cmd –state | –reload #查看状态,重载防火墙<br>◇ firewall-cmd –zone=public –permanent –add-port=8502/tcp  </p>
+<h3 id="对外开放Tomcat"><a href="#对外开放Tomcat" class="headerlink" title="对外开放Tomcat"></a>对外开放Tomcat</h3><p>◇解压apache-tomcat-9.0.34.tar.gz；进入apache-tomcat-9.0.34/bin目录启动startup.sh文件：./startup.sh<br>◇增加放行端口：firewall-cmd –zone=public –permanent –add-port=8080/tcp #zone代表区域；permanent表示永久更改；将add改成remove即可去除端口;8000-9000可以用来进行端口范围的设置<br>◇将防火墙进行重载</p>
+<h2 id="Bash-Shell"><a href="#Bash-Shell" class="headerlink" title="Bash Shell"></a>Bash Shell</h2><h3 id="什么是Shell"><a href="#什么是Shell" class="headerlink" title="什么是Shell"></a>什么是Shell</h3><p>u Shell是一个用c语言编写的脚本解释器,是用户通过代码操作 Linux的桥梁<br>u Shell脚本描述要执行的任务,完成系列复杂操作,文件通常以.sh后缀<br>u Shell脚本通过Shell解释器执行,按解释器分类分为多种类型  </p>
+<h3 id="Linux-Shell-分类"><a href="#Linux-Shell-分类" class="headerlink" title="Linux Shell 分类"></a>Linux Shell 分类</h3><p><img src="/p/c40f/1630222283043-b5cd5a06-bbf9-4590-96b0-7028756802c4.png" class="lazyload" data-srcset="/p/c40f/1630222283043-b5cd5a06-bbf9-4590-96b0-7028756802c4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h3 id="一键发布Tomcat应用程序"><a href="#一键发布Tomcat应用程序" class="headerlink" title="一键发布Tomcat应用程序"></a>一键发布Tomcat应用程序</h3><p>◇vim deploy_tomcat.sh创建脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;准备下载Tomcat9&quot;</span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.52/bin/apache-tomcat-9.0.52.tar.gz</span><br><span class="line">echo &quot;正在解压Tomcat9&quot;</span><br><span class="line">tar zxf apache-tomcat-9.0.52.tar.gz</span><br><span class="line">echo &quot;防火墙开放8080端口&quot;</span><br><span class="line">firewall-cmd --zone=public --permanent --add-port=8080/tcp</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">echo &quot;启动Tomact&quot;</span><br><span class="line">cd ./apache-tomcat-9.0.52/bin</span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure>
+<p>◇启动脚本文件：/bin/bash deploy_tomcat.sh;或./deploy.tomcat.sh</p>
+<h2 id="部署OA项目"><a href="#部署OA项目" class="headerlink" title="部署OA项目"></a>部署OA项目</h2><h3 id="部署架构"><a href="#部署架构" class="headerlink" title="部署架构"></a>部署架构</h3><p><img src="/p/c40f/1630243029737-67057a7c-0650-4d8c-b630-bd8eab42b589.png" class="lazyload" data-srcset="/p/c40f/1630243029737-67057a7c-0650-4d8c-b630-bd8eab42b589.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇创建两个虚拟机CentosDB,CentosWEB，均最小化安装(不要图形界面);然后在界面输入: yum install -y net-tools.x86_64 #安装ifconfig等命令;<br>◇使用Xshell进行远程连接；</p>
+<h3 id="Centos安装MySQL8"><a href="#Centos安装MySQL8" class="headerlink" title="Centos安装MySQL8"></a>Centos安装MySQL8</h3><p>◇yum search mysql-community #查看是否安装了mysql社区版<br>◇mkdir mysql #在/usr/local目录下新建目录存放mysql<br>◇wget <a target="_blank" rel="noopener" href="https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm">https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm</a> #获取下载<br>◇yum install -y wget #安装wget 命令<br>◇yum localinstall -y mysql80-community-release-el7-3.noarch.rpm #从本地安装rpm文件<br>◇以上只是安装了mysql的安装源，还没有完成mysql的安装；<br>◇yum install -y mysql-community-server #进行安装   ctrl+c可以停止安装<br>◇cd /var/cache/yum/x86_64/7/mysql80-community/packages/ #进入yum下载的缓存路径<br>◇进入官网找到Mysql Red Hat Enterprise Linux/ Oracle Linux；选择系统版本Linux 7 X86_64； 下载RPM Bundle；然后将这一组rpm文件传到缓存路径中；此时重新执行yum install -y mysql-community-server命令；以此可解决跨国服务器下载缓慢问题；<br>◇systemctl start mysqld #启动服务  systemctl status mysqld #查看服务状态<br>◇systemctl enable mysqld #设置为开机启动</p>
+<h3 id="初始化MySQL8"><a href="#初始化MySQL8" class="headerlink" title="初始化MySQL8"></a>初始化MySQL8</h3><p>◇vi  /var/log/mysqld.log #进入mysql日志 在第3~4行可以看到自动生成的密码<br>◇mysql -uroot -p #输入密码进行登录<br>◇alter user ‘root‘@’localhost’ identified with mysql_native_password by ‘newpassword’(需要包含字母大小写以及数字，特殊符号，长度大于8位) 回车加上’;’ 即可修改，with mysql_native_password做与navicat的兼容考虑；<br>◇默认的root用户只能从本机登录；use mysql #使用数据库； select host,user from user;#查询主机和用户<br>◇update user set host=’%’ where user=’root’;#将root用户的host改为%,即任意设备都可以使用root用户连接mysql服务器; flush privileges #使刚才修改的权限立即生效<br>◇exit #退出mysql<br>◇放行3306端口并重载，使之能够远程访问mysql；<br>◇打开Navicat，新建连接：主机即虚拟机的IP地址；</p>
+<h3 id="部署配置Web应用服务"><a href="#部署配置Web应用服务" class="headerlink" title="部署配置Web应用服务"></a>部署配置Web应用服务</h3><p>◇yum search jdk #查看仓库中包含哪些版本的jdk;openjdk表示开源jdk<br>◇yum install -y java-1.8.0-openjdk #安装jdk<br>◇java -version #查看<br>◇安装Tomcat;<br>◇将oa项目的war包传到虚拟机中，解压；<br>◇将解压后的oa目录移动：mv lcg_oa ./apache-tomcat-9.0.34/webapps/<br>◇进入webapps目录，vim ./lcg_oa/WEB-INF/classes/mybatis-config.xml(yum install vim-common#安装vim基础包，yum install vim-enhanced#安装增强包)<br>◇/root全文查找，在连接字符串的地方进行调整；将localhost改为mysql服务器的IP地址，密码改为相应的密码<br>◇回到上一层目录进行Tomcat的配置: vim ./conf/server.xml -&gt;搜索/8080-&gt;将端口改为80-&gt;按pagedown跳到最后<br>-&gt;在Host标签上增加<Context path="/" docbase="lcg_oa">#将oa这个web应用映射的上下文路径指向根路径-&gt;:wq保存<br>◇启动tomcat：./bin/startup.sh<br>◇放行80端口，并重载<br>◇在虚拟机DB中，屏蔽掉任意主机都能访问的3306端口；重载；<br>◇firewall-cmd –permanent –zone=public –add-rich-rule=”rule family=”ipv4” source address=”web服务器的IP地址” port protocol=”tcp” port=”3306” accept” #-rich-rule利用规则放行端口，这样就能放行指定主机指定端口的访问;</Context></p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>欢迎小伙伴的阅读♪(･ω･)ﾉ</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://618dt.github.io/p/c40f.html>https://618dt.github.io/p/c40f.html</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-21T22:29:12+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年2月21日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div>
+
+
+        
+      
+        
+          
+<div class="new-meta-item comments-count">
+  
+  <a href="/p/c40f.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/p/c40f.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Linux基础和Java环境搭建" data-path="/p/c40f.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/c40f.html&title=Linux基础和Java环境搭建 - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/c40f.html&title=Linux基础和Java环境搭建 - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/c40f.html&title=Linux基础和Java环境搭建 - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/p/d40.html'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Redis入门</p>
+          <p class='content'>课程介绍◇Redis介绍与安装◇掌握在Java中操作Redis◇掌握Redis的常用命令与数据类型  
+Redis介绍◇Redis是Key-Value型NoSQL数据库 ,即每一个数据都有键和值...</p>
+        </a>
+      
+      
+        <a class='next' href='/p/d371.html'>
+          <p class='title'>项目完整实现<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>动态显示功能菜单第一部分：实现底层◇sql语句
+123456789101112-- 如何获取编号为 1的用户拥有哪些功能？SELECT DISTINCT n.* FROM	sys_role_us...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E7%AE%80%E4%BB%8B"><span class="toc-text">内容简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">主要知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">什么是操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">Linux操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%97%E6%AC%A2%E8%BF%8E"><span class="toc-text">Linux为什么受欢迎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-text">Linux发行版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%8F%91%E8%A1%8C%E7%89%88%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="toc-text">Linux发行版选择建议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS-%E7%A4%BE%E5%8C%BA%E4%BC%81%E4%B8%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">CentOS - 社区企业操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="toc-text">CentOS版本选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85CentOS-7-7"><span class="toc-text">安装CentOS 7.7</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-7-%E8%BF%90%E8%A1%8C%E8%A6%81%E6%B1%82"><span class="toc-text">CentOS 7 运行要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFCPU%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-text">开启CPU虚拟化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VMware-Workstation%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">安装VMware Workstation虚拟机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95"><span class="toc-text">Linux系统目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95"><span class="toc-text">常见系统目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-text">Linux远程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">SSH客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Xshell%E4%B8%8EXftp"><span class="toc-text">Xshell与Xftp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Xshell%E4%B8%8EXftp%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">Xshell与Xftp安装与配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux文件操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-text">Linux命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux文件操作核心命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-text">vim文本编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-text">vim三种模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E9%87%8D%E8%A6%81%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">vim重要快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E6%96%87%E6%9C%AC%E5%B7%A5%E5%85%B7"><span class="toc-text">Linux文本工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E5%B7%A5%E5%85%B7"><span class="toc-text">常用文本工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-text">文件输入与输出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E4%B8%8E%E5%8E%8B%E7%BC%A9"><span class="toc-text">文件打包与压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%8E%8B%E7%BC%A9%E7%A8%8B%E5%BA%8F-gzip"><span class="toc-text">Linux压缩程序-gzip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar%E6%89%93%E5%8C%85%E4%B8%8E%E5%8E%8B%E7%BC%A9"><span class="toc-text">tar打包与压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar%E5%B8%B8%E7%94%A8%E5%8F%AF%E9%80%89%E9%A1%B9"><span class="toc-text">tar常用可选项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">安装与卸载应用程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BACentOS%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">为CentOS安装应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E4%B8%8Erpm%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">yum与rpm的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">yum常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85"><span class="toc-text">编译方式安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">编译方式安装应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E4%B8%8E%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E6%AF%94%E8%BE%83"><span class="toc-text">yum与编译安装比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis"><span class="toc-text">编译安装Redis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E8%BF%9B%E9%98%B6%E5%BA%94%E7%94%A8"><span class="toc-text">Linux进阶应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux系统管理命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%8C%96"><span class="toc-text">应用服务化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemctl"><span class="toc-text">systemctl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90"><span class="toc-text">Linux用户与权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7"><span class="toc-text">用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-text">用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E7%BB%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">用户与用户组常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%86%85%E9%83%A8%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E5%AE%9E%E8%B7%B5"><span class="toc-text">项目内部文件权限管理实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%BB%A3%E7%A0%81%E8%A1%A8"><span class="toc-text">文件权限代码表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod%E5%91%BD%E4%BB%A4"><span class="toc-text">chmod命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sudo%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E5%91%BD%E4%BB%A4"><span class="toc-text">sudo超级管理员命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS7%E9%98%B2%E7%81%AB%E5%A2%99firewall"><span class="toc-text">CentOS7防火墙firewall</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-text">什么是防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#firwall-cmd"><span class="toc-text">firwall-cmd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%A4%96%E5%BC%80%E6%94%BETomcat"><span class="toc-text">对外开放Tomcat</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash-Shell"><span class="toc-text">Bash Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFShell"><span class="toc-text">什么是Shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-Shell-%E5%88%86%E7%B1%BB"><span class="toc-text">Linux Shell 分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83Tomcat%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">一键发布Tomcat应用程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2OA%E9%A1%B9%E7%9B%AE"><span class="toc-text">部署OA项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84"><span class="toc-text">部署架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Centos%E5%AE%89%E8%A3%85MySQL8"><span class="toc-text">Centos安装MySQL8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96MySQL8"><span class="toc-text">初始化MySQL8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AEWeb%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">部署配置Web应用服务</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="Linux基础和Java环境搭建";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='3014209502'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        
+          <div><p>桃李不言,下自成蹊</p>
+</div>
+        
+      
+    
+      
+        
+          <div><p><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">黔ICP备2021001690号-1</a></p>
+</div>
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://gamest.avosapps.us/">Copyright © 2021 LCG</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=/blog/about/
+        
+        
+        
+        
+          id="blogabout"
+        >
+        <i class='fas fa-info-circle fa-fw'></i> 关于
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=/blog/categories/
+        
+        
+        
+        
+          id="blogcategories"
+        >
+        <i class='fas fa-folder-open fa-fw'></i> 分类
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=/blog/tags/
+        
+        
+        
+        
+          id="blogtags"
+        >
+        <i class='fas fa-tags fa-fw'></i> 标签
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=/blog/album/
+        
+        
+        
+        
+          id="blogalbum"
+        >
+        <i class='fas fa-link fa-fw'></i> 相册
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
+        // 如果有aplayer，初始化一下
+        checkAPlayer();
+      }
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '3014209502';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  APlayerController.autoPlay = 'false';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+  
+    loadScript("/js/aplayer.js")
+  
+
+</script>
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"HOXrAG6smAATBKTB0E7yg1x2-MdYXbMMI","appKey":"HA7TFXGe2NlCWD5orIr0V48j","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"monsterid","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false,"serverURLs":"https://HOXrAG6s.api.lncldglobal.com"}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'HOXrAG6smAATBKTB0E7yg1x2-MdYXbMMI',
+    app_key: 'HA7TFXGe2NlCWD5orIr0V48j',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://618dt.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://618dt.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://618dt.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
