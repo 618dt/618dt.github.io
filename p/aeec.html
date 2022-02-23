@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>项目实现-前台 - 才刚的博客</title>
+  
+    <meta name="keywords" content="SSM">
+  
+
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/imgs/Sitich30.gif'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/categories/
+                  
+                  
+                  
+                    id="blogcategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/tags/
+                  
+                  
+                  
+                    id="blogtags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/album/
+                  
+                  
+                  
+                    id="blogalbum"
+                  >
+                  <i class='fas fa-link fa-fw'></i>相册
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/about/
+                  
+                  
+                  
+                    id="blogabout"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/categories/
+                  
+                  
+                  
+                    id="blogcategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/tags/
+                  
+                  
+                  
+                    id="blogtags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/album/
+                  
+                  
+                  
+                    id="blogalbum"
+                  >
+                  <i class='fas fa-link fa-fw'></i>相册
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/about/
+                  
+                  
+                  
+                    id="blogabout"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="/imgs/bg.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">才刚的博客</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        项目实现-前台
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/imgs/head.png">
+    <p>lcg</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Spring/">Spring</a><span class="sep"></span><a class="category-link" href="/categories/Spring/SSM%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/">SSM开发项目</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年2月7日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：8.7k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：37分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="本周学习内容简介"><a href="#本周学习内容简介" class="headerlink" title="本周学习内容简介"></a>本周学习内容简介</h2><p>◇讲解Spring/Spring MVC/Mybatis(SSM)整合配置过程<br>◇讲解MyBatis-Plus敏捷开发插件的用法<br>◇开发javaweb应用”书评网”<br>◇由于篇幅有限，项目的全部代码见<a target="_blank" rel="noopener" href="https://github.com/618dt/JavaPractice/tree/main/gamest-reader">gamest-reader</a></p>
+<h2 id="主要知识点"><a href="#主要知识点" class="headerlink" title="主要知识点"></a>主要知识点</h2><p>◇SSM整合配置<br>◇Mybatis-Plus配置与应用<br>◇Boostrap UI框架入门<br>◇Kaptcha验证码组件使用<br>◇富文本编辑器wangEditor<br>◇Spring Task任务调度  </p>
+<h2 id="SSM整合的意义"><a href="#SSM整合的意义" class="headerlink" title="SSM整合的意义"></a>SSM整合的意义</h2><h3 id="什么是整合"><a href="#什么是整合" class="headerlink" title="什么是整合"></a>什么是整合</h3><p>◇整合通过Spring IoC容器管理第三方框架对象,让多框架形成整体<br>◇Spring/Spring MVC/MyBatis是业内最主流的框架搭配<br>◇SSM配置与使用是所有Java工程师必须掌握的技能  </p>
+<h3 id="SSM整合三阶段"><a href="#SSM整合三阶段" class="headerlink" title="SSM整合三阶段"></a>SSM整合三阶段</h3><p>◇Spring与Spring MVC环境配置<br>◇Spring与MyBatis的整合配置<br>◇整合其他组件:声明式事务/日志/任务调度/…  </p>
+<h3 id="Spring与Spring-MVC环境配置"><a href="#Spring与Spring-MVC环境配置" class="headerlink" title="Spring与Spring MVC环境配置"></a>Spring与Spring MVC环境配置</h3><p>◇依赖spring-webmvc   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--pom.xml文件</span><br><span class="line">&lt;!--Freemarker--&gt;</span><br><span class="line">&lt;!-- Jackson --&gt;</span><br></pre></td></tr></table></figure>
+<p>◇配置DispatcherServlet              –web.xml文件<br>◇启用Spring MVC注解模式        –applicationContext.xml文件<br>◇配置请求与响应字符集            –applicationContext.xml文件<br>◇配置FreeMarker模板引擎        –applicationContext.xml文件<br>◇配置Json序列化组件                –applicationContext.xml文件</p>
+<h3 id="Spring与MyBatis整合配置"><a href="#Spring与MyBatis整合配置" class="headerlink" title="Spring与MyBatis整合配置"></a>Spring与MyBatis整合配置</h3><p>◇Spring的整合其核心目的是通过spring去管理其他组件或框架的核心对象，让这些对象之间形成一个整体；<br>◇创建数据库gamest_reader<br>◇依赖mybatis-spring及驱动     –pom.xml文件<br>◇配置数据源与连接池              –applicationContext.xml文件<br>◇配置SqlSessionFactory           –applicationContext.xml文件<br>◇配置Mapper扫描器                –applicationContext.xml文件<br>◇创建mybatis-config.xml </p>
+<h3 id="整合其他组件"><a href="#整合其他组件" class="headerlink" title="整合其他组件"></a>整合其他组件</h3><p>◇配置logback日志输出 ，新建logback.xml文件，日志组件会自动识别；<br>◇声明式事务配置 ;引入依赖spring-jdbc后，事务的依赖spring-tx也会自动被引入，在applicationContext中配置声明式事务<br>◇整合junit单元测试  </p>
+<h2 id="MyBatis-Plus"><a href="#MyBatis-Plus" class="headerlink" title="MyBatis-Plus"></a>MyBatis-Plus</h2><h3 id="MyBatis-Plus简介"><a href="#MyBatis-Plus简介" class="headerlink" title="MyBatis-Plus简介"></a>MyBatis-Plus简介</h3><p>◇ MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具<br>◇ 自动实现Mapper CRUD操作,极致提高数据库开发效率<br>◇ MP在MyBatis 的基础上只做增强不做改变<br>◇<a target="_blank" rel="noopener" href="https://mp.baomidou.com/">MyBatis-Plus官网</a></p>
+<h3 id="MyBatis-Plus整合三部曲"><a href="#MyBatis-Plus整合三部曲" class="headerlink" title="MyBatis-Plus整合三部曲"></a>MyBatis-Plus整合三部曲</h3><p>◇pom引入mybatis-plus依赖 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-plus&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">3.3</span><span class="number">.2</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>◇Spring XML更改配置SqlSessionFactory实现类<br>◇mybatis-config.xml增加MP分页插件(plugin) </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugins&gt;</span><br><span class="line">    &lt;!-- 配置MyBatis-Plus分页插件 --&gt;</span><br><span class="line">    &lt;plugin interceptor=<span class="string">&quot;com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor&quot;</span>&gt;&lt;/plugin&gt;</span><br><span class="line">&lt;/plugins&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="MyBatis-Plus开发三部曲"><a href="#MyBatis-Plus开发三部曲" class="headerlink" title="MyBatis-Plus开发三部曲"></a>MyBatis-Plus开发三部曲</h3><p>◇创建实体类，实体类中的属性需要与数据库中表的字段保持一致,基于@Table/@TableId/@TableField进行与表的自动映射<br>◇创建Mapper接口继承BaseMapper,创建Mapper XML<br>◇开发时注入Mapper对象,通过内置API实现CRUD(增删改查)操作 </p>
+<h3 id="MyBatis-Plus核心注解"><a href="#MyBatis-Plus核心注解" class="headerlink" title="MyBatis-Plus核心注解"></a>MyBatis-Plus核心注解</h3><p>◇@TableName - 将实体类与表名映射<br>◇@TableId - 说明对应属性是表的主键 ,Tabled(type=IdType.AUTO)，type即设置主键的生成方式，IdType.AUTO表示使用数据库底层的自增主键来完成数据的插入；<br>◇@TableField - 设置属性与列名(字段)的对应关系  ，如果字段名与属性名相同或者符合驼峰命名转换规则，则TableField可省略</p>
+<h3 id="BaseMapper接口核心API"><a href="#BaseMapper接口核心API" class="headerlink" title="BaseMapper接口核心API"></a>BaseMapper接口核心API</h3><p>◇在所有的Mapper文件中都要实现BaseMapper接口，BaseMapper是由Mybatis-plus提供的核心父接口，在实现的时候需要加入泛型说明定义的实体是哪一个例如BaseMapper&lt;test&gt;；当我们继承自接口以后，实现增删改查直接使用继承的方法就行了，如果需要自定义增删改查方法的话，方法名不应与父接口的方法产生混淆；<br><img src="/p/aeec/1634779418318-3d3df12d-ee20-4c2f-9f42-ab25df66569f.png" class="lazyload" data-srcset="/p/aeec/1634779418318-3d3df12d-ee20-4c2f-9f42-ab25df66569f.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="案例分析与数据库建表"><a href="#案例分析与数据库建表" class="headerlink" title="案例分析与数据库建表"></a>案例分析与数据库建表</h2><h3 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h3><p><img src="/p/aeec/1634888234791-174ffddc-68f1-4bd7-9baa-450f8b55e69c.png" class="lazyload" data-srcset="/p/aeec/1634888234791-174ffddc-68f1-4bd7-9baa-450f8b55e69c.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇最核心的数据是图书信息，包含了书名、作者、描述等等；<br>◇作为网站，也会内置会员部分，也就是用户；而围绕着会员与图书会衍生出两个状态信息：阅读状态和评论；</p>
+<h3 id="数据库建表"><a href="#数据库建表" class="headerlink" title="数据库建表"></a>数据库建表</h3><p>◇围绕着上面分析的五个数据，可以建立五张表<br>◇图书表<br><img src="/p/aeec/1634889164832-405d915b-9837-4e38-881e-ecacbf54238b.png" class="lazyload" data-srcset="/p/aeec/1634889164832-405d915b-9837-4e38-881e-ecacbf54238b.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇会员表<br><img src="/p/aeec/1634889215160-169dab43-7425-4f8e-9a6b-7315a9c784a9.png" class="lazyload" data-srcset="/p/aeec/1634889215160-169dab43-7425-4f8e-9a6b-7315a9c784a9.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<p>◇评价表<br><img src="/p/aeec/1634889032203-d15faf1f-d68c-4c26-b808-5d873b080bef.png" class="lazyload" data-srcset="/p/aeec/1634889032203-d15faf1f-d68c-4c26-b808-5d873b080bef.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇阅读状态表<br><img src="/p/aeec/1634889085837-5794340d-25cd-49fb-90d2-8c20fa67d668.png" class="lazyload" data-srcset="/p/aeec/1634889085837-5794340d-25cd-49fb-90d2-8c20fa67d668.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇分类表<br><img src="/p/aeec/1634889137631-3ac9ff3d-2d3a-4d74-a5b2-1a4a3838172c.png" class="lazyload" data-srcset="/p/aeec/1634889137631-3ac9ff3d-2d3a-4d74-a5b2-1a4a3838172c.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇额外建立一张user表用于后台管理<br><img src="/p/aeec/1634889260690-4e7ad4df-dd46-47d3-8433-d9f1833f2aa0.png" class="lazyload" data-srcset="/p/aeec/1634889260690-4e7ad4df-dd46-47d3-8433-d9f1833f2aa0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="实现图书列表页面"><a href="#实现图书列表页面" class="headerlink" title="实现图书列表页面"></a>实现图书列表页面</h2><p>◇将训练素材里的三个基础文件目录粘贴到项目的webapp目录下<br>◇images包含了前端页面的图片信息<br>◇resources包含了一系列js、css组件<br>◇upload是文件上传的目录，在程序运行时所有远程上传的图片都会保存于此；<br><img src="/p/aeec/1634889626531-f9d30ee9-fe34-460f-8233-5f3840e4b782.png" class="lazyload" data-srcset="/p/aeec/1634889626531-f9d30ee9-fe34-460f-8233-5f3840e4b782.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇将素材里的首页.html文件复制到项目的WEB-INF\ftl路径下，并将文件名改为index.ftl；<br>◇前端的UI框架由Bootstrap来实现</p>
+<h3 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h3><p>◇Bootstrap是全球最受欢迎的前端组件库,由推特(TWitter)开源<br>◇Bootstrap用于开发响应式布局、移动设备优先的WEB项目<br>◇Bootstrap提供完整的HTML、CSS 和 JS 开发工具集<br>◇Boostrap<a target="_blank" rel="noopener" href="https://www.bootcss.com/">中文网</a></p>
+<h3 id="显示图书类别"><a href="#显示图书类别" class="headerlink" title="显示图书类别"></a>显示图书类别</h3><p>◇queryWrapper即条件构造器，按条件对数据库进行查询;<br>◇具体步骤为创建类别实体-&gt;创建Mapper接口-&gt;创建与接口对应的xml-&gt;创建service接口-&gt;为接口创建实现类（这里要在service包下创建一个子包impl，专门用来存放接口的实现类）impl.CategoryServiceImpl-&gt;在该实现类中实现查询方法，并进行事务管理<br>◇实现类实现了接口的方法，因此在使用查询数据时，直接给接口注入数据，然后用接口的方法进行查询；<br>◇完成上面的实现后就要进入Controller开发环节,创建一个BookController，在这个控制器中完成一系列url与方法的绑定；在该类的showXXX方法是将数据展示到页面，通常返回一个mav来进行数据的传递；因此创建showIndex（）方法来显示图书分类信息；<br>◇完成showXXX方法后进入ftl文件中</p>
+<h3 id="实现图书分页"><a href="#实现图书分页" class="headerlink" title="实现图书分页"></a>实现图书分页</h3><p>◇首先创建图书实体类Book-&gt;创建接口-&gt;接口对应的xml文件-&gt;service接口（图书的分页查询属于业务逻辑类，在service中实现）-&gt;生成service的实现类(快捷键：选中类然后Alt+Enter)<br>◇基于Mybatis-plus的分页查询：<br>核心方法为selectPage()；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lcg.reader.service.impl;</span><br><span class="line"><span class="keyword">import</span> *</span><br><span class="line"><span class="meta">@Service(&quot;bookService&quot;)</span></span><br><span class="line"><span class="meta">@Transactional(propagation = Propagation.NOT_SUPPORTED,readOnly = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BookServiceImpl</span> <span class="keyword">implements</span> <span class="title">BookService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> BookMapper bookMapper;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> IPage&lt;Book&gt; <span class="title">paging</span><span class="params">(Integer page, Integer rows)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//分页信息：哪一页，每页的记录数</span></span><br><span class="line">        Page&lt;Book&gt; p = <span class="keyword">new</span> Page&lt;Book&gt;(page, rows);</span><br><span class="line">        <span class="comment">//条件构造器，为空表示没有条件</span></span><br><span class="line">        QueryWrapper&lt;Book&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;Book&gt;();</span><br><span class="line">        <span class="comment">//参数为分页信息，条件构造器</span></span><br><span class="line">        IPage&lt;Book&gt; pageObject =  bookMapper.selectPage(p, queryWrapper);</span><br><span class="line">        <span class="keyword">return</span> pageObject;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>◇其原理为SELECT COUNT(1) FROM book查询出未分页前的所有图书总数，然后根据总数除以每页记录数求出一共有多少页；然后再<br>SELECT book_id,book_name,sub_title,author,cover,description,category_id,evaluation_score,evaluation_quantity FROM book LIMIT ?,?  //两个问号分别代表本次查询的其实位置和终止位置</p>
+<h3 id="Ajax动态加载图书信息"><a href="#Ajax动态加载图书信息" class="headerlink" title="Ajax动态加载图书信息"></a>Ajax动态加载图书信息</h3><p>◇在BookController类中新增图书查询方法selectBook;<br>◇修改index.ftl文件进行动态渲染，在其&lt;head&gt;内部增加javascript块&lt;script&gt;用来发送ajax和BookController中的/books进行交互，需要引入jquery；<br>◇如何将book中的信息填充到页面中？因为所有的操作都是通过JavaScript来完成的，所以不能够像freemarker一样直接在页面中加入freemarker标签来完成服务器端的渲染；而是需要利用JavaScript动态的将这些分页信息组织成html插入到当前页面中；而html的实现使用拼接字符串来完成；<br>◇但是如果页面信息很多的话，通过拼接字符串的方法显然不现实；需要使用js的模板引擎来完成复杂页面的构建工作；</p>
+<h3 id="Art-Template-腾讯JS模板引擎"><a href="#Art-Template-腾讯JS模板引擎" class="headerlink" title="Art-Template 腾讯JS模板引擎"></a>Art-Template 腾讯JS模板引擎</h3><p>◇上述说到，利用字符串拼接来实现html对于复杂页面不太好；那么可以利用JS模板引擎来对复杂的html进行模板化；<br>◇官网<a target="_blank" rel="noopener" href="http://aui.github.io/art-template/">http://aui.github.io/art-template/</a><br>◇应用数据的时候 {{}} 里的名字要和ajax返回数据的属性名一致<br><img src="/p/aeec/1635062178732-187705b8-6471-48e5-a44e-7756002d2c69.png" class="lazyload" data-srcset="/p/aeec/1635062178732-187705b8-6471-48e5-a44e-7756002d2c69.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇创建的模板</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;#--定义js模板,type说明script中内容的类型,id设置为tpl--&gt;</span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">    &lt;script type=<span class="string">&quot;text/html&quot;</span> id=<span class="string">&quot;tpl&quot;</span>&gt;</span><br><span class="line">        &lt;#--看ajax返回数据的时候的属性名和 &#123;&#123;&#125;&#125; 里的一致--&gt;</span><br><span class="line">        &lt;a href=&quot;/book/&#123;&#123;bookId&#125;&#125;&quot; style=&quot;color: inherit&quot;&gt;&lt;#--每一块超链接都对应了图书的详细信息--&gt;</span><br><span class="line">            &lt;div class=&quot;row mt-2 book&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;col-4 mb-2 pr-2&quot;&gt;</span><br><span class="line">                    &lt;#--图书封面--&gt;</span><br><span class="line">                    &lt;img class=&quot;img-fluid&quot; src=&quot;&#123;&#123;cover&#125;&#125;&quot;&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;col-8  mb-2 pl-0&quot;&gt;</span><br><span class="line">                    &lt;h5 class=&quot;text-truncate&quot;&gt;&#123;&#123;bookName&#125;&#125;&lt;/h5&gt;&lt;#--图书名称--&gt;</span><br><span class="line">                    &lt;#--作者--&gt;</span><br><span class="line">                    &lt;div class=&quot;mb-2 bg-light small  p-2 w-100 text-truncate&quot;&gt;&#123;&#123;author&#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;#--图书子标题--&gt;</span><br><span class="line">                    &lt;div class=&quot;mb-2 w-100&quot;&gt;&#123;&#123;subTitle&#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;p&gt;&lt;#--评分信息--&gt;</span><br><span class="line">                        &lt;span class=&quot;stars&quot; data-score=&quot;&#123;&#123;evaluationScore&#125;&#125;&quot; 	title=&quot;gorgeous&quot;&gt;&lt;img alt=&quot;1&quot; src=&quot;./resources/raty/lib/images/star-on.png&quot; title=&quot;gorgeous&quot;&gt;&amp;nbsp;&lt;img alt=&quot;2&quot; src=&quot;./resources/raty/lib/images/star-on.png&quot; title=&quot;gorgeous&quot;&gt;&amp;nbsp;&lt;img alt=&quot;3&quot; src=&quot;./resources/raty/lib/images/star-on.png&quot; title=&quot;gorgeous&quot;&gt;&amp;nbsp;&lt;img alt=&quot;4&quot; src=&quot;./resources/raty/lib/images/star-on.png&quot; title=&quot;gorgeous&quot;&gt;&amp;nbsp;&lt;img alt=&quot;5&quot; src=&quot;./resources/raty/lib/images/star-on.png&quot; title=&quot;gorgeous&quot;&gt;&lt;input name=&quot;score&quot; type=&quot;hidden&quot; value=&quot;&#123;&#123;evaluationScore&#125;&#125;&quot; readonly=&quot;&quot;&gt;&lt;/span&gt;</span><br><span class="line">                        &lt;span class=&quot;mt-2 ml-2&quot;&gt;&#123;&#123;evaluationScore&#125;&#125;&lt;/span&gt;</span><br><span class="line">                        &lt;span class=&quot;mt-2 ml-2&quot;&gt;&#123;&#123;evaluationQuantity&#125;&#125;人已评&lt;/span&gt;</span><br><span class="line">                    &lt;/p&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现发评分插件"><a href="#实现发评分插件" class="headerlink" title="实现发评分插件"></a>实现发评分插件</h3><p>◇Jquery评分插件<a target="_blank" rel="noopener" href="https://www.jq22.com/jquery-info6430">raty</a><br>◇引用raty的css和js</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;./resources/raty/lib/jquery.raty.css&quot;</span>&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;./resources/raty/lib/jquery.raty.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>◇将评价部分的静态部分星星图片删除，即删除&lt;img&gt;标签</p>
+<h3 id="实现加载更多"><a href="#实现加载更多" class="headerlink" title="实现加载更多"></a>实现加载更多</h3><p>◇点击加载更多时显示下一页的数据；则要设置一个数据域：nextpage用于保存下一页的页号是多少；<br>◇在javascript块中新增点击事件；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*定义一个加载更多函数 标志位isReset表示重置*/</span></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">        <span class="function">function <span class="title">loadMore</span><span class="params">(isReset)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (isReset == <span class="keyword">true</span>) &#123;</span><br><span class="line">                $(<span class="string">&quot;#nextPage&quot;</span>).val = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">var</span> nextPage = $(<span class="string">&quot;#nextPage&quot;</span>).val();</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url : <span class="string">&quot;/books&quot;</span>,</span><br><span class="line">                data : &#123;p:nextPage&#125;,</span><br><span class="line">                type : <span class="string">&quot;get&quot;</span>,</span><br><span class="line">                dataType : <span class="string">&quot;json&quot;</span>,</span><br><span class="line">                success: function (json) &#123;</span><br><span class="line">                    console.info(json);</span><br><span class="line">                    <span class="keyword">var</span> list = json.records;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; list.length; i++) &#123;</span><br><span class="line">                        <span class="keyword">var</span> book = json.records[i];</span><br><span class="line">                        <span class="keyword">var</span> html = template(<span class="string">&quot;tpl&quot;</span>, book);</span><br><span class="line">                        $(<span class="string">&quot;#bookList&quot;</span>).append(html);</span><br><span class="line">                    &#125;</span><br><span class="line">                    $(<span class="string">&quot;.stars&quot;</span>).raty(&#123;readOnly:<span class="keyword">true</span>&#125;);</span><br><span class="line">                    <span class="comment">/*如果当前页小于总页数,则显示点击更多按钮*/</span></span><br><span class="line">                    <span class="keyword">if</span>(json.current &lt; json.pages)&#123;</span><br><span class="line">                        $(<span class="string">&quot;#nextPage&quot;</span>).val(parseInt(json.current) + <span class="number">1</span>);</span><br><span class="line">                        $(<span class="string">&quot;#btnMore&quot;</span>).show();<span class="comment">//显示组件</span></span><br><span class="line">                        $(<span class="string">&quot;#divNoMore&quot;</span>).hide();<span class="comment">//隐藏组件</span></span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        $(<span class="string">&quot;#btnMore&quot;</span>).hide();<span class="comment">//显示组件</span></span><br><span class="line">                        $(<span class="string">&quot;#divNoMore&quot;</span>).show();<span class="comment">//隐藏组件</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//绑定加载更多按钮单击事件</span></span><br><span class="line">        $(function () &#123;</span><br><span class="line">            $(<span class="string">&quot;#btnMore&quot;</span>).click(function () &#123;</span><br><span class="line">                loadMore();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="多条件分页查询"><a href="#多条件分页查询" class="headerlink" title="多条件分页查询"></a>多条件分页查询</h3><p>◇实现的第一个步骤：当我吗点击查询条件的连接后需要将其高亮显示；第二，在点击之后根据所选的条件在后台进行动态查询；<br>◇在按钮单击事件中对category进行捕获然后设置单击事件；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*.category是进行类选择*/</span></span><br><span class="line">            $(<span class="string">&quot;.category&quot;</span>).click(function () &#123;</span><br><span class="line">                $(<span class="string">&quot;.category&quot;</span>).removeClass(<span class="string">&quot;highlight&quot;</span>);<span class="comment">//移除原先所拥有的高亮css</span></span><br><span class="line">                $(<span class="string">&quot;.category&quot;</span>).addClass(<span class="string">&quot;text-black-50&quot;</span>);<span class="comment">//设置为灰色</span></span><br><span class="line">                $(<span class="keyword">this</span>).addClass(<span class="string">&quot;highlight&quot;</span>);<span class="comment">//设置当前点击的为高亮</span></span><br><span class="line">            &#125;);</span><br></pre></td></tr></table></figure>
+<p>◇修改service进行数据联动，在paging方法中增加两个参数categoryId, order;然后在其实现类中进行条件的判断；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> IPage&lt;Book&gt; <span class="title">paging</span><span class="params">(Long categoryId,String order,Integer page, Integer rows)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//分页信息：哪一页，每页的记录数</span></span><br><span class="line">        Page&lt;Book&gt; p = <span class="keyword">new</span> Page&lt;Book&gt;(page, rows);</span><br><span class="line">        <span class="comment">//条件构造器，为空表示没有条件</span></span><br><span class="line">        QueryWrapper&lt;Book&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;Book&gt;();</span><br><span class="line">        <span class="keyword">if</span> (categoryId != <span class="keyword">null</span> &amp;&amp; categoryId != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">//设置条件为分类的id ,查询等于指定字段的数据</span></span><br><span class="line">            queryWrapper.eq(<span class="string">&quot;category_id&quot;</span>, categoryId);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (order != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (order.equals(<span class="string">&quot;quantity&quot;</span>)) &#123;</span><br><span class="line">                <span class="comment">//设置条件按照指定的字段进行降序排序</span></span><br><span class="line">                queryWrapper.orderByDesc(<span class="string">&quot;evaluation_quantity&quot;</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (order.equals(<span class="string">&quot;score&quot;</span>)) &#123;</span><br><span class="line">                queryWrapper.orderByDesc(<span class="string">&quot;evaluation_score&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//参数为分页信息，条件构造器</span></span><br><span class="line">        IPage&lt;Book&gt; pageObject =  bookMapper.selectPage(p, queryWrapper);</span><br><span class="line">        <span class="keyword">return</span> pageObject;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>◇然后在controller调用paging方法处进行修改，增加两个参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/books&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IPage&lt;Book&gt; <span class="title">selectBook</span><span class="params">(Long categoryId,String order,Integer p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span>) &#123;</span><br><span class="line">            p=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        IPage&lt;Book&gt; iPage = bookService.paging(categoryId,order,p,<span class="number">5</span>);<span class="comment">//默认每页显示5条数据</span></span><br><span class="line">        <span class="keyword">return</span> iPage;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>◇以上方法设置完后，需要把前台的分类和排序数据传到控制器中；即在index.ftl中进行设置，点击不同的超链接或者span后，给对应的<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/jsref/dom_obj_hidden.asp">隐藏域</a>进行赋值；其中使用到了<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/att_global_data.asp">自定义属性，data-*</a> ；<br>◇最后进行数据的查询，需要修改发送请求的方法（在loadMore中），在发送请求的数据data中附加分类和排序信息，在点击选择类别、排序规则的点击事件中增加loadMore方法，并将是否重置设置为true，因为每一次点击选择类别或排序方法的时候就相当于重新进行查询，那自然是重第一页进行的；</p>
+<h2 id="图书详情页"><a href="#图书详情页" class="headerlink" title="图书详情页"></a>图书详情页</h2><h3 id="实现主页面"><a href="#实现主页面" class="headerlink" title="实现主页面"></a>实现主页面</h3><p>◇在训练素材中将详情页复制到项目中，并改为detail.ftl；<br>◇在BookService接口中开发新的查询方法，根据图书编号查询图书对象；并完成其实现类；在本项目中使用面向接口编程的思想，所以每一个service都有接口及其实现类；<br>◇接下来实现controller，在controller中根据index.ftl提供的url(book/id)进行相应的绑定；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line"><span class="meta">@GetMapping(&quot;/book/&#123;id&#125;&quot;)</span><span class="comment">//路径变量用&#123;&#125;包裹</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">showDetail</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span>Long id)</span> </span>&#123;</span><br><span class="line">        Book book = bookService.selectById(id);</span><br><span class="line">        ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/detail&quot;</span>);</span><br><span class="line">        mav.addObject(<span class="string">&quot;book&quot;</span>, book);</span><br><span class="line">        <span class="keyword">return</span> mav;</span><br><span class="line">    &#125;</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+<p>◇当我们运行后，会发现js、css等未加载；F12查看NetWork选择all，会发现有css、js的请求为404；点击查看发现路径是localhost/book/resources/bootstrap/bootstrap.css，这是因为我们使用了相对路径，而相对路径是基于目前我们url所在的路径(localhost/book)之后进行附加；所以我们访问的资源错误，则应该改为绝对路径来开发(在这里去掉 . 即可)</p>
+<h3 id="实现评论列表"><a href="#实现评论列表" class="headerlink" title="实现评论列表"></a>实现评论列表</h3><p>◇首先创建评论的实体类Evaluation；<br>◇创建EvaluationMapper；<br>◇创建evaluation.xml<br>◇创建EvaluationService，并完成其实现类；<br>◇进入BookController中修改showDetail方法，使其得到evaluationList对象，并添加到mav中<br>◇在detail.ftl中对evaluationList进行遍历显示；<br>◇由于评论列表需要显示用户名，所以需要增加用户的实现类以及Mapper等等；然后在Evaluation实体类中增加关联对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置关联对象</span></span><br><span class="line">    <span class="meta">@TableField(exist = false)</span><span class="comment">//说明book属性在数据库表中没有对应的字段,不会参与到sql自动生成</span></span><br><span class="line">    <span class="keyword">private</span> Book book;</span><br><span class="line">    <span class="meta">@TableField(exist = false)</span></span><br><span class="line">    <span class="keyword">private</span> Member member;</span><br></pre></td></tr></table></figure>
+<p>◇在EvaluationService接口的实现类中进行获取每一条评论的用户信息的实现；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Evaluation&gt; <span class="title">selectByBookId</span><span class="params">(Long bookId)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取图书对象</span></span><br><span class="line">        Book book = bookMapper.selectById(bookId);</span><br><span class="line">        QueryWrapper&lt;Evaluation&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;Evaluation&gt;();</span><br><span class="line">        queryWrapper.eq(<span class="string">&quot;book_id&quot;</span>, bookId);</span><br><span class="line">        queryWrapper.eq(<span class="string">&quot;state&quot;</span>, <span class="string">&quot;enable&quot;</span>);</span><br><span class="line">        queryWrapper.orderByDesc(<span class="string">&quot;create_time&quot;</span>);</span><br><span class="line">        List&lt;Evaluation&gt; evaluationList = evaluationMapper.selectList(queryWrapper);</span><br><span class="line">        <span class="keyword">for</span> (Evaluation eva : evaluationList) &#123;</span><br><span class="line">            <span class="comment">/*遍历每一个评论列表，然后根据评论列表的memberId在数据库中查询member对象</span></span><br><span class="line"><span class="comment">            * 再把查到的对象赋值给Evaluation类里面关联的对象Member*/</span></span><br><span class="line">            Member member = (Member) memberMapper.selectById(eva.getMemberId());</span><br><span class="line">            eva.setMember(member);</span><br><span class="line">            eva.setBook(book);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> evaluationList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>◇获取每一条评论的图书信息和获取用户信息类似，只不过每一个图书下面有许多评论，而每一条评论和其评论者是一 一对应的；因此图书对象的获取放在循环外面；</p>
+<h2 id="开发验证码功能"><a href="#开发验证码功能" class="headerlink" title="开发验证码功能"></a>开发验证码功能</h2><h3 id="Kaptcha验证码组件"><a href="#Kaptcha验证码组件" class="headerlink" title="Kaptcha验证码组件"></a>Kaptcha验证码组件</h3><p>◇Kaptcha是谷歌开源的可高度配置的实用验证码生成工具<br>◇通过Kaptcha可阻拦大多数机器人脚本操作<br>◇Kaptcha典型应用于注册、登录、重要信息提交等用户交互</p>
+<h3 id="Kaptcha使用步骤"><a href="#Kaptcha使用步骤" class="headerlink" title="Kaptcha使用步骤"></a>Kaptcha使用步骤</h3><p>◇Kaptcha配置验证码生成参数<br>◇开发KapatchaController生成验证码图片<br>◇将前台输入验证码与session保存的验证码进行比对  </p>
+<h3 id="Kaptcha的配置及使用"><a href="#Kaptcha的配置及使用" class="headerlink" title="Kaptcha的配置及使用"></a>Kaptcha的配置及使用</h3><p>◇pom.xml加载依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Kaptcha验证码组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.penggle<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kaptcha<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>◇applicationContext.xml进行配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置Kaptcha --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;kaptchaProducer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.google.code.kaptcha.impl.DefaultKaptcha&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;config&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.google.code.kaptcha.util.Config&quot;</span>&gt;</span><span class="comment">&lt;!--该bean不需要id，只需要指明类--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span><span class="comment">&lt;!--构造参数--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!--验证码图片不生成边框--&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.border&quot;</span>&gt;</span>no<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 验证码图片宽度为120像素 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.image.width&quot;</span>&gt;</span>120<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 验证码图片字体颜色为蓝色 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.textproducer.font.color&quot;</span>&gt;</span>blue<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 每个字符最大占用40像素 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.textproducer.font.size&quot;</span>&gt;</span>40<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 验证码包含4个字符 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;kaptcha.textproducer.char.length&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>◇创建新的控制器KaptchaController</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KaptchaController</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*引用Producer接口*/</span></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> Producer kaptchaProducer;<span class="comment">//这里的属性名需要和配置的beanId一致;</span></span><br><span class="line">    <span class="comment">/*参数为原生的http请求和响应对象</span></span><br><span class="line"><span class="comment">    * 这样书写，把原生的对象放在参数列表中，则会在运行时由springIOC容器将当前的请求与</span></span><br><span class="line"><span class="comment">    * 响应对象动态的注入到对应的参数中*/</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/verify_code&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createVerifyCode</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//设置响应过期时间,0为立即过期</span></span><br><span class="line">        response.setDateHeader(<span class="string">&quot;Expires&quot;</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="comment">/*设置缓存控制;因为每一次要求生成的验证码都是全新的；所以需要把浏览器的缓存都进行清空</span></span><br><span class="line"><span class="comment">        *no-store不存储  no-cache不缓存 must-revalidate必须重新校验*/</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Cache-Control&quot;</span>, <span class="string">&quot;no-store,no-cache,must-revalidate&quot;</span>);</span><br><span class="line">        <span class="comment">//处于兼容性考虑，平时一般用不到</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Cache-Control&quot;</span>,<span class="string">&quot;post-check=0,pre-check=0&quot;</span>);</span><br><span class="line">        response.setHeader(<span class="string">&quot;Pragma&quot;</span>,<span class="string">&quot;no-cache&quot;</span>);<span class="comment">//以上三行都是设置浏览器不缓存任何图片数据</span></span><br><span class="line">        response.setContentType(<span class="string">&quot;image/png&quot;</span>);<span class="comment">//返回类型为图片</span></span><br><span class="line">        <span class="comment">//生成验证码字符文本</span></span><br><span class="line">        String verifyCode = kaptchaProducer.createText();</span><br><span class="line">        <span class="comment">//将验证码放到会话(Session)中</span></span><br><span class="line">        request.getSession().setAttribute(<span class="string">&quot;kaptchaVerifyCode&quot;</span>,verifyCode);</span><br><span class="line">        System.out.println(<span class="string">&quot;验证码为：&quot;</span> + request.getSession().getAttribute(<span class="string">&quot;kaptchaVerifyCode&quot;</span>));</span><br><span class="line">        <span class="comment">//创建验证码图片,返回为二进制的图片</span></span><br><span class="line">        BufferedImage image = kaptchaProducer.createImage(verifyCode);</span><br><span class="line">        <span class="comment">/*用getOutputStream方法向浏览器输出二进制文件(如图片等)*/</span></span><br><span class="line">        ServletOutputStream out = response.getOutputStream();</span><br><span class="line">        <span class="comment">//将图片以png形式写入out输出流中</span></span><br><span class="line">        ImageIO.write(image, <span class="string">&quot;png&quot;</span>, out);</span><br><span class="line">        out.flush();<span class="comment">//立即输出</span></span><br><span class="line">        out.close();<span class="comment">//关闭输出流</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现用户注册功能"><a href="#实现用户注册功能" class="headerlink" title="实现用户注册功能"></a>实现用户注册功能</h2><p>◇将训练素材的注册页复制到项目中并改名为register.ftl；<br>◇创建用户控制器类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemberController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping(&quot;/register.html&quot;)</span><span class="comment">/*这里的后缀可写可不写*/</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">showRegister</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//没有数据传到前台，因此直接return</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/register&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>◇实现点击验证码图片刷新功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重新发送请求,刷新验证码</span></span><br><span class="line">   <span class="function">function <span class="title">reloadVerifyCode</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="comment">//attr设置组件属性（属性名，属性值）</span></span><br><span class="line">       <span class="comment">/*ts代表timestamp(时间戳),get请求容易被浏览器缓存起来,所以有可能</span></span><br><span class="line"><span class="comment">       * 点击图片后尽管执行了代码但图片还是原来的，则增加时间戳使每次get请求的url不一样*/</span></span><br><span class="line">       $(<span class="string">&quot;#imgVerifyCode&quot;</span>).attr(<span class="string">&quot;src&quot;</span>, <span class="string">&quot;/verify_code?ts=&quot;</span> + <span class="keyword">new</span> Date().getTime());</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//点击事件，点击验证码图片刷新验证码</span></span><br><span class="line">   $(<span class="string">&quot;#imgVerifyCode&quot;</span>).click(function () &#123;</span><br><span class="line">       reloadVerifyCode();</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="验证码校验"><a href="#验证码校验" class="headerlink" title="验证码校验"></a>验证码校验</h3><p>◇在register页面中发送ajax请求<br>◇在Member控制器中进行接收</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*因为无论哪一个web应用框架都是基于底层的Servlet进行实现，所以这里我们</span></span><br><span class="line"><span class="comment">    * 可以直接将原生的HttpServletRequest对象写入参数中进行使用*/</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/register&quot;)</span><span class="comment">//ajax采用post方式提交的</span></span><br><span class="line">    <span class="meta">@ResponseBody</span> <span class="comment">//直接进行序列化的响应返回</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map <span class="title">register</span><span class="params">(String vc, String username, String password, String nickname, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">       <span class="comment">//获取当前会话中的kaptchaVerifyCode属性的值(即验证码)</span></span><br><span class="line">        String verifyCode = (String) request.getSession().getAttribute(<span class="string">&quot;kaptchaVerifyCode&quot;</span>);</span><br><span class="line">        <span class="comment">/*验证码校验,返回result Map对象*/</span></span><br><span class="line">        Map result = <span class="keyword">new</span> HashMap();</span><br><span class="line">        <span class="comment">//没有写入验证码||后台没有产生验证码||忽略大小写比对验证码</span></span><br><span class="line">        <span class="keyword">if</span> (vc == <span class="keyword">null</span>||verifyCode == <span class="keyword">null</span>||vc.equalsIgnoreCase(verifyCode)) &#123;</span><br><span class="line">            result.put(<span class="string">&quot;code&quot;</span>,<span class="string">&quot;VC01&quot;</span>);</span><br><span class="line">            result.put(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;验证码错误&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result.put(<span class="string">&quot;code&quot;</span>,<span class="string">&quot;0&quot;</span>);</span><br><span class="line">            result.put(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;success&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现业务逻辑"><a href="#实现业务逻辑" class="headerlink" title="实现业务逻辑"></a>实现业务逻辑</h3><p>◇新增MemberService接口，定义createMember()方法用于创建新的用户；完成其实现类，在实现类中注入mapper用于查询；<br>◇在service下创建子包exception然后新增一个异常类BussinessException，用来处理我们注册登录等相关异常;<br>◇在pom.xml中增加加密/解密组件，用来对密码进行加密;创建utils工具包，在其下创建MD5Utils类；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MD5Utils</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5Digest</span><span class="params">(String source, Integer salt)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] ca = source.toCharArray();<span class="comment">//获取到字符数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ca.length; i++) &#123;</span><br><span class="line">            ca[i] = (<span class="keyword">char</span>) (ca[i] + salt);<span class="comment">//对原始字符串的每一位字符加盐混淆</span></span><br><span class="line">        &#125;</span><br><span class="line">        String target = <span class="keyword">new</span> String(ca);<span class="comment">//再将字符数组转换为原始字符串</span></span><br><span class="line">        String md5 = DigestUtils.md5Hex(target);<span class="comment">//MD5摘要</span></span><br><span class="line">        <span class="keyword">return</span> md5;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>◇用户注册底层逻辑</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 会员注册,创建新的会员</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> username 用户名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> password 密码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nickname 昵称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 新的会员对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Member <span class="title">createMember</span><span class="params">(String username, String password, String nickname)</span> </span>&#123;</span><br><span class="line">        QueryWrapper&lt;Member&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;Member&gt;();</span><br><span class="line">        queryWrapper.eq(<span class="string">&quot;username&quot;</span>, username);</span><br><span class="line">        List&lt;Member&gt; memberList = memberMapper.selectList(queryWrapper);</span><br><span class="line">        <span class="comment">//判断用户名是否已存在</span></span><br><span class="line">        <span class="keyword">if</span> (memberList.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//抛出我们自定义的异常</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> BussinessException(<span class="string">&quot;M01&quot;</span>, <span class="string">&quot;用户名已存在&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        Member member = <span class="keyword">new</span> Member();</span><br><span class="line">        member.setUsername(username);</span><br><span class="line">        member.setNickname(nickname);</span><br><span class="line">        <span class="comment">//生成小于1000的随机数加上1000相当于随机的4位数用来当作盐值；</span></span><br><span class="line">        <span class="keyword">int</span> salt = <span class="keyword">new</span> Random().nextInt(<span class="number">1000</span>) + <span class="number">1000</span>;</span><br><span class="line">        String md5 = MD5Utils.md5Digest(password, salt);</span><br><span class="line">        member.setSalt(salt);</span><br><span class="line">        member.setPassword(md5);</span><br><span class="line">        member.setCreateTime(<span class="keyword">new</span> Date());</span><br><span class="line">        memberMapper.insert(member);</span><br><span class="line">        <span class="keyword">return</span> member;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>◇在MemberController中注入memberService进行用户注册功能的完善；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemberController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> MemberService memberService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/register.html&quot;)</span><span class="comment">/*这里的后缀可写可不写*/</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">showRegister</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/register&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*因为无论哪一个web应用框架都是基于底层的Servlet进行实现，所以这里我们</span></span><br><span class="line"><span class="comment">    * 可以直接将原生的HttpServletRequest对象写入参数中进行使用</span></span><br><span class="line"><span class="comment">    在register方法中的参数必须和前台的一致，这样才能将前台的数据传递到方法的参数中；</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/register&quot;)</span><span class="comment">//ajax采用post方式提交的</span></span><br><span class="line">    <span class="meta">@ResponseBody</span> <span class="comment">//直接进行序列化的响应返回</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map <span class="title">register</span><span class="params">(String vc, String username, String password, String nickname, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">       <span class="comment">//获取当前会话中的kaptchaVerifyCode属性的值(即验证码)</span></span><br><span class="line">        String verifyCode = (String) request.getSession().getAttribute(<span class="string">&quot;kaptchaVerifyCode&quot;</span>);</span><br><span class="line">        <span class="comment">/*验证码校验,返回result Map对象*/</span></span><br><span class="line">        Map result = <span class="keyword">new</span> HashMap();</span><br><span class="line">        <span class="comment">//没有写入验证码||后台没有产生验证码||忽略大小写比对验证码</span></span><br><span class="line">        <span class="keyword">if</span> (vc == <span class="keyword">null</span>||verifyCode == <span class="keyword">null</span>||vc.equalsIgnoreCase(verifyCode)) &#123;</span><br><span class="line">            result.put(<span class="string">&quot;code&quot;</span>,<span class="string">&quot;VC01&quot;</span>);</span><br><span class="line">            result.put(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;验证码错误&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">//创建用户</span></span><br><span class="line">                memberService.createMember(username, password, nickname);</span><br><span class="line">                result.put(<span class="string">&quot;code&quot;</span>, <span class="string">&quot;0&quot;</span>);</span><br><span class="line">                result.put(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;success&quot;</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (BussinessException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                result.put(<span class="string">&quot;code&quot;</span>, e.getCode());</span><br><span class="line">                result.put(<span class="string">&quot;msg&quot;</span>, e.getMsg());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现用户登录"><a href="#实现用户登录" class="headerlink" title="实现用户登录"></a>实现用户登录</h2><p>◇加载登录页.html改为login.ftl<br>◇在MemberService中增加检查登录的方法checkLogin(返回对象为Member):根据前台传来的用户名拿到整个用户对象，然后根据对象里的salt值和前台传来的密码进行MD5摘要，比对生成的md5字符串是否和对象里的密码一致；<br>◇service里的业务逻辑代码写好后需要在控制器中进行调用;在控制器中创建方法checkLogin,返回对象为Map，因为需要与前台交互；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*这里采用session,session比request的范围更广,用来保存页面的用户信息*/</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/login&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map <span class="title">checkLogin</span><span class="params">(String username, String password, String vc, HttpSession session)</span> </span>&#123;</span><br><span class="line">        String verifyCode = (String) session.getAttribute(<span class="string">&quot;kaptchaVerifyCode&quot;</span>);</span><br><span class="line">        Map result = <span class="keyword">new</span> HashMap();</span><br><span class="line">        <span class="keyword">if</span> (vc == <span class="keyword">null</span>||verifyCode == <span class="keyword">null</span>||vc.equalsIgnoreCase(verifyCode)) &#123;</span><br><span class="line">            result.put(<span class="string">&quot;code&quot;</span>,<span class="string">&quot;VC01&quot;</span>);</span><br><span class="line">            result.put(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;验证码错误&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">//先进行验证码的比对，然后校验登录的用户信息，信息不正确的话会自动抛出异常</span></span><br><span class="line">                Member member = memberService.checkLogin(username, password);</span><br><span class="line">                <span class="comment">//保存登录用户的信息，在首页中进行展现</span></span><br><span class="line">                session.setAttribute(<span class="string">&quot;loginMember&quot;</span>, member);</span><br><span class="line">                result.put(<span class="string">&quot;code&quot;</span>, <span class="string">&quot;0&quot;</span>);</span><br><span class="line">                result.put(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;success&quot;</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (BussinessException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                result.put(<span class="string">&quot;code&quot;</span>, e.getCode());</span><br><span class="line">                result.put(<span class="string">&quot;msg&quot;</span>, e.getMsg());</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>◇如果发现if语句没有执行,一定要仔细检查条件是否正确；</p>
+<h2 id="用户交互功能"><a href="#用户交互功能" class="headerlink" title="用户交互功能"></a>用户交互功能</h2><h3 id="阅读状态变更"><a href="#阅读状态变更" class="headerlink" title="阅读状态变更"></a>阅读状态变更</h3><p>◇阅读状态的变更只能选择想看和看过其一；<br>◇为阅读状态创建实体类MemberReadState;然后创建相关的Mapper接口及xml；<br>◇在MemberService接口中实现用户的交互功能，新增方法selectMemberReadState()，用来查询传入的两个参数用户与图书是否有阅读状态；<br>◇查询阅读状态方法执行的时机: 当我们跳转到图书详情页面时；因此修改BookController.showDetail（）方法，增加session参数用来获取当前用户的信息；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/book/&#123;bid&#125;&quot;)</span><span class="comment">//路径变量用&#123;&#125;包裹,即将index中book/后的bookId定义为id;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">showDetail</span><span class="params">(<span class="meta">@PathVariable(&quot;bid&quot;)</span>Long id, HttpSession session)</span> </span>&#123;</span><br><span class="line">        Member member = (Member) session.getAttribute(<span class="string">&quot;loginMember&quot;</span>);</span><br><span class="line">        ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/detail&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (member != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">//获取会员阅读状态</span></span><br><span class="line">            MemberReadState memberReadState = memberService.selectMemberReadState(member.getMemberId(), id);</span><br><span class="line">            mav.addObject(<span class="string">&quot;memberReadState&quot;</span>, memberReadState);</span><br><span class="line">        &#125;</span><br><span class="line">        Book book = bookService.selectById(id);</span><br><span class="line">        List&lt;Evaluation&gt; evaluationList = evaluationService.selectByBookId(id);</span><br><span class="line">        mav.addObject(<span class="string">&quot;book&quot;</span>, book);</span><br><span class="line">        mav.addObject(<span class="string">&quot;evaluationList&quot;</span>, evaluationList);</span><br><span class="line">        <span class="keyword">return</span> mav;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>◇由于用户的阅读状态很有可能为空，所以我们要在detail详情页面的script块中增加javascript语句进行相应的判断;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*页面就绪函数，书写freemarker的脚本*/</span></span><br><span class="line">        $(function () &#123;</span><br><span class="line">            &lt;#<span class="keyword">if</span> memberReadState ??&gt;<span class="comment">//存在阅读状态</span></span><br><span class="line">            <span class="comment">/*利用JavaScript的属性选择器，‘*’表示所有名为data-read-state且值为&#x27;&#x27;的属性</span></span><br><span class="line"><span class="comment">            * 并将该属性设置为高亮，那么就可以将对应的想看或者看过的按钮设置为高亮显示了</span></span><br><span class="line"><span class="comment">            * 这里的值是后台通过mav传过来的*/</span></span><br><span class="line">            $(<span class="string">&quot;*[data-read-state=&#x27;$&#123;memberReadState.readState&#125;&#x27;]&quot;</span>).addClass(<span class="string">&quot;highlight&quot;</span>);</span><br><span class="line">            &lt;/#<span class="keyword">if</span>&gt;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p>◇更新会员阅读状态，即点击相应的按钮实现交互功能；<br>◇首先需要在detail页面中进行用户是否登录的判断,只有用户登录了才能进行相应的交互；在刚才的页面就绪函数中添加判断语句；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;#<span class="keyword">if</span> !loginMember ??&gt;<span class="comment">/*如果用户没有登录*/</span></span><br><span class="line"><span class="comment">/*选择拥有data-read-state这个自定义属性的标签，而不管自定义属性的值是多少*/</span></span><br><span class="line">$(<span class="string">&quot;*[data-read-state]&quot;</span>).click(function () &#123;</span><br><span class="line">    <span class="comment">/*通过id选择bootstrap的对话框,然后根据其对话框函数执行show(显示)动作*/</span></span><br><span class="line">    $(<span class="string">&quot;#exampleModalCenter&quot;</span>).modal(<span class="string">&quot;show&quot;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//将写短评以及点赞等功能进行相应的登录控制,这里利用组合选择减少代码</span></span><br><span class="line">$(<span class="string">&quot;#btnEvaluation,*[data-evaluation-id]&quot;</span>).click(function () &#123;</span><br><span class="line">    $(<span class="string">&quot;#exampleModalCenter&quot;</span>).modal(<span class="string">&quot;show&quot;</span>);</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/#<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>◇在MemberService中新增方法写入阅读状态;<br>◇在控制器中进行调用并与前台交互；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/update_read_state&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">updateReadState</span><span class="params">(Long memberId, Long bookId, Integer readState)</span> </span>&#123;</span><br><span class="line">    Map result = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        memberService.updateMemberReadState(memberId, bookId, readState);</span><br><span class="line">        result.put(<span class="string">&quot;code&quot;</span>, <span class="string">&quot;0&quot;</span>);</span><br><span class="line">        result.put(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;success&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (BussinessException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        result.put(<span class="string">&quot;code&quot;</span>, e.getCode());</span><br><span class="line">        result.put(<span class="string">&quot;msg&quot;</span>, e.getMsg());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>◇在页面中发送ajax进行处理；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;#<span class="keyword">if</span> loginMember ??&gt;</span><br><span class="line">$(<span class="string">&quot;*[data-read-state]&quot;</span>).click(function () &#123;</span><br><span class="line">    <span class="keyword">var</span> readState = $(<span class="keyword">this</span>).data(<span class="string">&quot;read-state&quot;</span>);<span class="comment">//获取当前点击按钮的自定义属性的值；</span></span><br><span class="line">    <span class="comment">/*ajax方法的简化形式四个参数为</span></span><br><span class="line"><span class="comment">    (发送的地址，发送的参数列表,处理函数（用来处理服务器返回的数据）,服务器返回的数据类型)*/</span></span><br><span class="line">    $.post(<span class="string">&quot;/update_read_state&quot;</span>,&#123;</span><br><span class="line">        memberId:$&#123;loginMember.memberId&#125;,</span><br><span class="line">        bookId:$&#123;book.bookId&#125;,</span><br><span class="line">        readState:readState</span><br><span class="line">    &#125;,function (json)&#123;</span><br><span class="line">        <span class="keyword">if</span> (json.code == <span class="string">&quot;0&quot;</span>) &#123;</span><br><span class="line">            <span class="comment">//将原有高亮的css全部清除，让两个按钮回到默认的状态</span></span><br><span class="line">            $(<span class="string">&quot;*[data-read-state]&quot;</span>).removeClass(<span class="string">&quot;highlight&quot;</span>);</span><br><span class="line">            <span class="comment">/*通过拼接字符串的方式选择刚才点击的那个按钮*/</span></span><br><span class="line">            $(<span class="string">&quot;*[data-read-state=&#x27;&quot;</span> + readState + <span class="string">&quot;&#x27;]&quot;</span>).addClass(<span class="string">&quot;highlight&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,<span class="string">&quot;json&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//ajax一般写法</span></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">&quot;/update_read_state&quot;</span>,</span><br><span class="line">        data:&#123;memberId:$&#123;loginMember.memberId&#125;,bookId:$&#123;book.bookId&#125;,readState:readState&#125;,</span><br><span class="line">        type:<span class="string">&quot;post&quot;</span>,</span><br><span class="line">        dataType:<span class="string">&quot;json&quot;</span>,</span><br><span class="line">        success: function (json) &#123;</span><br><span class="line">            <span class="keyword">if</span> (json.code == <span class="string">&quot;0&quot;</span>) &#123;</span><br><span class="line">                <span class="comment">//将原有高亮的css全部清除，让两个按钮回到默认的状态</span></span><br><span class="line">                $(<span class="string">&quot;*[data-read-state]&quot;</span>).removeClass(<span class="string">&quot;highlight&quot;</span>);</span><br><span class="line">                <span class="comment">/*通过拼接字符串的方式选择刚才点击的那个按钮*/</span></span><br><span class="line">                $(<span class="string">&quot;*[data-read-state=&#x27;&quot;</span> + readState + <span class="string">&quot;&#x27;]&quot;</span>).addClass(<span class="string">&quot;highlight&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/#<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>◇一点小坑<br>这里的一个小坑，由于忘记设置了主键注解，导致后面在更新阅读状态的时候发现只有没有任何阅读状态的时候</p>
+<ul>
+<li>点击阅读状态会生效；但当切换阅读状态的时候发现请求报500错误，一开始以为是前台的问题，但想着增加阅读状态没问题</li>
+<li>只有修改阅读状态才有问题，以为是后台修改语句的问题，所以检查了后台的业务逻辑，却发现修改语句没有问题，然后慢慢的</li>
+<li>查看日志发现updateById的sql语句是where null = ?才发现可能是忘记了实体类中主键的设置<br><img src="/p/aeec/1635326132436-25eb54ae-f219-4c7f-b305-e200ea9931b9.png" class="lazyload" data-srcset="/p/aeec/1635326132436-25eb54ae-f219-4c7f-b305-e200ea9931b9.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><h3 id="图书写短评"><a href="#图书写短评" class="headerlink" title="图书写短评"></a>图书写短评</h3>◇点击事件弹出写短评的对话框，并加载评分组件；点击提交按钮后边向后台发送数据；<br>◇memberService中新增写短评的方法，并完成其实现类，在controller中进行调用与前台交互<br>◇图书短评的回复功能暂时不开发；</li>
+</ul>
+<h3 id="短评点赞"><a href="#短评点赞" class="headerlink" title="短评点赞"></a>短评点赞</h3><p>◇短评功能只显示短评获得的点赞数量;<br>◇在MemberService中进行短评点赞功能，新增方法enjoy();<br>◇这里发现的一个新bug：就是自己新写的短评然后进行点赞会报错，查看DEBUG:value of type ‘java.lang.String’ to required type ‘java.lang.Long’;说明我们写评论的时候，id值太大了导致系统认为应该是一个字符串而不是Long，这里的原因是使用mybatis-plus增加评论时，ID直接从2000多开始；解决方法是把数据库表删除，然后将主键的自动增长取消，保存；然后设置主键自动增长，保存；最后在前台写入评论，在数据库表中发现id从1开始了（非常玄学）;</p>
+<h2 id="Spring-Task定时任务"><a href="#Spring-Task定时任务" class="headerlink" title="Spring-Task定时任务"></a>Spring-Task定时任务</h2><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>◇Spring Task是Spring 3.0后推出的定时任务模块<br>◇Spring Task的职责是按周期后台自动执行任务<br>◇Spring Task可利用Cron表达式实现灵活的定时处理</p>
+<h3 id="Cron表达式实例"><a href="#Cron表达式实例" class="headerlink" title="Cron表达式实例"></a>Cron表达式实例</h3><p><img src="/p/aeec/1635496332290-5fb87671-f60c-418e-ad8e-5fc64d31a1c1.png" class="lazyload" data-srcset="/p/aeec/1635496332290-5fb87671-f60c-418e-ad8e-5fc64d31a1c1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇本质是七位的字符串，分别对应秒分…年；<br>◇在大多数情况下只需要前六位就可以了<br>◇ 0代表具体的数字，放在秒这个位置上即表示时间是0秒的时候对应的任务自动执行，*代表任意的时间点；关于具体的日期和星期是互斥的，二者选其一，忽略的用?，则第一行的六位表达式(省略了年)具体含义为任一年，任一月、日、时、分的0秒；<br>◇0-5表示每小时的前5分钟， 0,30表示第0秒和第30秒；</p>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>◇ifnull表示为空时设置默认值(此处设置为0)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">update book b <span class="keyword">SET</span> evaluation_score <span class="operator">=</span> (</span><br><span class="line">   <span class="keyword">select</span> ifnull(<span class="built_in">avg</span>(score),<span class="number">0</span>) <span class="keyword">from</span> evaluation <span class="keyword">where</span> book_id <span class="operator">=</span> b.book_id <span class="keyword">and</span> state<span class="operator">=</span>&quot;enable&quot;</span><br><span class="line">),evaluation_quantity<span class="operator">=</span>(</span><br><span class="line">   <span class="keyword">select</span> ifnull(<span class="built_in">count</span>(<span class="operator">*</span>),<span class="number">0</span>) <span class="keyword">from</span> evaluation <span class="keyword">where</span> book_id <span class="operator">=</span> b.book_id <span class="keyword">and</span> state<span class="operator">=</span>&quot;enable&quot;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>◇现在我们来完成自动执行上面的sql语句；<br>◇mybatis-plus对于简单的sql语句可以直接继承父类，但是对于上面这种复杂的sql语句还是的在mapper中的xml文件里定义；如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&lt;</span><span class="operator">!</span><span class="comment">--如果命名空间里的接口中没有方法定义，则mapper标签下也无子标签--&gt;</span></span><br><span class="line"><span class="operator">&lt;</span>mapper namespace<span class="operator">=</span>&quot;com.lcg.reader.mapper.BookMapper&quot;<span class="operator">&gt;</span></span><br><span class="line">    <span class="operator">&lt;</span>update id<span class="operator">=</span>&quot;updateEvaluation&quot;<span class="operator">&gt;</span></span><br><span class="line">        update book b <span class="keyword">SET</span> evaluation_score <span class="operator">=</span> (</span><br><span class="line">   <span class="keyword">select</span> ifnull(<span class="built_in">avg</span>(score),<span class="number">0</span>) <span class="keyword">from</span> evaluation <span class="keyword">where</span> book_id <span class="operator">=</span> b.book_id <span class="keyword">and</span> state<span class="operator">=</span>&quot;enable&quot;</span><br><span class="line">),evaluation_quantity<span class="operator">=</span>(</span><br><span class="line">   <span class="keyword">select</span> ifnull(<span class="built_in">count</span>(<span class="operator">*</span>),<span class="number">0</span>) <span class="keyword">from</span> evaluation <span class="keyword">where</span> book_id <span class="operator">=</span> b.book_id <span class="keyword">and</span> state<span class="operator">=</span>&quot;enable&quot;</span><br><span class="line">)</span><br><span class="line">    <span class="operator">&lt;</span><span class="operator">/</span>update<span class="operator">&gt;</span></span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span>mapper<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+<p>◇然后在接口中进行定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BookMapper</span> <span class="keyword">extends</span> <span class="title">BaseMapper</span>&lt;<span class="title">Book</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新图书评分、评价数量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateEvaluation</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>◇然后在service接口中增加方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateEvaluation</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<p>◇在接口实现类中具体实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/*既然只是调用bookMapper提供的方法，为什么不直接在前台调用呢？</span></span><br><span class="line"><span class="comment">    * 这是因为我们基于MVC的按层逐级调用，禁止从controller直接调用mapper的方法来</span></span><br><span class="line"><span class="comment">    * 进行与数据库的操作,中间必须经过service；遵循这样的开发规范，会使程序维护更加轻松*/</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateEvaluation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        bookMapper.updateEvaluation();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>◇那么下面如何让updateEvaluation()方法每分钟调用一次呢？那就需要使用spring-Task模块了，该模块包含在spring-context中 在前面我们已经加载了，所以不需要额外引入jar包；<br>◇在applicationContext.xml文件中开启定时任务的注解模式;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开启Spring Task定时任务的注解模式--&gt;</span><br><span class="line">&lt;task:annotation-driven/&gt;</span><br></pre></td></tr></table></figure>
+<p>◇在reader下创建一个子包：task(任务)，创建一个类ComputeTask(计算任务)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lcg.reader.task;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lcg.reader.service.BookService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.scheduling.annotation.Scheduled;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 完成自动计算任务</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span> <span class="comment">//组件注解，当一个类不好确定是service还是controller时增加该注解让spring进行管理</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ComputeTask</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> BookService bookService;</span><br><span class="line">    <span class="comment">//任务调度,每分钟0秒的时候执行一次</span></span><br><span class="line">    <span class="meta">@Scheduled(cron=&quot;0 * * * * ?&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateEvaluation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        bookService.updateEvaluation();</span><br><span class="line">        System.out.println(<span class="string">&quot;已更新所有图书评分&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>欢迎小伙伴的阅读♪(･ω･)ﾉ</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://618dt.github.io/p/aeec.html>https://618dt.github.io/p/aeec.html</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-23T23:05:07+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年2月23日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SSM/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SSM</p></a></div>
+
+
+        
+      
+        
+          
+<div class="new-meta-item comments-count">
+  
+  <a href="/p/aeec.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/p/aeec.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="项目实现-前台" data-path="/p/aeec.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/aeec.html&title=项目实现-前台 - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/aeec.html&title=项目实现-前台 - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/aeec.html&title=项目实现-前台 - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/p/28f1.html'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>项目实现-后台</p>
+          <p class='content'>富文本编辑器wangEditor简介◇基于javascript与css开发的Web富文本编辑器，类似于word可以进行图文混排的工具；
+使用方法◇下载wangEditor的js文件，在test....</p>
+        </a>
+      
+      
+        <a class='next' href='/p/b7ed.html'>
+          <p class='title'>SpringMVC拦截器<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>拦截器-Interceptor◇拦截器(Interceptor)用于对URL请求进行前置/后置过滤◇Interceptor与Filter用途相似,但实现方式不同◇Interceptor底层就是基...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9%E7%AE%80%E4%BB%8B"><span class="toc-text">本周学习内容简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">主要知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSM%E6%95%B4%E5%90%88%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-text">SSM整合的意义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B4%E5%90%88"><span class="toc-text">什么是整合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSM%E6%95%B4%E5%90%88%E4%B8%89%E9%98%B6%E6%AE%B5"><span class="toc-text">SSM整合三阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring%E4%B8%8ESpring-MVC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">Spring与Spring MVC环境配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring%E4%B8%8EMyBatis%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE"><span class="toc-text">Spring与MyBatis整合配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E5%90%88%E5%85%B6%E4%BB%96%E7%BB%84%E4%BB%B6"><span class="toc-text">整合其他组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyBatis-Plus"><span class="toc-text">MyBatis-Plus</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis-Plus%E7%AE%80%E4%BB%8B"><span class="toc-text">MyBatis-Plus简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis-Plus%E6%95%B4%E5%90%88%E4%B8%89%E9%83%A8%E6%9B%B2"><span class="toc-text">MyBatis-Plus整合三部曲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis-Plus%E5%BC%80%E5%8F%91%E4%B8%89%E9%83%A8%E6%9B%B2"><span class="toc-text">MyBatis-Plus开发三部曲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis-Plus%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3"><span class="toc-text">MyBatis-Plus核心注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BaseMapper%E6%8E%A5%E5%8F%A3%E6%A0%B8%E5%BF%83API"><span class="toc-text">BaseMapper接口核心API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8"><span class="toc-text">案例分析与数据库建表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-text">案例分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8"><span class="toc-text">数据库建表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%9B%BE%E4%B9%A6%E5%88%97%E8%A1%A8%E9%A1%B5%E9%9D%A2"><span class="toc-text">实现图书列表页面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bootstrap"><span class="toc-text">Bootstrap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%9B%BE%E4%B9%A6%E7%B1%BB%E5%88%AB"><span class="toc-text">显示图书类别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%9B%BE%E4%B9%A6%E5%88%86%E9%A1%B5"><span class="toc-text">实现图书分页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%9B%BE%E4%B9%A6%E4%BF%A1%E6%81%AF"><span class="toc-text">Ajax动态加载图书信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Art-Template-%E8%85%BE%E8%AE%AFJS%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="toc-text">Art-Template 腾讯JS模板引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8F%91%E8%AF%84%E5%88%86%E6%8F%92%E4%BB%B6"><span class="toc-text">实现发评分插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A"><span class="toc-text">实现加载更多</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-text">多条件分页查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E4%B9%A6%E8%AF%A6%E6%83%85%E9%A1%B5"><span class="toc-text">图书详情页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%BB%E9%A1%B5%E9%9D%A2"><span class="toc-text">实现主页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%AF%84%E8%AE%BA%E5%88%97%E8%A1%A8"><span class="toc-text">实现评论列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD"><span class="toc-text">开发验证码功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81%E7%BB%84%E4%BB%B6"><span class="toc-text">Kaptcha验证码组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kaptcha%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-text">Kaptcha使用步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kaptcha%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8"><span class="toc-text">Kaptcha的配置及使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD"><span class="toc-text">实现用户注册功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E7%A0%81%E6%A0%A1%E9%AA%8C"><span class="toc-text">验证码校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91"><span class="toc-text">实现业务逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95"><span class="toc-text">实现用户登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BA%A4%E4%BA%92%E5%8A%9F%E8%83%BD"><span class="toc-text">用户交互功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%85%E8%AF%BB%E7%8A%B6%E6%80%81%E5%8F%98%E6%9B%B4"><span class="toc-text">阅读状态变更</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E4%B9%A6%E5%86%99%E7%9F%AD%E8%AF%84"><span class="toc-text">图书写短评</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%AD%E8%AF%84%E7%82%B9%E8%B5%9E"><span class="toc-text">短评点赞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Task%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-text">Spring-Task定时任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cron%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AE%9E%E4%BE%8B"><span class="toc-text">Cron表达式实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-text">子查询</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="项目实现-前台";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='3014209502'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        
+          <div><p>桃李不言,下自成蹊</p>
+</div>
+        
+      
+    
+      
+        
+          <div><p><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">黔ICP备2021001690号-1</a></p>
+</div>
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://gamest.avosapps.us/">Copyright © 2021 LCG</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=/blog/about/
+        
+        
+        
+        
+          id="blogabout"
+        >
+        <i class='fas fa-info-circle fa-fw'></i> 关于
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=/blog/categories/
+        
+        
+        
+        
+          id="blogcategories"
+        >
+        <i class='fas fa-folder-open fa-fw'></i> 分类
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=/blog/tags/
+        
+        
+        
+        
+          id="blogtags"
+        >
+        <i class='fas fa-tags fa-fw'></i> 标签
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=/blog/album/
+        
+        
+        
+        
+          id="blogalbum"
+        >
+        <i class='fas fa-link fa-fw'></i> 相册
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
+        // 如果有aplayer，初始化一下
+        checkAPlayer();
+      }
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '3014209502';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  APlayerController.autoPlay = 'false';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+  
+    loadScript("/js/aplayer.js")
+  
+
+</script>
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"HOXrAG6smAATBKTB0E7yg1x2-MdYXbMMI","appKey":"HA7TFXGe2NlCWD5orIr0V48j","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"monsterid","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false,"serverURLs":"https://HOXrAG6s.api.lncldglobal.com"}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'HOXrAG6smAATBKTB0E7yg1x2-MdYXbMMI',
+    app_key: 'HA7TFXGe2NlCWD5orIr0V48j',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://618dt.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://618dt.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://618dt.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
