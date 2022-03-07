@@ -468,7 +468,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>前端采用Element-ui框架，极大的提高了开发效率</li>
 <li>引入swagger文档支持，方便编写API接口文档</li>
 <li>项目采用分布式架构，每个子项目可独立部署，扩展灵活，易于维护</li>
-<li>使用NoSQL型数据库，将医院排班等信息存储在MongoDB中，提高数据的查询速度</li>
+<li>使用NoSQL型数据库，将医院等不需要经常写操作的信息存储在MongoDB中，提高数据的查询速度</li>
 <li>使用SpringCloudGateway进行统一网关校验和请求转发，并解决跨域问题<h3 id="3-项目业务流程"><a href="#3-项目业务流程" class="headerlink" title="3.项目业务流程"></a>3.项目业务流程</h3>◇项目业务流程如图：<br><img src="/p/ea75/1646032002195-72f9eee8-5c59-459a-8a96-f42ce5d4e009.png" class="lazyload" data-srcset="/p/ea75/1646032002195-72f9eee8-5c59-459a-8a96-f42ce5d4e009.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></li>
 </ul>
 <h2 id="二、项目模块介绍"><a href="#二、项目模块介绍" class="headerlink" title="二、项目模块介绍"></a>二、项目模块介绍</h2><h3 id="1-项目模块组成"><a href="#1-项目模块组成" class="headerlink" title="1.项目模块组成"></a>1.项目模块组成</h3><p>◇如下图所示，整个项目（appointment-parent）由多个子项目（service,common等）聚合而成，每个子项目各是一个独立可部署的JavaWeb项目（可以放到Tomcat中运行），各项目通过SpringCloud实现项目间服务调用，使得整个项目可以实现分布式部署。这种架构是分布式Java项目常采用的架构模型。<br><img src="/p/ea75/1645796126400-bcfa17df-bfea-49c0-a3e3-e8fd342ebdc8.png" class="lazyload" data-srcset="/p/ea75/1645796126400-bcfa17df-bfea-49c0-a3e3-e8fd342ebdc8.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇其中common模块包括了项目所需的基础工具类，如全局异常类，统一返回结果状态信息类，Redis配置类，service模块所需的服务类等。hospital-manage是医院系统模块。service是各个微服务的父模块，包含了cmn数据字典服务，医院服务，短信服务，订单服务等。service_client模块包含了远程服务提供者提供者的服务接口。service_gateway是网关模块，配置有请求的统一转发，请求过滤等信息。</p>
@@ -545,10 +545,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-01T10:58:01+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-04T12:16:58+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月1日</p>
+    <p>更新于：2022年3月4日</p>
   </a>
 </div>
 
