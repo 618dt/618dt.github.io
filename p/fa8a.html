@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2022 - 才刚的博客</title>
+  <title>Docekr部署项目 - 才刚的博客</title>
+  
+    <meta name="keywords" content="Docker">
   
 
   
@@ -104,7 +104,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -355,7 +355,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/imgs/bg.jpg"></div>
           
@@ -387,569 +387,280 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/p/fa8a.html">
+      <h1 class="title">
         Docekr部署项目
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        一、打包SpringBoot项目◇这里的项目以医点通项目中的service-cmn服务模块为例，首先在需要进行打包的模块(即有启动类的服务模块和网关模块)中进行打包的配置，注意统一的实体类等不需要打包的模块不要配置。配置如下：
-1234567891011121314151617181920212223242526272829&lt;!--在build中配置resource,来防止资源导出失败...
-      
-    
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/imgs/head.png">
+    <p>lcg</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/">技术杂谈</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2022-03-10</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年3月10日</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/">技术杂谈</a>
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：9分钟</p>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="一、打包SpringBoot项目"><a href="#一、打包SpringBoot项目" class="headerlink" title="一、打包SpringBoot项目"></a>一、打包SpringBoot项目</h2><p>◇这里的项目以医点通项目中的service-cmn服务模块为例，首先在需要进行打包的模块(即有启动类的服务模块和网关模块)中进行打包的配置，注意统一的实体类等不需要打包的模块不要配置。配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--在build中配置resource,来防止资源导出失败问题--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--配置springboot打包插件--&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.yml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">includes</span>&gt;</span> <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.yml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>◇然后点击在IDEA右侧的Maven-&gt;找到service-cmn模块-&gt;双击package或install进行单独打包(可以在父项目中一次性打包多个子模块)。<br><img src="/p/fa8a/1646983118953-0fdee5bd-9075-4d2f-89bb-9ff74757b54c.png" class="lazyload" data-srcset="/p/fa8a/1646983118953-0fdee5bd-9075-4d2f-89bb-9ff74757b54c.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇package打包成功后可以看到如下提示：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[INFO]</span> <span class="string">--- spring-boot-maven-plugin:2.2.12.RELEASE:repackage (repackage) @ service_cmn ---</span></span><br><span class="line"><span class="meta">[INFO]</span> <span class="string">Replacing main artifact with repackaged archive</span></span><br><span class="line"><span class="meta">[INFO]</span> <span class="string">------------------------------------------------------------------------</span></span><br><span class="line"><span class="meta">[INFO]</span> <span class="string">BUILD SUCCESS</span></span><br><span class="line"><span class="meta">[INFO]</span> <span class="string">------------------------------------------------------------------------</span></span><br><span class="line"><span class="meta">[INFO]</span> <span class="string">Total time: 24.464 s</span></span><br><span class="line"><span class="meta">[INFO]</span> <span class="string">Finished at: 2022-03-11T15:58:24+08:00</span></span><br><span class="line"><span class="meta">[INFO]</span> <span class="string">Final Memory: 64M/454M</span></span><br><span class="line"><span class="meta">[INFO]</span> <span class="string">------------------------------------------------------------------------</span></span><br></pre></td></tr></table></figure>
+<h2 id="二、Docker部署"><a href="#二、Docker部署" class="headerlink" title="二、Docker部署"></a>二、Docker部署</h2><p>◇Docker的安装见前面的文章：<a target="_blank" rel="noopener" href="https://gamest.link/p/e1be.html">Docekr应用</a>。<br>◇由于service-cmn模块使用到了MySQL数据库，如果在虚拟机中运行该服务的话，就需要更改服务配置MySQL数据库的部分，将localhost改为Windows主机的ip地址，并且修改MySQL为允许远程连接，具体操作请看<a target="_blank" rel="noopener" href="https://blog.csdn.net/mingxin95/article/details/78832129">虚拟机连接主机MySQL</a>。<br>◇也可以直接在Docker中拉取一个MySQL的镜像，这样数据库配置可以直接写localhost。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动docker</span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">start docker</span></span><br><span class="line"><span class="comment">#搜索mysql镜像</span></span><br><span class="line"><span class="attr">docker</span> <span class="string">search mysql</span></span><br><span class="line"><span class="comment">#下载5.7的版本</span></span><br><span class="line"><span class="attr">docker</span> <span class="string">pull mysql:5.7</span></span><br><span class="line"><span class="comment">#根据镜像创建mysql容器,密码为123456</span></span><br><span class="line"><span class="attr">docker</span> <span class="string">run -p 3306:3306 --name mysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7</span></span><br></pre></td></tr></table></figure>
+<p>◇在主机的Navicat数据库管理工具中连接到虚拟机中的数据库，并将service-cmn服务对应的数据库appointment-cmn复制到虚拟机中。<br><img src="/p/fa8a/1646995120902-67a47c9f-66bd-41f1-bfa1-efc084e3fb10.png" class="lazyload" data-srcset="/p/fa8a/1646995120902-67a47c9f-66bd-41f1-bfa1-efc084e3fb10.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇在docker目录中新建一个service目录，将前面打好的jar包上传到虚拟机的service中。使用xftp，如果没有权限，使用命令chmod 777 service授权。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进入docker目录</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">docker]# cd /var/lib/docker</span></span><br><span class="line"><span class="comment">#创建service目录</span></span><br><span class="line"><span class="attr">mkdir</span> <span class="string">service</span></span><br><span class="line"><span class="comment">#开启权限(在docker的上一级目录lib中)</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">lib]# chmod 777 service</span></span><br></pre></td></tr></table></figure>
+<p>◇然后创建Dockerfile文件（vim Dockerfile），内容如下:</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">FROM</span> <span class="string">java:8 </span></span><br><span class="line"><span class="comment"># 将jar包添加到容器中并更名为app.jar</span></span><br><span class="line"><span class="attr">ADD</span> <span class="string">service_cmn-0.0.1-SNAPSHOT.jar app.jar </span></span><br><span class="line"><span class="comment"># 设置端口号，此处只开放一个端口8202</span></span><br><span class="line"><span class="attr">EXPOSE</span> <span class="string">8202</span></span><br><span class="line"><span class="comment"># 执行命令，此处运行app.jar</span></span><br><span class="line"><span class="attr">RUN</span> <span class="string">bash -c &#x27;touch /app.jar&#x27;</span></span><br><span class="line"><span class="attr">ENTRYPOINT</span> <span class="string">[&quot;java&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]  </span></span><br></pre></td></tr></table></figure>
+<p>◇查看Dockerfile文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root@master</span> <span class="string">service]# vim Dockerfile</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# cat Dockerfile</span></span><br><span class="line"><span class="attr">FROM</span> <span class="string">java:8 </span></span><br><span class="line"><span class="attr">ADD</span> <span class="string">service_cmn-0.0.1-SNAPSHOT.jar app.jar </span></span><br><span class="line"><span class="attr">EXPOSE</span> <span class="string">8081</span></span><br><span class="line"><span class="attr">RUN</span> <span class="string">bash -c &#x27;touch /app.jar&#x27;</span></span><br><span class="line"><span class="attr">ENTRYPOINT</span> <span class="string">[&quot;java&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# </span></span><br></pre></td></tr></table></figure>
+<p>◇为什么要在docker目录下新建一个目录存放jar包和Dockerfile呢? 是因为如果直接在docker目录下构建镜像的话，会使生成的发送给Docker守护进程的上下文过大。上下文是根据Dockerfile文件所在目录生成的，而docker目录下本来就有很多子目录，这就导致问题产生。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Sending</span> <span class="string">build context to Docker daemon 4.309 GB</span></span><br></pre></td></tr></table></figure>
+<p>◇如果不想新建子目录的话，就要创建一个.dockerignore文件，在里面配置生成忽略的目录：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">./builder</span></span><br><span class="line"><span class="attr">./containerd</span></span><br><span class="line"><span class="attr">./image</span></span><br><span class="line"><span class="comment">#...这样显然过于麻烦</span></span><br></pre></td></tr></table></figure>
+<p>◇最后先启动cmn模块需要的一些服务，如nacos、redis，然后构建cmn的镜像并生成容器启动。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#构建镜像,镜像名为:service_cmn,v1.0表示版本,可省略; .表示当前路径,不可省;</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# docker build -f Dockerfile -t service_cmn:v1.0 .</span></span><br><span class="line"><span class="attr">Sending</span> <span class="string">build context to Docker daemon  75.16MB</span></span><br><span class="line"><span class="attr">Step</span> <span class="string">1/5 : FROM java:8</span></span><br><span class="line"> <span class="meta">---&gt;</span> <span class="string">d23bdf5b1b1b</span></span><br><span class="line"><span class="attr">Step</span> <span class="string">2/5 : ADD service_cmn-0.0.1-SNAPSHOT.jar app.jar</span></span><br><span class="line"> <span class="meta">---&gt;</span> <span class="string">c7cafd276296</span></span><br><span class="line"><span class="attr">Step</span> <span class="string">3/5 : EXPOSE 8081</span></span><br><span class="line"> <span class="meta">---&gt;</span> <span class="string">Running in 002409c6c02b</span></span><br><span class="line"><span class="attr">Removing</span> <span class="string">intermediate container 002409c6c02b</span></span><br><span class="line"> <span class="meta">---&gt;</span> <span class="string">b184e8ae5522</span></span><br><span class="line"><span class="attr">Step</span> <span class="string">4/5 : RUN bash -c &#x27;touch /app.jar&#x27;</span></span><br><span class="line"> <span class="meta">---&gt;</span> <span class="string">Running in 891f96a44e21</span></span><br><span class="line"><span class="attr">Removing</span> <span class="string">intermediate container 891f96a44e21</span></span><br><span class="line"> <span class="meta">---&gt;</span> <span class="string">d1a1996ba764</span></span><br><span class="line"><span class="attr">Step</span> <span class="string">5/5 : ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]</span></span><br><span class="line"> <span class="meta">---&gt;</span> <span class="string">Running in d18f642aaab4</span></span><br><span class="line"><span class="attr">Removing</span> <span class="string">intermediate container d18f642aaab4</span></span><br><span class="line"> <span class="meta">---&gt;</span> <span class="string">a0e08a0ced11</span></span><br><span class="line"><span class="attr">Successfully</span> <span class="string">built a0e08a0ced11</span></span><br><span class="line"><span class="attr">Successfully</span> <span class="string">tagged service_cmn:v1.0</span></span><br><span class="line"><span class="comment">#查看镜像列表</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# docker images</span></span><br><span class="line"><span class="attr">REPOSITORY</span>          <span class="string">TAG                 IMAGE ID            CREATED             SIZE</span></span><br><span class="line"><span class="attr">service_cmn</span>         <span class="string">v1.0                a0e08a0ced11        12 minutes ago      794MB</span></span><br><span class="line"><span class="attr">mysql</span>               <span class="string">5.7                 11d8667108c2        2 days ago          450MB</span></span><br><span class="line"><span class="attr">rabbitmq</span>            <span class="string">management          799381c528ac        5 weeks ago         254MB</span></span><br><span class="line"><span class="attr">mongo</span>               <span class="string">latest              ee13a1eacac9        2 months ago        696MB</span></span><br><span class="line"><span class="attr">java</span>                <span class="string">8                   d23bdf5b1b1b        5 years ago         643MB</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# </span></span><br><span class="line"><span class="comment"># --net=host表示和宿主机共用网络,-d表示后台运行 -p后面有两个端口,分别是:宿主机端口:容器端口</span></span><br><span class="line"><span class="comment"># 即用主机8202端口映射容器端口，这里容器端口要和cmn服务中配置的端口一致</span></span><br><span class="line"><span class="comment"># --name=cmn 表示容器名称,最后面为容器使用的镜像</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# docker run    --net=host  --name=cmn -d -p 8202:8202 service_cmn:v1.0</span></span><br><span class="line"><span class="attr">WARNING</span>: <span class="string">Published ports are discarded when using host network mode</span></span><br><span class="line"><span class="attr">55f440226120da0097961fc87e36a8c86555eff580308f8491ad3515f1e32292</span></span><br><span class="line"><span class="comment">#查看运行的容器</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# docker ps</span></span><br><span class="line"><span class="attr">CONTAINER</span> <span class="string">ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES</span></span><br><span class="line"><span class="attr">55f440226120</span>        <span class="string">service_cmn:v1.0    &quot;java -jar /app.jar&quot;     40 seconds ago      Up 39 seconds                                           cmn</span></span><br><span class="line"><span class="attr">a807a6c90bec</span>        <span class="string">mysql:5.7           &quot;docker-entrypoint.s…&quot;   About an hour ago   Up About an hour    0.0.0.0:3306-&gt;3306/tcp, 33060/tcp   mysql</span></span><br><span class="line"><span class="attr">d9a024b9bffc</span>        <span class="string">mongo               &quot;docker-entrypoint.s…&quot;   6 weeks ago         Up About an hour    0.0.0.0:27017-&gt;27017/tcp            mymongo</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# </span></span><br></pre></td></tr></table></figure>
+<p>◇然后在主机浏览器中通过swagger进行测试，访问:<a target="_blank" rel="noopener" href="http://192.168.222.137:8202/swagger-ui.html#/">http://192.168.222.137:8202/swagger-ui.html#/</a> 查看服务是否正常启动。<br><img src="/p/fa8a/1647000064738-737f863a-ceb2-4260-b8b3-3fcaaf71e576.png" class="lazyload" data-srcset="/p/fa8a/1647000064738-737f863a-ceb2-4260-b8b3-3fcaaf71e576.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇可以发现项目成功启动了，那下面测试方法能否调用成功。我们根据findByDictCode()方法查询所有省级地区数据。<br><img src="/p/fa8a/1647000366843-bff5d73e-9db9-48b2-9549-b560be3b4cab.png" class="lazyload" data-srcset="/p/fa8a/1647000366843-bff5d73e-9db9-48b2-9549-b560be3b4cab.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇至此，service-cmn服务已经成功部署在docker中了，对于其他的服务模块采用同样的方法部署即可。<br>◇如果要删除镜像，则需要先停止容器并删除容器，最后删除镜像。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看容器</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# docker ps</span></span><br><span class="line"><span class="attr">CONTAINER</span> <span class="string">ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES</span></span><br><span class="line"><span class="attr">b69ba027734a</span>        <span class="string">service_cmn:v1.0    &quot;java -jar /app.jar&quot;     29 minutes ago      Up 29 minutes                                           cmn</span></span><br><span class="line"><span class="comment">#停止容器</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# docker stop b69ba027734a</span></span><br><span class="line"><span class="attr">b69ba027734a</span></span><br><span class="line"><span class="comment">#根据容器ID删除容器</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# docker rm b69ba027734a</span></span><br><span class="line"><span class="comment">#查看镜像</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# docker images</span></span><br><span class="line"><span class="attr">REPOSITORY</span>          <span class="string">TAG                 IMAGE ID            CREATED             SIZE</span></span><br><span class="line"><span class="attr">service_cmn</span>         <span class="string">v1.0                9d61dae6888c        32 minutes ago      794MB</span></span><br><span class="line"><span class="comment">#根据镜像ID删除镜像</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# docker rmi 9d61dae6888c</span></span><br></pre></td></tr></table></figure>
+<h2 id="三、需要注意的地方"><a href="#三、需要注意的地方" class="headerlink" title="三、需要注意的地方"></a>三、需要注意的地方</h2><p>◇整体搭建过程比较简单，但也有一些要注意的点:<br>1.容器的端口号要和我们在服务中配置的端口号一致，最好容器的宿主机映射的端口号也保持一致。</p>
+<p>2.如果虚拟机中没有配置jdk环境变量的话，需要在容器中拉取java镜像,或者配置jdk环境变量。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装java镜像,因为之后要通过java -jar命令运行项目jar包,所以下载java镜像</span></span><br><span class="line"><span class="attr">docker</span> <span class="string">pull java:8u111</span></span><br></pre></td></tr></table></figure>
+<p>3.注意实例化容器的时候需要采用host的方式去启动项目容器，否则会连接不上MySQL数据库，这是因为docker会自动给每个容器分配ip，但是项目里配置的mysql地址是localhost，在容器内连接localhost是连接容器本身而不是宿主机的localhost，所以一直找不到mysql。因此采用host的网络方式将容器与宿主机共用一个Network Namespace,这样容器内localhost就是宿主机的localhost了。</p>
+<p>4.注意不要将Dockerfile文件直接放在docker目录下，否则有可能生成过大的context。</p>
+<p>5.如果成功启动镜像后无法访问虚拟机，则需要使用防火墙放行相关端口，如这里需要放行8202端口。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动防火墙</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# systemctl start firewalld</span></span><br><span class="line"><span class="comment">#查看端口是否放行,no表示未放行</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# firewall-cmd --query-port=8202/tcp</span></span><br><span class="line"><span class="attr">no</span></span><br><span class="line"><span class="comment">#放行端口</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# firewall-cmd --add-port=8202/tcp --permanent</span></span><br><span class="line"><span class="attr">success</span></span><br><span class="line"><span class="comment">#重启防火墙服务</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# firewall-cmd --reload</span></span><br><span class="line"><span class="attr">success</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# firewall-cmd --query-port=8202/tcp</span></span><br><span class="line"><span class="attr">yes</span></span><br></pre></td></tr></table></figure>
+
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/p/fa8a.html'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>欢迎小伙伴的阅读♪(･ω･)ﾉ</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://618dt.github.io/p/fa8a.html>https://618dt.github.io/p/fa8a.html</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-11T20:48:34+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年3月11日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Docker/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Docker</p></a></div>
+
+
+        
+      
+        
+          
+<div class="new-meta-item comments-count">
   
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/ea75.html">
-        医点通项目介绍
-      </a>
-    </h2>
-  
-  <div class='md'>
+  <a href="/p/fa8a.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/p/fa8a.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Docekr部署项目" data-path="/p/fa8a.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        一、项目简介与特点1.项目简介​    ◇医点通预约挂号系统是一项便民服务系统,一点即通,方便患者挂号就医!
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/fa8a.html&title=Docekr部署项目 - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/fa8a.html&title=Docekr部署项目 - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/fa8a.html&title=Docekr部署项目 - 才刚的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/p/ea75.html'>
+          <p class='title'>医点通项目介绍<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>一、项目简介与特点1.项目简介​    ◇医点通预约挂号系统是一项便民服务系统,一点即通,方便患者挂号就医!
 ​    ◇项目开发笔记
 ​    ◇项目完整代码
 2.项目特点
-友好的代码结构及注释，便于阅读及二次开发
-实现前后端分离，请求接口封装，错误码统一处理
-前端采用Element-ui框架，极大的提高了开发效率
-引入swagger文档支持，方便编写API接口文档
-项目采用分布式架构，每...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-02-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java%E5%BC%80%E5%8F%91/">Java开发</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/ea75.html'>
-            阅读全文
-          </a>
-        </div>
+友好的代码结构及注...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/2bc.html">
-        Dubbo入门
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        课程介绍
-初识Dubbo 
-RPC介绍 
-Dubbo工作原理  
-案例实操：项目编写 
-整合Dubbo和Zookeeper 
-实现服务间调用  初始DubboDubbo是什么◇轻量级、高性能的RPC框架◇并不是一个微服务的全面解决方案◇以java语言而出名，但也拓展到了其他语言Dubbo现状◇全称Apache Dubbo◇使用公司：网易云音乐、微店、考拉、滴滴等；Dubbo主要历程◇09年由...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-02-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">分布式与微服务</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/2bc.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/4c0f.html">
-        Zookeeper入门
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        周课介绍◇Zookeeper的下载，配置与运行◇数据结构node与常用命令◇Watcher机制和权限acl介绍◇使用Zookeeper的java原生客户端和Curator进行开发◇RPC调用，在Dubbo架构下各服务的关系◇整合Dubbo和Zookeeper◇完成Dubbo开发案例◇线程进阶面试◇分布式、微服务面试◇Spring Cloud、Zookeeper的理解
-理解Zookeeper为...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-02-22</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">分布式与微服务</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/4c0f.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/8a2d.html">
-        SpringCloud开发入门
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        课程安排
-Spring Cloud简介 
-项目整体设计 
-课程列表模块开发  
-课程价格模块开发
-服务注册与发现Eureka 
-服务间调用Feign  
-负载均衡Ribbon 
-熔断器Hystrix 
-网关Zuul  
-整体测试 
-项目总结  Spring Cloud简介◇ 成熟的微服务框架，定位为开发人员提供工具，以快速构建分布式系统◇核心组件
-
-项目整体设计接口设计◇课程列表◇单个课程价...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-02-21</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">分布式与微服务</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/8a2d.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/1b72.html">
-        微服务基础
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        周课介绍◇微服务的基本概念、设计与拆分原则◇微服务和Spring Cloud的关系◇微服务常见的组件和功能◇课程查询案例基本介绍、系统架构设计和接口设计◇分模块构建Spring Cloud项目◇完成课程列表、课程价格服务开发◇课程服务整合，服务注册与发现◇整合Feign实现服务间调用◇网关的集成与开发，并接入服务◇引入服务的熔断与降级，并进行实操演练
-微服务基础介绍要点
-什么是微服务 
-微服...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-02-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">分布式与微服务</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/1b72.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/ef1a.html">
-        RabbitMQ入门
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        课程简介
-初识RabbitMQ，使用Erlang语言； 
-RabbitMQ的安装和启动 
-RabbitMQ管理后台  
-实战案例演示 
-交换机工作模式  fanout、direct、topic、headers
-Spring Boot整合RabbitMQ  RabbitMQRabbitMQ简介◇核心思想：接收并转发消息。你可以把它想象成一个邮局◇producer：消息的生产者(发送者)，◇qu...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-02-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">分布式与微服务</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/ef1a.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/e129.html">
-        Nginx入门
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        介绍1.Nginx介绍2.Nginx的安装3. 常用命令讲解和演示4.配置文件讲解5.场景实战：搭建一个静态的Nginx服务6.总结
-Nginx介绍Nginx是什么、适用场景◇HTTP的反向代理服务器◇正向代理；指的是普通的代理转发，在我们的客户端和服务器之间加了一个代理服务器；作为客户端，会将消息传到代理服务器上，而代理服务器将客户端的请求进行转发；代理服务器提供安全功能，代理服务器拥有一...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-02-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">分布式与微服务</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/e129.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/e1be.html">
-        Docker应用
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        简介
-基本概念、用途、核心思想 
-Docker的组成、架构、重要概念 
-Docker的安装  
-第一个Docker容器 
-运行Nginx镜像，并访问到Docker容器内部 
-制作自己的Docker容器，dockerfile实战  Docker的基本概念、用途、核心思想Docker应用广泛◇京东618：15万个Docker实例，所有业务全部容器化；◇蘑菇街等等Docker是什么？◇ Docke...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-02-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">分布式与微服务</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/e1be.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/38b2.html">
-        分布式基础
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        介绍
-什么是分布式 
-分布式的作用 
-分布式和单体结构的对比  
-CAP定理 
-集群、分布式、微服务的区别  什么是分布式◇权威定义： 利用物理架构形成多个自治的处理元素，不共享主内存，但是通过发送信息合作。——Leslie Lamport◇饭店厨师的例子；一个顾客(用户)来到饭店(网站服务器)点餐；对于顾客而言，只需要点菜；对于饭店而言，尽可能准确地满足顾客的要求；如上菜时间短(性能好)，...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-02-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">分布式与微服务</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/38b2.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 6
-        </p>
-        
-          <a class="next" rel="next" href="/archives/2022/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
+  </article>
 
 
-	
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -957,367 +668,28 @@ CAP定理
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/blog/about/'>
-          <img no-lazy src='/imgs/head.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">才刚的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:860131794@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/618dt/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/JavaWeb/" href="/categories/JavaWeb/"
-            id="categoriesJavaWeb"
-            ><div class='name'>JavaWeb</div><div class='badge'>(11)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Java%E5%BC%80%E5%8F%91/" href="/categories/Java%E5%BC%80%E5%8F%91/"
-            id="categoriesJavaE5BC80E58F91"
-            ><div class='name'>Java开发</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/"
-            id="categoriesJavaE695B0E68DAEE5BA93"
-            ><div class='name'>Java数据库</div><div class='badge'>(20)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/Java%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/Java%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/"
-            id="categoriesJavaE695B0E68DAEE5BA93JavaE695B0E68DAEE5BA93E5BC80E58F91E59FBAE7A180"
-            ><div class='name'>Java数据库开发基础</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/Linux%E4%B8%8ERedis%E5%9F%BA%E7%A1%80/" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/Linux%E4%B8%8ERedis%E5%9F%BA%E7%A1%80/"
-            id="categoriesJavaE695B0E68DAEE5BA93LinuxE4B88ERedisE59FBAE7A180"
-            ><div class='name'>Linux与Redis基础</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MyBaits/" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MyBaits/"
-            id="categoriesJavaE695B0E68DAEE5BA93MyBaits"
-            ><div class='name'>MyBaits</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/"
-            id="categoriesJavaE695B0E68DAEE5BA93MySQLE59FBAE7A180"
-            ><div class='name'>MySQL基础</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/OA%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/OA%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/"
-            id="categoriesJavaE695B0E68DAEE5BA93OAE7B3BBE7BB9FE9A1B9E79BAE"
-            ><div class='name'>OA系统项目</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%A1%86%E6%9E%B6%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86/" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%A1%86%E6%9E%B6%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86/"
-            id="categoriesJavaE695B0E68DAEE5BA93E6A186E69EB6E5898DE7BDAEE79FA5E8AF86"
-            ><div class='name'>框架前置知识</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Spring/" href="/categories/Spring/"
-            id="categoriesSpring"
-            ><div class='name'>Spring</div><div class='badge'>(9)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Spring/SSM%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/" href="/categories/Spring/SSM%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/"
-            id="categoriesSpringSSME5BC80E58F91E9A1B9E79BAE"
-            ><div class='name'>SSM开发项目</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Spring/SpringBoot/" href="/categories/Spring/SpringBoot/"
-            id="categoriesSpringSpringBoot"
-            ><div class='name'>SpringBoot</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Spring/SpringMVC%E5%9F%BA%E7%A1%80/" href="/categories/Spring/SpringMVC%E5%9F%BA%E7%A1%80/"
-            id="categoriesSpringSpringMVCE59FBAE7A180"
-            ><div class='name'>SpringMVC基础</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Spring/Spring%E5%9F%BA%E7%A1%80/" href="/categories/Spring/Spring%E5%9F%BA%E7%A1%80/"
-            id="categoriesSpringSpringE59FBAE7A180"
-            ><div class='name'>Spring基础</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/"
-            id="categoriesE58886E5B883E5BC8FE4B88EE5BEAEE69C8DE58AA1"
-            ><div class='name'>分布式与微服务</div><div class='badge'>(10)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/" href="/categories/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/"
-            id="categoriesE58886E7B1BBE6B58BE8AF95"
-            ><div class='name'>分类测试</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"
-            id="categoriesE68A80E69CAFE69D82E8B088"
-            ><div class='name'>技术杂谈</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
-            id="categoriesE695B0E68DAEE7BB93E69E84"
-            ><div class='name'>数据结构</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%9D%82%E8%B0%88/" href="/categories/%E6%9D%82%E8%B0%88/"
-            id="categoriesE69D82E8B088"
-            ><div class='name'>杂谈</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%89%93%E5%8C%85SpringBoot%E9%A1%B9%E7%9B%AE"><span class="toc-text">一、打包SpringBoot项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Docker%E9%83%A8%E7%BD%B2"><span class="toc-text">二、Docker部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-text">三、需要注意的地方</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/tags/BUG/" style="font-size: 14px; color: #999">BUG</a> <a href="/tags/Docker/" style="font-size: 16px; color: #8b8b8b">Docker</a> <a href="/tags/Dubbo/" style="font-size: 14px; color: #999">Dubbo</a> <a href="/tags/EL/" style="font-size: 14px; color: #999">EL</a> <a href="/tags/Filter/" style="font-size: 14px; color: #999">Filter</a> <a href="/tags/Freemaker/" style="font-size: 14px; color: #999">Freemaker</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/JSP/" style="font-size: 16px; color: #8b8b8b">JSP</a> <a href="/tags/Lambda/" style="font-size: 14px; color: #999">Lambda</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Listener/" style="font-size: 14px; color: #999">Listener</a> <a href="/tags/Maven/" style="font-size: 14px; color: #999">Maven</a> <a href="/tags/MyBaits/" style="font-size: 20px; color: #707070">MyBaits</a> <a href="/tags/MySQL/" style="font-size: 18px; color: #7e7e7e">MySQL</a> <a href="/tags/Nginx/" style="font-size: 14px; color: #999">Nginx</a> <a href="/tags/RabbitMQ/" style="font-size: 14px; color: #999">RabbitMQ</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/SSM/" style="font-size: 16px; color: #8b8b8b">SSM</a> <a href="/tags/Servlet/" style="font-size: 14px; color: #999">Servlet</a> <a href="/tags/Spring/" style="font-size: 22px; color: #636363">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14px; color: #999">SpringCloud</a> <a href="/tags/Zookeeper/" style="font-size: 14px; color: #999">Zookeeper</a> <a href="/tags/xml/" style="font-size: 14px; color: #999">xml</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 14px; color: #999">分布式</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 16px; color: #8b8b8b">开发</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 14px; color: #999">微服务</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 24px; color: #555">数据库</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 14px; color: #999">正则</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/" style="font-size: 14px; color: #999">测试标签</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 14px; color: #999">程序员</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 16px; color: #8b8b8b">线程</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 14px; color: #999">递归</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 14px; color: #999">项目</a>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode shadow desktop mobile">
-  
-  <header>
-    
-      <i class="fas fa-envelope fa-fw" aria-hidden="true"></i><span class='name'>联系方式</span>
-    
-  </header>
-
-
-  <div class='content article-entry'>
-    
-      <img src='/imgs/wchatid.png'
-      
-        height='120px'
-      />
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>56 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2021/10/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>169.7k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Fri Mar 11 2022 20:49:41 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2022-03-11 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-03-11 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -1326,21 +698,21 @@ CAP定理
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Docekr部署项目";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>

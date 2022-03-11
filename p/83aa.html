@@ -462,7 +462,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <h2 id="监听器-Listener"><a href="#监听器-Listener" class="headerlink" title="监听器 - Listener"></a>监听器 - Listener</h2><p>◇监听器是J2EE Servlet模块下的组件<br>◇Listener的作用是对Web应用对象的行为进行监控<br>◇通过Listener监听自动触发指定的功能代码</p>
 <h2 id="三种监听对象"><a href="#三种监听对象" class="headerlink" title="三种监听对象"></a>三种监听对象</h2><p>◇ServletContext - 对全局ServletContext及其属性进行监听<br>◇HttpSession - 对用户会话及其属性操作进行监听<br>◇ServletRequest - 对请求及属性操作进行监听</p>
 <h2 id="过滤器与监听器的区别"><a href="#过滤器与监听器的区别" class="headerlink" title="过滤器与监听器的区别"></a>过滤器与监听器的区别</h2><p>◇过滤器的职责是对URL进行过滤拦截，是主动的执行<br>◇监听器的职责是对Web对象进行监听，是被动触发</p>
-<h2 id="开发监听器三要素"><a href="#开发监听器三要素" class="headerlink" title="开发监听器三要素"></a>开发监听器三要素</h2><p>◇实现XxxListener接口，不同接口对应不同监听对象<br>◇实现每个接口中独有的方法，实现触发监听的后续操作<br>◇在web.xml中配置<listener>是使听器生效<br>代码演示</listener></p>
+<h2 id="开发监听器三要素"><a href="#开发监听器三要素" class="headerlink" title="开发监听器三要素"></a>开发监听器三要素</h2><p>◇实现XxxListener接口，不同接口对应不同监听对象<br>◇实现每个接口中独有的方法，实现触发监听的后续操作<br>◇在web.xml中配置&lt;listener&gt;是使听器生效<br>代码演示</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@WebListener</span><span class="comment">//使用注解配置</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent sce)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">&quot;已销毁&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent sce)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">&quot;已初始化&quot;</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <p> –使用xml配置</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>com.lcg.listener.FirstListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -509,10 +509,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-21T19:24:50+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-09T19:56:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年2月21日</p>
+    <p>更新于：2022年3月9日</p>
   </a>
 </div>
 
