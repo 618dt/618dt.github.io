@@ -593,14 +593,14 @@ Spring Cloud简介
 课程列表模块开发  
 课程价格模块开发
 服务注册与发现Eureka 
-服务间调用Feign  
+服务间调用OpenFeign  
 负载均衡Ribbon 
 熔断器Hystrix 
 网关Zuul  
 整体测试 
 项目总结  Spring Cloud简介◇ 成熟的微服务框架，定位为开发人员提供工具，以快速构建分布式系统◇核心组件
 
-项目整体设计接口设计◇课程列表◇单个课程价...
+项目整体设计接口设计◇课程列表◇单...
       
     
   </div>
@@ -646,10 +646,9 @@ Spring Cloud简介
   <div class='md'>
     
       
-        周课介绍◇微服务的基本概念、设计与拆分原则◇微服务和Spring Cloud的关系◇微服务常见的组件和功能◇课程查询案例基本介绍、系统架构设计和接口设计◇分模块构建Spring Cloud项目◇完成课程列表、课程价格服务开发◇课程服务整合，服务注册与发现◇整合Feign实现服务间调用◇网关的集成与开发，并接入服务◇引入服务的熔断与降级，并进行实操演练
+        周课介绍◇微服务的基本概念、设计与拆分原则◇微服务和Spring Cloud的关系◇微服务常见的组件和功能◇课程查询案例基本介绍、系统架构设计和接口设计◇分模块构建Spring Cloud项目◇完成课程列表、课程价格服务开发◇课程服务整合，服务注册与发现◇整合OpenFeign实现服务间调用◇网关的集成与开发，并接入服务◇引入服务的熔断与降级，并进行实操演练
 微服务基础介绍要点
-什么是微服务 
-微服...
+什么是微服务...
       
     
   </div>
@@ -1254,8 +1253,8 @@ CAP定理
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Mar 12 2022 09:15:54 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2022-03-12 日</div>
+            <div id="last-update" style="display: none;">Fri Mar 18 2022 21:41:50 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2022-03-18 日</div>
           
         </div>
         
@@ -1305,7 +1304,7 @@ CAP定理
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-03-12 日';
+            document.getElementById('last-update-show').innerHTML = '2022-03-18 日';
           }
         </script>
         

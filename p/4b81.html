@@ -439,7 +439,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：3.7k字</p>
+      <p>字数：3.8k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -480,7 +480,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 ◇免去传参的繁琐 <pre><code> -- 不需要每次都传同样的参数 
  -- ThreadLocal使得代码耦合度更低，更优雅  
 </code></pre>
-<h3 id="主要方法介绍"><a href="#主要方法介绍" class="headerlink" title="主要方法介绍"></a>主要方法介绍</h3>◇**T initialValue( )：初始化 <strong>；<br>①该方法会返回当前线程对应的“初始值”，这是一个延迟加载的方法，只有在调用get的时候，才会触发 ；<br>②当线程第一次使用get方法访问变量时，将调用此方法，除非线程先前调用了set方法，在这种情况下，不会为线程调用本 initialValue方法<br>③ 通常，每个线程最多调用一次此方法，但如果已经调用了remove()来删除后，再调用get()，则可以再次调用此方法<br>④ 如果不重写本方法，这个方法会返回null。一般使用匿名内部类的方法来重写initialValue()方法，以便在后续使用中可以初始化副本对象。<br>◇</strong>void set(T t)<strong>：为这个线程设置一个新值<br>◇</strong>T get( )<strong>：得到这个线程对应的value。如果是首次调用 get()，则会调用initialize来得到这个值<br>◇</strong>void remove( )**：删除对应这个线程的值；如：UserContextHolder.holder.remove(); <h3 id="图解ThreadLocal原理"><a href="#图解ThreadLocal原理" class="headerlink" title="图解ThreadLocal原理"></a>图解ThreadLocal原理</h3>◇搞清楚 搞清楚Thread，ThreadLocal以及 ThreadLocalMap三者之间的关系<br>◇每个Thread对象中都持有一个ThreadLocalMap成员变量<br><img src="/p/4b81/1636183873959-5116d7b0-f90b-4e47-92b8-8fcd8b85bad1.png" class="lazyload" data-srcset="/p/4b81/1636183873959-5116d7b0-f90b-4e47-92b8-8fcd8b85bad1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇一个ThreadLocalMap存储很多ThreadLocal，这是因为一个线程可能有多个ThreadLocal对象；<br>◇get方法； get方法是先取出当前线程的ThreadLocalMap ；然后调用map.getEntry方法，把本ThreadLocal的引用作为参数传入 ； 取出map中属于本ThreadLocal的value ；<br>◇注意：这个map以及map中的key和value都是保存在线程中的，而不是保存在ThreadLocal中；<br>◇ initialValue方法 </li>
+<h3 id="主要方法介绍"><a href="#主要方法介绍" class="headerlink" title="主要方法介绍"></a>主要方法介绍</h3>◇**T initialValue( )：初始化 <strong>；<br>①该方法会返回当前线程对应的“初始值”，这是一个延迟加载的方法，只有在调用get的时候，才会触发 ；<br>②当线程第一次使用get方法访问变量时，将调用此方法，除非线程先前调用了set方法，在这种情况下，不会为线程调用本 initialValue方法<br>③ 通常，每个线程最多调用一次此方法，但如果已经调用了remove()来删除后，再调用get()，则可以再次调用此方法<br>④ 如果不重写本方法，这个方法会返回null。一般使用匿名内部类的方法来重写initialValue()方法，以便在后续使用中可以初始化副本对象。<br>◇</strong>void set(T t)<strong>：为这个线程设置一个新值<br>◇</strong>T get( )<strong>：得到这个线程对应的value。如果是首次调用 get()，则会调用initialize来得到这个值<br>◇</strong>void remove( )**：删除对应这个线程的值；如：UserContextHolder.holder.remove(); <h3 id="图解ThreadLocal原理"><a href="#图解ThreadLocal原理" class="headerlink" title="图解ThreadLocal原理"></a>图解ThreadLocal原理</h3>◇搞清楚Thread，ThreadLocal以及 ThreadLocalMap三者之间的关系<br>◇每个Thread对象中都持有且仅有一个ThreadLocalMap成员变量<br><img src="/p/4b81/1636183873959-5116d7b0-f90b-4e47-92b8-8fcd8b85bad1.png" class="lazyload" data-srcset="/p/4b81/1636183873959-5116d7b0-f90b-4e47-92b8-8fcd8b85bad1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇一个ThreadLocalMap存储很多ThreadLocal，这是因为一个线程可能有多个ThreadLocal对象；<br>◇get方法； get方法是先取出当前线程的ThreadLocalMap ；然后调用map.getEntry方法，把ThreadLocal的引用作为key参数传入 ； 取出map中属于本ThreadLocal的value ；<br>◇注意：这个map以及map中的key和value都是保存在线程中的，而不是保存在ThreadLocal中；ThreadLocal可以理解为只是对ThreadLocalMap进行了封装，传递了变量值；<br>◇ initialValue方法 </li>
 </ol>
 <p>– 没有默认实现<br>– 如果要用initialValue方法，需要自己实现<br>– 通常使用匿名内部类的方式实现<br>◇ remove方法用来删除保存的自定义对象；这里要注意的是，从线程中获取到的ThreadLocalMap对象是包含了很多个ThreadLocal的，但需要删除的只是当前的ThreadLocal对象，所以使用this引用作为参数执行m.remove()方法；</p>
 <h3 id="ThreadLocalMap-类"><a href="#ThreadLocalMap-类" class="headerlink" title="ThreadLocalMap 类"></a>ThreadLocalMap 类</h3><p>◇ThreadLocalMap类，也就是Thread.threadLocals<br>◇ThreadLocalMap类是每个线程Thread类里面的变量，里面最重要的是一个键值对数组Entry[] table，可以认为是一个 map，键值对：<br>◇键：这个ThreadLocal<br>◇值：实际需要的成员变量，比如User或者 SimpleDateFormat对象<br>◇类似于HashMap的结构，但是遇到冲突的解决方法和HashMap不同；在HashMap中使用拉链法和红黑树来解决冲突；<br><img src="/p/4b81/1636189148017-6d7a924f-1470-44d5-a396-ed6396587189.png" class="lazyload" data-srcset="/p/4b81/1636189148017-6d7a924f-1470-44d5-a396-ed6396587189.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇而在ThreadLocalMap中采用线性探测法，也就是如果发生冲突，就继续找下一个空位置而不是用链表拉链；</p>
@@ -528,10 +528,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-28T21:45:16+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-16T15:03:43+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年2月28日</p>
+    <p>更新于：2022年3月16日</p>
   </a>
 </div>
 
