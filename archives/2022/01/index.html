@@ -633,8 +633,8 @@ SQL...
     
       
         数据操作语言：聚合函数什么是聚合函数◇ 聚合函数在数据的查询分析中，应用十分广泛。聚合函数可以对数 据求和、求最大值和最小值、求平均值等等。◇ 求公司员工的平均月收入是多少？  
-1SELECT AVG(sal+IFNULL(comm,0)) FROM t_emp;
-SUM函数 ◇ SUM函数用于求和，只能用于数字类型，字符类型的统计结果为0 ，日期类型统计结果是毫秒数相加 ◇ SUM函数求...
+12--IFNULL(comm,0)判断如果comm字段为空则返回0,否则返回comm值SELECT AVG(sal+IFNULL(comm,0)) FROM t_emp;
+SUM函数 ◇ SUM函数用于求和，只能...
       
     
   </div>
@@ -730,7 +730,7 @@ SUM函数 ◇ SUM函数用于求和，只能用于数字类型，字符类型的
       
         概念◇ 构造数据库必须遵循一定的规则，这种规则就是范式◇ 目前关系数据库有6种范式，一般情况下，只满足第三范式即可  
 第一范式：原子性◇ 第一范式是数据库的基本要求，不满足这一点就不是关系数据库◇ 数据表的每一列都是不可分割的基本数据项，同一列中不能有多个值，也不能存在重复的属性。
-第二范式：唯一性◇ 数据表中的每条记录必须是唯一的。为了实现区分，通常要为表 加上一个列用来存储唯一标识，这...
+第二范式：唯一性◇ 数据表中的每条记录必须是唯一的。为了实现区分，通常要为表加上一个列用来存储唯一标识，这个...
       
     
   </div>
@@ -1203,7 +1203,7 @@ Fremarker◇Fremarker是免费开源的模板引擎技术◇Fremarker脚本为Fr
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>169.7k 字</div>
+          <div>170.5k 字</div>
         </div>
       
 
@@ -1229,8 +1229,8 @@ Fremarker◇Fremarker是免费开源的模板引擎技术◇Fremarker脚本为Fr
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Mar 18 2022 21:41:49 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2022-03-18 日</div>
+            <div id="last-update" style="display: none;">Mon Mar 28 2022 21:25:31 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2022-03-28 日</div>
           
         </div>
         
@@ -1280,7 +1280,7 @@ Fremarker◇Fremarker是免费开源的模板引擎技术◇Fremarker脚本为Fr
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-03-18 日';
+            document.getElementById('last-update-show').innerHTML = '2022-03-28 日';
           }
         </script>
         

@@ -439,13 +439,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.9k字</p>
+      <p>字数：2.1k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：8分钟</p>
+      <p>时长：9分钟</p>
     </a>
   </div>
 
@@ -485,6 +485,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>4.如果成功启动镜像后无法访问虚拟机，则需要使用防火墙放行相关端口，如这里需要放行8202端口。</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动防火墙</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# systemctl start firewalld</span></span><br><span class="line"><span class="comment">#查看端口是否放行,no表示未放行</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# firewall-cmd --query-port=8202/tcp</span></span><br><span class="line"><span class="attr">no</span></span><br><span class="line"><span class="comment">#放行端口</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# firewall-cmd --add-port=8202/tcp --permanent</span></span><br><span class="line"><span class="attr">success</span></span><br><span class="line"><span class="comment">#重启防火墙服务</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# firewall-cmd --reload</span></span><br><span class="line"><span class="attr">success</span></span><br><span class="line"><span class="meta">[root@master</span> <span class="string">service]# firewall-cmd --query-port=8202/tcp</span></span><br><span class="line"><span class="attr">yes</span></span><br></pre></td></tr></table></figure>
 
+<p>5.最后，对于微服务项目而言，由于有多个服务需要多个docker容器，可以将这多个容器由Docker Compose来统一配置，Docker Compose通过一个配置文件来管理多个Docker容器，在配置文件中，所有的容器通过services来定义，然后使用docker-compose脚本来启动，停止和重启应用，和应用中的服务以及所有依赖服务的容器，非常适合组合使用多个容器进行开发的场景。</p>
 
   
   
@@ -519,10 +520,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-12T09:14:53+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-24T22:17:15+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月12日</p>
+    <p>更新于：2022年3月24日</p>
   </a>
 </div>
 

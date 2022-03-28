@@ -470,7 +470,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="JSP的基本语法"><a href="#JSP的基本语法" class="headerlink" title="JSP的基本语法"></a>JSP的基本语法</h2><p>◇JSP语法按功能分为以下四种<br>①JSP代码块      ②JSP声明构造块<br>③JSP输出指令  ④JSP处理指令</p>
 <h3 id="JSP代码块"><a href="#JSP代码块" class="headerlink" title="JSP代码块"></a>JSP代码块</h3><p>◇JSP代码块用于JSP中嵌入Java代码<br>◇JSP代码块语法：&lt;%java代码块%&gt;</p>
 <h3 id="JSP声明构造块"><a href="#JSP声明构造块" class="headerlink" title="JSP声明构造块"></a>JSP声明构造块</h3><p>◇JSP声明构造用于声明变量或方法<br>◇JSP声明构造块语法：&lt;%! 声明语句 %&gt;<br>◇eg：声明方法，&lt;%! public int add(int a,int b){return a+b;} %&gt;</p>
-<h3 id="JSP输出指令"><a href="#JSP输出指令" class="headerlink" title="JSP输出指令"></a>JSP输出指令</h3><p>◇JSP输出指令用于在JSP页面中显示java代码执行结果<br>◇JSP输出指令语法：&lt;%= java代码 %&gt;<br>eg: &lt;%=”<b>“+name+”</b>“%&gt;  %=即out.println的简化形式</p>
+<h3 id="JSP输出指令"><a href="#JSP输出指令" class="headerlink" title="JSP输出指令"></a>JSP输出指令</h3><p>◇JSP输出指令用于在JSP页面中显示java代码执行结果<br>◇JSP输出指令语法：&lt;%= java代码 %&gt;<br>eg: &lt;%=”&lt;b&gt;”+name+”&lt;/b&gt;”%&gt;  %=即out.println的简化形式</p>
 <h3 id="JSP处理指令"><a href="#JSP处理指令" class="headerlink" title="JSP处理指令"></a>JSP处理指令</h3><p>◇JSP处理指令用于提供JSP执行过程中的辅助信息<br>◇JSP处理指令语法：&lt;%@ jsp指令 %&gt;<br>◇eg: &lt;%@ page import=”java.util.*” %&gt;</p>
 <h3 id="jsp常用处理指令"><a href="#jsp常用处理指令" class="headerlink" title="jsp常用处理指令"></a>jsp常用处理指令</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page %&gt; <span class="comment">//定义当前JSP页面的全局设置</span></span><br><span class="line">&lt;%@ include %&gt;<span class="comment">//将其他JSP页面与当前JSP页面合并</span></span><br><span class="line">&lt;%@ taglib %&gt;<span class="comment">//引入JSP标签库</span></span><br></pre></td></tr></table></figure>
 <p>JSP中注释的区别<br>◇&lt;%– 注释–%&gt;  JSP注释，被注释语句不做任何处理<br>◇// , /<em>..</em>/            用于注释&lt;%%&gt;java代码，被注释代码不执行<br>◇&lt;!– html –&gt;            HTML注释，被注释的语句不会被浏览器解释</p>
@@ -514,10 +514,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-09T19:51:44+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-22T16:36:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月9日</p>
+    <p>更新于：2022年3月22日</p>
   </a>
 </div>
 
