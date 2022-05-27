@@ -22,7 +22,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>数据库范式 - 才刚的博客</title>
+  <title>数据库范式与索引 - 才刚的博客</title>
   
     <meta name="keywords" content="数据库">
   
@@ -397,7 +397,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        数据库范式
+        数据库范式与索引
       </h1>
       <div class='new-meta-box'>
         
@@ -439,13 +439,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：747字</p>
+      <p>字数：1.5k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
+      <p>时长：5分钟</p>
     </a>
   </div>
 
@@ -459,7 +459,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>◇ 构造数据库必须遵循一定的规则，这种规则就是范式<br>◇ 目前关系数据库有6种范式，一般情况下，只满足第三范式即可  </p>
+  <h2 id="范式概念"><a href="#范式概念" class="headerlink" title="范式概念"></a>范式概念</h2><p>◇ 构造数据库必须遵循一定的规则，这种规则就是范式<br>◇ 目前关系数据库有6种范式，一般情况下，只满足第三范式即可  </p>
 <h2 id="第一范式：原子性"><a href="#第一范式：原子性" class="headerlink" title="第一范式：原子性"></a>第一范式：原子性</h2><p>◇ 第一范式是数据库的基本要求，不满足这一点就不是关系数据库<br>◇ 数据表的每一列都是不可分割的基本数据项，同一列中不能有多个值，也不能存在重复的属性。<br><img src="/p/77e3/1625840047827-6aee66b4-51fa-4462-9315-661dcc5bbc8c.png" class="lazyload" data-srcset="/p/77e3/1625840047827-6aee66b4-51fa-4462-9315-661dcc5bbc8c.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h2 id="第二范式：唯一性"><a href="#第二范式：唯一性" class="headerlink" title="第二范式：唯一性"></a>第二范式：唯一性</h2><p>◇ 数据表中的每条记录必须是唯一的。为了实现区分，通常要为表加上一个列用来存储唯一标识，这个唯一属性列被称作主键列<br><img src="/p/77e3/1625840463558-faa7b806-aebf-4fa1-83d6-1fa49132c68f.png" class="lazyload" data-srcset="/p/77e3/1625840463558-faa7b806-aebf-4fa1-83d6-1fa49132c68f.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h2 id="第三范式：关联性"><a href="#第三范式：关联性" class="headerlink" title="第三范式：关联性"></a>第三范式：关联性</h2><p>◇ 每列都与主键有直接关系，不存在传递依赖<br><img src="/p/77e3/1625840515859-2c1f2750-a72c-4ca8-9693-0097054d1a89.png" class="lazyload" data-srcset="/p/77e3/1625840515859-2c1f2750-a72c-4ca8-9693-0097054d1a89.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br> ◇依照第三范式，数据可以拆分保存到不同的数据表，彼此保持关联<br><img src="/p/77e3/1625840617006-d3552f4a-77d7-4734-8d1b-f4347315568f.png" class="lazyload" data-srcset="/p/77e3/1625840617006-d3552f4a-77d7-4734-8d1b-f4347315568f.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
@@ -472,12 +472,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> t_teacher(</span><br><span class="line">...</span><br><span class="line">tel <span class="type">CHAR</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">UNIQUE</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><p>◇ 外键约束用来保证关联数据的逻辑关系<br><img src="/p/77e3/1625991461738-358528fb-416f-4cef-b409-575041655201.png" class="lazyload" data-srcset="/p/77e3/1625991461738-358528fb-416f-4cef-b409-575041655201.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇ 外键约束的定义是写在子表上的  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> t_emp(</span><br><span class="line">empno <span class="type">INT</span> UNSIGNED <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">ename <span class="type">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">sex ENUM(&quot;MAN&quot;,&quot;WOMAN&quot;) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">deptno <span class="type">INT</span> UNSIGNED <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">hiredate <span class="type">DATE</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">FOREIGN</span> KEY (deptno) <span class="keyword">REFERENCES</span> t_dept(deptno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>** 外键约束的闭环问题  **<br>◇ 如果形成外键闭环，我们将无法删除任何一张表的记录<br><img src="/p/77e3/1625992112385-0da833a2-88ca-4eed-8643-262a3b35b40d.png" class="lazyload" data-srcset="/p/77e3/1625992112385-0da833a2-88ca-4eed-8643-262a3b35b40d.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h2 id="数据定义语言：索引"><a href="#数据定义语言：索引" class="headerlink" title="数据定义语言：索引"></a>数据定义语言：索引</h2><h3 id="数据排序的好处"><a href="#数据排序的好处" class="headerlink" title="数据排序的好处"></a>数据排序的好处</h3><p>◇ 一旦数据排序之后，查找的速度就会翻倍，现实世界跟程序世界都是如此  </p>
-<h3 id="数据表的索引"><a href="#数据表的索引" class="headerlink" title="数据表的索引"></a>数据表的索引</h3><p>◇ MySQL利用B+树的结构，对数据表的记录排序，从而加速数据的检索速度<br><img src="/p/77e3/1625992297169-2ea7a513-51e5-40b6-b3ca-2aca1f27912d.png" class="lazyload" data-srcset="/p/77e3/1625992297169-2ea7a513-51e5-40b6-b3ca-2aca1f27912d.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h3 id="如何创建索引"><a href="#如何创建索引" class="headerlink" title="如何创建索引"></a>如何创建索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名称 ( ……，</span><br><span class="line">INDEX [ 索引名称 ] ( 字段 ) ……<span class="operator">/</span><span class="operator">/</span>给哪一个字段设置索引</span><br><span class="line">) ;</span><br></pre></td></tr></table></figure>
-<h3 id="如何添加与删除索引"><a href="#如何添加与删除索引" class="headerlink" title="如何添加与删除索引"></a>如何添加与删除索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX 索引名称 <span class="keyword">ON</span> 表名( 字段 ) ；</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名称 <span class="keyword">ADD</span> INDEX [ 索引名 ]( 字段 ) ;</span><br><span class="line"><span class="keyword">SHOW</span> INDEX <span class="keyword">FROM</span> 表名 ;   <span class="operator">/</span><span class="operator">/</span>查看索引情况</span><br><span class="line"><span class="keyword">DROP</span> INDEX 索引名称 <span class="keyword">ON</span> 表名 ;</span><br></pre></td></tr></table></figure>
+<p><strong>外键约束的闭环问题</strong><br>◇ 如果形成外键闭环，我们将无法删除任何一张表的记录<br><img src="/p/77e3/1625992112385-0da833a2-88ca-4eed-8643-262a3b35b40d.png" class="lazyload" data-srcset="/p/77e3/1625992112385-0da833a2-88ca-4eed-8643-262a3b35b40d.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="数据库索引"><a href="#数据库索引" class="headerlink" title="数据库索引"></a>数据库索引</h2><h3 id="索引优点"><a href="#索引优点" class="headerlink" title="索引优点"></a>索引优点</h3><p>◇使用索引可以大大加快数据的检索速度（大大减少检索的数据量）, 这也是创建索引的最主要的原因。</p>
+<p>◇ 通过创建唯一性索引，可以保证数据库表中每一行数据的唯一性。</p>
+<h3 id="索引缺点"><a href="#索引缺点" class="headerlink" title="索引缺点"></a>索引缺点</h3><p>◇创建索引和维护索引需要耗费许多时间。当对表中的数据进行增删改的时候，如果数据有索引，那么索引也需要动态的修改，会降低 SQL 执行效率。</p>
+<p>◇索引需要使用物理文件存储，也会耗费一定空间。</p>
+<h3 id="索引底层结构"><a href="#索引底层结构" class="headerlink" title="索引底层结构"></a>索引底层结构</h3><p>◇ 索引本身是一种数据结构，MySQL的InnoDB存储引擎利用B+树的结构，对数据表的记录排序，从而加速数据的检索速度。</p>
+<h3 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h3><p>◇主键索引：数据表的主键列使用的就是主键索引。一张数据表有只能有一个主键，并且主键不能为 null，不能重复。在 MySQL 的 InnoDB 的表中，当没有显示的指定表的主键时，InnoDB 会自动先检查表中是否有唯一索引且不允许存在null值的字段，如果有，则选择该字段为默认的主键，否则 InnoDB 将会自动创建一个 6Byte 的自增主键。</p>
+<p>◇唯一索引：唯一索引也是一种约束。唯一索引的属性列不能出现重复的数据，但是允许数据为 NULL，一张表允许创建多个唯一索引。建立唯一索引的目的大部分时候都是为了该属性列的数据的唯一性，而不是为了查询效率。</p>
+<p>◇普通索引：普通索引的唯一作用就是为了快速查询数据，一张表允许创建多个普通索引，并允许数据重复和 NULL。</p>
+<p>◇复合索引：将数据库中的多个字段组合起来形成的一个索引就是复合索引。复合索引的第一个字段必须出现查询语句中，这样索引才能够被使用。</p>
+<p>◇前缀索引：前缀索引(Prefix) ：前缀索引只适用于字符串类型的数据。前缀索引是对文本的前几个字符创建索引，相比普通索引建立的数据更小， 因为只取前几个字符。</p>
+<p>◇全文索引：全文索引主要是为了检索大文本数据中的关键字的信息，是目前搜索引擎数据库使用的一种技术。Mysql5.6 之前只有 MYISAM 引擎支持全文索引，5.6 之后 InnoDB 也支持了全文索引。</p>
+<h3 id="如何创建索引"><a href="#如何创建索引" class="headerlink" title="如何创建索引"></a>如何创建索引</h3><p>◇创建表时创建</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#普通索引</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名称 ( </span><br><span class="line"><span class="string">&#x27;字段名&#x27;</span> 字段类型 约束,</span><br><span class="line">    ...</span><br><span class="line">INDEX [ 索引名称 ] ( 字段 )</span><br><span class="line">) ;</span><br><span class="line">#唯一索引</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名称 ( </span><br><span class="line"><span class="string">&#x27;字段名&#x27;</span> 字段类型 约束,</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">UNIQUE</span> INDEX [ 索引名称 ] ( 字段 ) ……</span><br><span class="line">) ;</span><br><span class="line">#全文索引</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名称 ( </span><br><span class="line"><span class="string">&#x27;字段名&#x27;</span> 字段类型 约束,</span><br><span class="line">    ...</span><br><span class="line">FULLTEXT INDEX [ 索引名称 ] ( 字段 ) ……</span><br><span class="line">) ;</span><br><span class="line">#复合索引</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名称 ( </span><br><span class="line"><span class="string">&#x27;字段名&#x27;</span> 字段类型 约束,</span><br><span class="line">    ...</span><br><span class="line">KEY [ 索引名称 ] ( 字段<span class="number">1</span>,字段<span class="number">2</span>,... )</span><br><span class="line">) ;</span><br></pre></td></tr></table></figure>
+<p>◇创建表后索引的增加和删除</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX 索引名称 <span class="keyword">ON</span> 表名( 字段 ) ；#创建普通索引</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> INDEX 索引名称 <span class="keyword">ON</span> 表名( 字段 ) ；#创建唯一索引</span><br><span class="line"><span class="keyword">CREATE</span> FULLTEXT INDEX 索引名称 <span class="keyword">ON</span> 表名( 字段 ) ；#创建全文索引</span><br><span class="line"><span class="keyword">CREATE</span> INDEX 索引名称 <span class="keyword">ON</span> 表名(字段<span class="number">1</span>,字段<span class="number">2.</span>.. ) ；#创建复合索引</span><br><span class="line">#以修改表的方式添加索引</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名称 <span class="keyword">ADD</span> [<span class="keyword">UNIQUE</span> <span class="operator">|</span> FULLTEXT]INDEX [ 索引名 ]( 字段 ) ;</span><br><span class="line">#查看索引情况</span><br><span class="line"><span class="keyword">SHOW</span> INDEX <span class="keyword">FROM</span> 表名 ; </span><br><span class="line">#删除索引</span><br><span class="line"><span class="keyword">DROP</span> INDEX 索引名称 <span class="keyword">ON</span> 表名 ;</span><br></pre></td></tr></table></figure>
 <h3 id="索引的使用原则"><a href="#索引的使用原则" class="headerlink" title="索引的使用原则"></a>索引的使用原则</h3><p>◇ 数据量很大，而且经常被查询的数据表可以设置索引<br>◇ 索引只添加在经常被用作检索条件的字段上面<br>◇ 不要在大字段上创建索引</p>
+<p>◇<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35190492/article/details/109257302">索引相关文章</a></p>
 
   
   
@@ -512,10 +524,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-24T22:58:51+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-23T20:47:01+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月24日</p>
+    <p>更新于：2022年5月23日</p>
   </a>
 </div>
 
@@ -548,7 +560,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="数据库范式" data-path="/p/77e3.html">
+      <div id="lc-pv" data-title="数据库范式与索引" data-path="/p/77e3.html">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -567,7 +579,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/77e3.html&title=数据库范式 - 才刚的博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://618dt.github.io/p/77e3.html&title=数据库范式与索引 - 才刚的博客&summary="
           
           >
           
@@ -579,7 +591,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/77e3.html&title=数据库范式 - 才刚的博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://618dt.github.io/p/77e3.html&title=数据库范式与索引 - 才刚的博客&summary="
           
           >
           
@@ -591,7 +603,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/77e3.html&title=数据库范式 - 才刚的博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://618dt.github.io/p/77e3.html&title=数据库范式与索引 - 才刚的博客&summary="
           
           >
           
@@ -623,13 +635,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/p/f427.html'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>数据库的基本查询</p>
-          <p class='content'>数据操作语言：普通查询记录查询◇ 最基本的查询语句是由 SELECT 和 FROM 关键字组成的◇ SELECT语句屏蔽了物理层的操作，用户不必关心数据的真 实存储，交由数据库高效的查找数据  ...</p>
+          <p class='content'>数据操作语言：普通查询记录查询◇ 最基本的查询语句是由 SELECT 和 FROM 关键字组成的◇ SELECT语句屏蔽了物理层的操作，用户不必关心数据的真实存储，交由数据库高效的查找数据  
+...</p>
         </a>
       
       
-        <a class='next' href='/p/f849.html'>
-          <p class='title'>数据库简介<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>学习目标了解关系型数据库的重要性  -为什么会出现关系型数据库？有哪些常见的关系型数据库？掌握MySQL的安装和配置  -怎么安装MySQL数据库？怎么配置MySQL的字符集、端口号、IP 地址...</p>
+        <a class='next' href='/p/a804.html'>
+          <p class='title'>SQL简介<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>学习目标◇ 管理逻辑库和数据表
+◇创建、删除、修改逻辑库和数据表◇ 了解常用的数据类型和约束  
+◇字符串、整数、浮点数、精确数字、日期、枚举。主键约束、非空 约束、唯一约束、外键约束等◇ 掌握...</p>
         </a>
       
     </div>
@@ -672,7 +687,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F%EF%BC%9A%E5%8E%9F%E5%AD%90%E6%80%A7"><span class="toc-text">第一范式：原子性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8C%83%E5%BC%8F%EF%BC%9A%E5%94%AF%E4%B8%80%E6%80%A7"><span class="toc-text">第二范式：唯一性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8C%83%E5%BC%8F%EF%BC%9A%E5%85%B3%E8%81%94%E6%80%A7"><span class="toc-text">第三范式：关联性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E7%BA%A6%E6%9D%9F"><span class="toc-text">字段约束</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="toc-text">主键约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%A9%BA%E7%BA%A6%E6%9D%9F"><span class="toc-text">非空约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%94%AF%E4%B8%80%E7%BA%A6%E6%9D%9F"><span class="toc-text">唯一约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="toc-text">外键约束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80%EF%BC%9A%E7%B4%A2%E5%BC%95"><span class="toc-text">数据定义语言：索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-text">数据排序的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="toc-text">数据表的索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="toc-text">如何创建索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E4%B8%8E%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="toc-text">如何添加与删除索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%88%99"><span class="toc-text">索引的使用原则</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8C%83%E5%BC%8F%E6%A6%82%E5%BF%B5"><span class="toc-text">范式概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F%EF%BC%9A%E5%8E%9F%E5%AD%90%E6%80%A7"><span class="toc-text">第一范式：原子性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8C%83%E5%BC%8F%EF%BC%9A%E5%94%AF%E4%B8%80%E6%80%A7"><span class="toc-text">第二范式：唯一性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8C%83%E5%BC%8F%EF%BC%9A%E5%85%B3%E8%81%94%E6%80%A7"><span class="toc-text">第三范式：关联性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E7%BA%A6%E6%9D%9F"><span class="toc-text">字段约束</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="toc-text">主键约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%A9%BA%E7%BA%A6%E6%9D%9F"><span class="toc-text">非空约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%94%AF%E4%B8%80%E7%BA%A6%E6%9D%9F"><span class="toc-text">唯一约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="toc-text">外键约束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95"><span class="toc-text">数据库索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E4%BC%98%E7%82%B9"><span class="toc-text">索引优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%BC%BA%E7%82%B9"><span class="toc-text">索引缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-text">索引底层结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B"><span class="toc-text">索引类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="toc-text">如何创建索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%88%99"><span class="toc-text">索引的使用原则</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -691,7 +706,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="数据库范式";
+  pdata.postTitle="数据库范式与索引";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

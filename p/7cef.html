@@ -439,13 +439,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：4.3k字</p>
+      <p>字数：4.6k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：19分钟</p>
+      <p>时长：20分钟</p>
     </a>
   </div>
 
@@ -469,11 +469,84 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>◇在applicationContext中配置（开头部分schema不同于以前的配置，需要添加一部分）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="line">&lt;beans xmlns:xsi=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="line">       xmlns:context=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span><br><span class="line">       xmlns:aop=<span class="string">&quot;http://www.springframework.org/schema/aop&quot;</span></span><br><span class="line">       xmlns=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="line">       xsi:schemaLocation=<span class="string">&quot;http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/context</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/context/spring-context.xsd</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/aop</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/aop/spring-aop.xsd&quot;</span>&gt;</span><br><span class="line">    &lt;bean id=<span class="string">&quot;userDao&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;com.lcg.spring.aop.dao.UserDao&quot;</span>/&gt;</span><br><span class="line">    &lt;bean id=<span class="string">&quot;employeeDao&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;com.lcg.spring.aop.dao.EmployeeDao&quot;</span>/&gt;</span><br><span class="line">    &lt;bean id=<span class="string">&quot;userService&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;com.lcg.spring.aop.service.UserService&quot;</span>&gt;</span><br><span class="line">        &lt;property name=<span class="string">&quot;userDao&quot;</span> ref=<span class="string">&quot;userDao&quot;</span>/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;bean id=<span class="string">&quot;employeeService&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;com.lcg.spring.aop.service.EmployeeService&quot;</span>&gt;</span><br><span class="line">        &lt;property name=<span class="string">&quot;employeeDao&quot;</span> ref=<span class="string">&quot;employeeDao&quot;</span>/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;!-- AOP配置 --&gt;</span><br><span class="line">    &lt;bean id=<span class="string">&quot;methodAspect&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;com.lcg.spring.aop.aspect.MethodAspect&quot;</span>&gt;&lt;/bean&gt;</span><br><span class="line">    &lt;aop:config&gt;<span class="comment">//此标签由AOP命名空间提供</span></span><br><span class="line">        &lt;!-- PointCut 切点,使用execution表达式描述切面的作用范围 --&gt;</span><br><span class="line">        &lt;!-- execution(<span class="keyword">public</span> * com.lcg..*.*(..)) 说明切面作用在com.lcg包下的所有类的所有方法上 --&gt;</span><br><span class="line">        &lt;!--&lt;aop:pointcut id=<span class="string">&quot;pointcut&quot;</span> expression=<span class="string">&quot;execution(public * com.lcg..*.*(..))&quot;</span>&gt;&lt;/aop:pointcut&gt;--&gt;</span><br><span class="line">        &lt;!--只对所有Service类生效--&gt;</span><br><span class="line">        &lt;aop:pointcut id=<span class="string">&quot;pointcut&quot;</span> expression=<span class="string">&quot;execution(* com.lcg..*Service.*(..))&quot;</span>&gt;&lt;/aop:pointcut&gt;</span><br><span class="line">        &lt;!--只对所有返回值为String类型方法生效--&gt;</span><br><span class="line">        &lt;!--&lt;aop:pointcut id=<span class="string">&quot;pointcut&quot;</span> expression=<span class="string">&quot;execution(String com.lcg..*Service.*(..))&quot;</span>&gt;&lt;/aop:pointcut&gt;--&gt;</span><br><span class="line">        &lt;!--对方法名进行约束 --&gt;</span><br><span class="line">        &lt;!--&lt;aop:pointcut id=<span class="string">&quot;pointcut&quot;</span> expression=<span class="string">&quot;execution(* com.lcg..*Service.create*(..))&quot;</span>&gt;&lt;/aop:pointcut&gt;--&gt;</span><br><span class="line">        &lt;!-- 对参数进行约束 --&gt;</span><br><span class="line">        &lt;!--&lt;aop:pointcut id=<span class="string">&quot;pointcut&quot;</span> expression=<span class="string">&quot;execution(* com.lcg..*Service.*(String,*))&quot;</span>&gt;&lt;/aop:pointcut&gt;--&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!-- 定义切面类 让IOC容器认为这个bean是一个切面类--&gt;</span><br><span class="line">        &lt;aop:aspect ref=<span class="string">&quot;methodAspect&quot;</span>&gt;</span><br><span class="line">            &lt;!-- before前置通知(Advice),代表在目标方法运行前先执行methodAspect.printExecutionTime() --&gt;</span><br><span class="line">            &lt;aop:before method=<span class="string">&quot;printExecutionTime&quot;</span> pointcut-ref=<span class="string">&quot;pointcut&quot;</span>/&gt;<span class="comment">//pointcut-ref指向定义的切点;        </span></span><br><span class="line">        &lt;/aop:aspect&gt;</span><br><span class="line">    &lt;/aop:config&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="AOP关键概念"><a href="#AOP关键概念" class="headerlink" title="AOP关键概念"></a>AOP关键概念</h2><h3 id="Spring-AOP与AspectJ的关系"><a href="#Spring-AOP与AspectJ的关系" class="headerlink" title="Spring AOP与AspectJ的关系"></a>Spring AOP与AspectJ的关系</h3><p>◇Eclipse AspectJ,一种基于Java平台的面向切面编程的语言<br>◇Spring AOP使用了AspectJ切入点匹配功能<br>◇Spring AOP利用代理技术实现对象运行时功能扩展  </p>
-<h3 id="几个关键概念"><a href="#几个关键概念" class="headerlink" title="几个关键概念"></a>几个关键概念</h3><p><img src="/p/7cef/1633086185761-39f8cae3-34da-48c9-8ea6-3f720722d114.png" class="lazyload" data-srcset="/p/7cef/1633086185761-39f8cae3-34da-48c9-8ea6-3f720722d114.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h3 id="AOP配置过程"><a href="#AOP配置过程" class="headerlink" title="AOP配置过程"></a>AOP配置过程</h3><p>◇依赖Aspect                                  ◇实现切面类和切面方法<br>◇配置Aspect Bean                         ◇定义PointCut<br>◇配置Advice</p>
-<h3 id="JoinPoint核心方法"><a href="#JoinPoint核心方法" class="headerlink" title="JoinPoint核心方法"></a>JoinPoint核心方法</h3><p><img src="/p/7cef/1633088659918-690d3c9d-3b43-43b2-97c5-cbc47ec7214a.png" class="lazyload" data-srcset="/p/7cef/1633088659918-690d3c9d-3b43-43b2-97c5-cbc47ec7214a.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h2 id="PointCut切点表达式"><a href="#PointCut切点表达式" class="headerlink" title="PointCut切点表达式"></a>PointCut切点表达式</h2><p>◇完整方法的描述：         public void com.lcg.service.UserService.createUser(形参1，形参2，…)<br>◇切点表达式：execution(public   *    com.lcg      ..             *       .        *         (            ..              ) )<br>◇ * - 通配符    .. - 包通配符      (..) - 参数通配符<br>◇切点表达式的含义：去匹配com.lcg包下所有类的所有公用方法；<br>◇(<em>,</em>)-代表两个参数；  *可以替换为string</p>
-<h2 id="五种通知类型"><a href="#五种通知类型" class="headerlink" title="五种通知类型"></a>五种通知类型</h2><h3 id="归纳"><a href="#归纳" class="headerlink" title="归纳"></a>归纳</h3><p><img src="/p/7cef/1633086260010-1fe93912-8ac0-4246-8adf-4d07b8500275.png" class="lazyload" data-srcset="/p/7cef/1633086260010-1fe93912-8ac0-4246-8adf-4d07b8500275.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h3 id="几个关键概念"><a href="#几个关键概念" class="headerlink" title="几个关键概念"></a>几个关键概念</h3><table>
+<thead>
+<tr>
+<th>名词</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Aspect</td>
+<td>切面，具体的可插拔组件功能类，通常一个切面只实现一个通用功能</td>
+</tr>
+<tr>
+<td>Target Class/Method</td>
+<td>目标类、目标方法，指真正要执行与业务相关的方法</td>
+</tr>
+<tr>
+<td>PointCut</td>
+<td>切入点,使用execution表达式说明切面要作用在系统的哪些类上</td>
+</tr>
+<tr>
+<td>JoinPoint</td>
+<td>连接点，切面运行过程中是包含了目标类/方法元数据的对象</td>
+</tr>
+<tr>
+<td>Advice</td>
+<td>通知,说明具体的切面的执行时机,Spring包含了五种不同类型通知</td>
+</tr>
+</tbody></table>
+<h3 id="AOP配置过程"><a href="#AOP配置过程" class="headerlink" title="AOP配置过程"></a>AOP配置过程</h3><p>①依赖Aspect -&gt; ②实现切面类和切面方法 -&gt; ③配置Aspect Bean -&gt; ④定义PointCut -&gt; ⑤配置Advice</p>
+<h3 id="JoinPoint核心方法"><a href="#JoinPoint核心方法" class="headerlink" title="JoinPoint核心方法"></a>JoinPoint核心方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Object getTarget()</td>
+<td>获取IoC容器内目标对象</td>
+</tr>
+<tr>
+<td>Signature getSignature()</td>
+<td>获取目标方法</td>
+</tr>
+<tr>
+<td>Object[] getArgs()</td>
+<td>获取目标方法参数</td>
+</tr>
+</tbody></table>
+<h2 id="PointCut切点表达式"><a href="#PointCut切点表达式" class="headerlink" title="PointCut切点表达式"></a>PointCut切点表达式</h2><p>◇完整方法的描述：         public void com.lcg.service.UserService.createUser(形参1，形参2，…)<br>◇切点表达式：execution(public   *    com.lcg      ..             *       .        *         (            ..              ) )<br>◇ * 表示通配符    ..表示包通配符      (..) 表示参数通配符<br>◇上面的切点表达式的含义为：去匹配com.lcg包下所有类的所有公用方法；<br>◇(<em>,</em>)  – 代表两个参数；  *可以替换为string</p>
+<h2 id="五种通知类型"><a href="#五种通知类型" class="headerlink" title="五种通知类型"></a>五种通知类型</h2><h3 id="归纳"><a href="#归纳" class="headerlink" title="归纳"></a>归纳</h3><table>
+<thead>
+<tr>
+<th>通知</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Before Advice</td>
+<td>执行前通知，目标方法运行前执行</td>
+</tr>
+<tr>
+<td>After Returning Advice</td>
+<td>返回后通知，目标方法返回数据后执行</td>
+</tr>
+<tr>
+<td>After Throwing Advice</td>
+<td>异常通知,目标方法抛出异常后执行</td>
+</tr>
+<tr>
+<td>After Advice</td>
+<td>最后(最终)通知，目标方法运行后执行</td>
+</tr>
+<tr>
+<td>Around Advice</td>
+<td>环绕通知,自定义通知执行时机，可决定目标方法是否运行</td>
+</tr>
+</tbody></table>
 <h3 id="特殊的”通知”-引介增强"><a href="#特殊的”通知”-引介增强" class="headerlink" title="特殊的”通知” - 引介增强"></a>特殊的”通知” - 引介增强</h3><p>◇引介增强(IntroductionInterceptor)是对类的增强，而非方法<br>◇引介增强允许在运行时为类目标增加新属性或方法<br>◇引介增强允许在运行时改变类的行为，让类随运行环境动态变更</p>
 <h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>◇目标方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAfterReturning</span><span class="params">(JoinPoint joinPoint,Object ret)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;&lt;----返回后通知:&quot;</span> + ret);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAfterThrowing</span><span class="params">(JoinPoint joinPoint,Throwable th)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;&lt;----异常通知:&quot;</span> + th.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAfter</span><span class="params">(JoinPoint joinPoint)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;&lt;----触发后置通知&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -499,7 +572,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="comment">//静态代理是指必须手动创建代理类的代理模式使用方式</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceProxy</span> <span class="keyword">implements</span> <span class="title">UserService</span></span>&#123;</span><br><span class="line">    <span class="comment">//持有委托类的对象</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService ;</span><br><span class="line">    <span class="comment">//创建代理对象的时候，通过外侧传入某一个UserService的实现类为内部的委托类赋值，相当于持有委托类</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserServiceProxy</span><span class="params">(UserService userService)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userService = userService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;=====&quot;</span> + <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd HH:mm:ss SSS&quot;</span>).format(<span class="keyword">new</span> Date()) +<span class="string">&quot;=========&quot;</span>);</span><br><span class="line">        userService.createUser();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>◇主程序（客户）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        UserService userService = <span class="keyword">new</span> UserServiceProxy(<span class="keyword">new</span> UserServiceImpl());</span><br><span class="line">        userService.createUser();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>◇代理模式是可以嵌套使用的，因此在代理类的构造方法中参数为接口类的某一个实现而非具体的接口实现类UserServiceImpl；嵌套使用案例：再创建一个代理类，实现一些后置功能，然后在这个代理类中传入参数为另一个代理类的实现；**new **UserServiceProxy1(**new **UserServiceProxy(**new **UserServiceImpl()))因为参数不管是什么对象，只要实现了接口类即可；缺点：随着功能的不断扩大，每一个具体的实现类都至少拥有一个代理类，这种方式称为静态代理。</p>
+<p>◇代理模式是可以嵌套使用的，因此在代理类的构造方法中参数为接口类的某一个实现(在上面的UserServiceProxy代理类的构造方法中，参数是UserService)而非具体的接口实现类UserServiceImpl；嵌套使用案例：再创建一个代理类，实现一些后置功能，然后在这个代理类中传入参数为另一个代理类的实现；new UserServiceProxy1(new UserServiceProxy(new UserServiceImpl())); 因为参数不管是什么对象，只要实现了接口类即可；缺点：随着功能的不断扩大，每一个具体的实现类都至少拥有一个代理类，这种方式称为静态代理。</p>
 <h3 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h3><p>◇静态代理与动态代理最显著的区别是静态代理必须手动创建代理类，而动态代理根据接口的结构运行时在内存中进行生成。<br><strong>代码实现（AOP/S05）</strong><br>◇EmployeeService接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">EmployeeService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createEmployee</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>◇EmployeeServiceImpl实现类</p>
@@ -507,7 +580,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>◇创建ProxyInvocationHandler类，实现重要的接口InvocationHandler</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * InvocationHandler是JDK提供的反射类,用于在JDK动态代理中对目标方法进行增强</span></span><br><span class="line"><span class="comment"> * InvocationHandler实现类与切面类的环绕通知类似</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object target;<span class="comment">//目标对象</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ProxyInvocationHandler</span><span class="params">(Object target)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 必须实现这个invoke()方法</span></span><br><span class="line"><span class="comment">     * 在invoke()方法对目标方法进行增强</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> proxy 代理类对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> method 目标方法对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args 目标方法实参</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 目标方法运行后返回值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Throwable 目标方法抛出的异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;=====&quot;</span> + <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd HH:mm:ss SSS&quot;</span>).format(<span class="keyword">new</span> Date()) +<span class="string">&quot;=========&quot;</span>);</span><br><span class="line">        Object ret = method.invoke(target, args);<span class="comment">//调用目标方法,相当于ProceedingJoinPoint.proceed()</span></span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        UserService userService = <span class="keyword">new</span> UserServiceImpl();</span><br><span class="line">        ProxyInvocationHandler invocationHandler = <span class="keyword">new</span> ProxyInvocationHandler(userService);</span><br><span class="line">        <span class="comment">//动态创建代理类</span></span><br><span class="line">        <span class="comment">/*newProxyInstance方法基于接口动态创建代理类,三个参数（类加载器，类要实现的接口，如何对目标方法进行扩展）*/</span></span><br><span class="line">        UserService userServiceProxy = (UserService)Proxy.newProxyInstance(userService.getClass().getClassLoader(),</span><br><span class="line">                userService.getClass().getInterfaces(),</span><br><span class="line">                invocationHandler);</span><br><span class="line">        userServiceProxy.createUser();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//动态代理,必须实现接口才可以运行</span></span><br><span class="line">        EmployeeService employeeService = <span class="keyword">new</span> EmployeeServiceImpl();</span><br><span class="line">        EmployeeService employeeServiceProxy = (EmployeeService)Proxy.newProxyInstance(employeeService.getClass().getClassLoader(),</span><br><span class="line">                employeeService.getClass().getInterfaces(),</span><br><span class="line">                <span class="keyword">new</span> ProxyInvocationHandler(employeeService));</span><br><span class="line">        employeeServiceProxy.createEmployee();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="JDK动态代理解析"><a href="#JDK动态代理解析" class="headerlink" title="JDK动态代理解析"></a>JDK动态代理解析</h3><p>◇<a target="_blank" rel="noopener" href="https://jiankunking.blog.csdn.net/article/details/52143504">CSDN参考链接</a><br>◇Proxy是JDK反射包提供的类，其作用是根据已有接口来生成对应的代理类。</p>
-<p>◇下图代码有简化，省略了参数。首先在执行Proxy.newProxyInstance()方法，然后jdk会在本地文件中生成.class文件，然后依次确定代理类的包名为com.sun.proxy，确定类名为$Proxy0。然后通过ProxyGenerator生成代理类，通过伪代码可以看出是使用确定的类名并实现参数值传递过来的接口创建的，代理类和被代理类实现的是同一个接口。并且代理类中会持有一个接口的对象targetObject,这个对象是由new ProxyInvocationHandler(target)中的参数target提供的。然后在代理类中使用这个对象调用接口中定义的方法，并在方法执行前后者后增加在InvocationHandler类中扩展功能的代码。</p>
+<p>◇下图代码有简化，省略了参数。首先在执行Proxy.newProxyInstance()方法，然后jdk会在本地文件中生成.class字节码文件，然后依次确定代理类的包名为com.sun.proxy，确定类名为$Proxy0。然后通过ProxyGenerator生成代理类，通过伪代码可以看出是使用确定的类名并实现参数值传递过来的接口创建的，代理类和被代理类<wavy>实现的是同一个接口</wavy>。并且代理类中会持有一个接口的对象targetObject,这个对象是由new ProxyInvocationHandler(target)中的参数target提供的。然后在代理类中使用这个对象调用接口中定义的方法，并在方法执行前后者后增加在InvocationHandler类中扩展功能的代码。</p>
 <p>◇在创建完代理类以后，因为保存的是字节码文件，所以还要通过方法defineClass0将字节码文件通过被代理类的类加载器载入到JVM的方法区中。当类加载完成后，就会调用userServiceProxy.createUser()方法区加载类对象-&gt;new @$Proxy0()最终实例化代理类，将对象存放在JVM的堆区中。由于实例化代理类的同时也会实例化被代理类的实现类，所以代理类对象和被代理类的实现类对象(UserServiceImpl)有关联。</p>
 <p><img src="/p/7cef/image-20220327231651543.png" class="lazyload" data-srcset="/p/7cef/image-20220327231651543.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220327231651543"></p>
 <h3 id="CGLib实现代理类"><a href="#CGLib实现代理类" class="headerlink" title="CGLib实现代理类"></a>CGLib实现代理类</h3><p>◇CGLib是运行时字节码增强技术<br>◇Spring AOP扩展无接口类使用CGLib<br>◇AOP会运行时生成目标继承类字节码的方式进行行为扩展<br>◇如下图，假设有一个最原始的Service类，类中有一个findById()方法;该Service类没有实现任何接口，因此无法实现JDK的动态代理。Spring会自动使用CGLib通过继承的方式来对类进行扩展。这个类是在jvm运行过程中自动生成的，生成规则是：原类名+$$+EnhancerByCGLIB<br><img src="/p/7cef/1633250112821-72b8f05b-0992-4d48-95a4-208734a4e2dd.png" class="lazyload" data-srcset="/p/7cef/1633250112821-72b8f05b-0992-4d48-95a4-208734a4e2dd.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
@@ -545,10 +618,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-27T23:17:23+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-25T13:36:10+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月27日</p>
+    <p>更新于：2022年5月25日</p>
   </a>
 </div>
 
@@ -656,8 +729,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/p/d79b.html'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Spring JDBC与事务管理</p>
-          <p class='content'>课程介绍◇Spring JDBC与JdbcTemplate对象◇声明式事务与两种配置方式◇声明式事务七种事务传播行为  
-Spring JDBC简介◇Spring JDBC是Spring生态用于...</p>
+          <p class='content'>Spring JDBC简介◇Spring JDBC是Spring生态用于处理关系型数据库的模块◇Spring JDBC对JDBC API进行封装，极大简化开发工作量◇JdbcTemplate是S...</p>
         </a>
       
       

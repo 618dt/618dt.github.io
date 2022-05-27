@@ -459,30 +459,83 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h2 id="周课介绍"><a href="#周课介绍" class="headerlink" title="周课介绍"></a>周课介绍</h2><p>◇微服务的基本概念、设计与拆分原则<br>◇微服务和Spring Cloud的关系<br>◇微服务常见的组件和功能<br>◇课程查询案例基本介绍、系统架构设计和接口设计<br>◇分模块构建Spring Cloud项目<br>◇完成课程列表、课程价格服务开发<br>◇课程服务整合，服务注册与发现<br>◇整合OpenFeign实现服务间调用<br>◇网关的集成与开发，并接入服务<br>◇引入服务的熔断与降级，并进行实操演练</p>
-<h2 id="微服务基础介绍"><a href="#微服务基础介绍" class="headerlink" title="微服务基础介绍"></a>微服务基础介绍</h2><h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ol>
+  <h2 id="微服务基础介绍"><a href="#微服务基础介绍" class="headerlink" title="微服务基础介绍"></a>微服务基础介绍</h2><h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ol>
 <li>什么是微服务 </li>
 <li>微服务的特点 </li>
 <li>微服务优缺点</li>
-<li>微服务的两大门派 springcloud和dubbo</li>
+<li>微服务的两大门派 SpringCloud和Dubbo</li>
 <li>微服务拆分 </li>
 <li>微服务扩展 </li>
-<li>微服务重要模块    <h3 id="单体应用的缺点"><a href="#单体应用的缺点" class="headerlink" title="单体应用的缺点"></a>单体应用的缺点</h3>◇单体应用架构图<br><img src="/p/1b72/1637134079406-7d001d48-20f4-4f89-9013-99fea6d2c68f.png" class="lazyload" data-srcset="/p/1b72/1637134079406-7d001d48-20f4-4f89-9013-99fea6d2c68f.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"><br>◇部署效率低下；单体应用的代码会越来越多，依赖也越来越多；pom文件会特别长，则导致部署时间变长；<br>◇团队协作开发成本高<br>◇系统高可用性差；因为最后所有功能都会部署到同一个包里面，且共用一个进程；那么如果一个功能出现问题很有可能整个系统出现问题；</li>
+<li>微服务重要模块    <h3 id="单体应用的缺点"><a href="#单体应用的缺点" class="headerlink" title="单体应用的缺点"></a>单体应用的缺点</h3>◇部署效率低下；单体应用的代码会越来越多，依赖也越来越多；pom配置文件会特别长，则导致部署时间变长。<br>◇团队协作开发成本高。<br>◇系统高可用性差，因为最后所有功能都会部署到同一个包里面，且共用一个进程。那么如果一个功能出现问题很有可能整个系统出现问题。</li>
 </ol>
-<h3 id="什么是服务化"><a href="#什么是服务化" class="headerlink" title="什么是服务化"></a>什么是服务化</h3><p>◇ 把传统的单机应⽤中通过JAR包依赖产⽣的本地⽅法调⽤，改造成通过RPC、HTTP产⽣的远程⽅法调⽤<br>◇ 把模块从单体应⽤中拆分出来，独⽴成⼀个服务部署<br>◇ 模块就可以独⽴开发、测试、上线和运维，可以交由专门的团队来做，与主模块不耦合  </p>
-<h3 id="从单体到微服务架构"><a href="#从单体到微服务架构" class="headerlink" title="从单体到微服务架构"></a>从单体到微服务架构</h3><p>◇单体到微服务的架构图<br><img src="/p/1b72/1637134734874-79b80c53-5584-4a39-bd81-eb55d900aea1.png" class="lazyload" data-srcset="/p/1b72/1637134734874-79b80c53-5584-4a39-bd81-eb55d900aea1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h3 id="什么是微服务"><a href="#什么是微服务" class="headerlink" title="什么是微服务"></a>什么是微服务</h3><p>◇一种架构风格<br>◇开发单个应用作为一系列小型服务的套件，其中每个服务都运行在自己的进程中，并且通过轻量级的机制实现彼此间的通信， 这通常是HTTP资源API。<br>◇这些服务是围绕着业务功能构建的，并且可以通过完全自动化的部署机制进行独立部署<br>◇这些服务的集中式管理做到了最小化（例如docker相关技 术），每一种服务都可以通过不同的编程语言进行编写，并且可以使用不同的数据存储技术。  </p>
-<h3 id="微服务的特点"><a href="#微服务的特点" class="headerlink" title="微服务的特点"></a>微服务的特点</h3><p>◇组件以服务形式来提供<br>◇产品而不是项目<br>◇轻量级通信、独立进程<br>◇分散治理、去中心化治理<br>◇容错性设计<br>◇会带来团队的组织架构的调整；如有原来水平团队变成垂直的团队，微服务下一个业务就有整套技术人员；<br><img src="/p/1b72/1637135262247-ccfb963f-6436-48a4-88a7-9f91c1a87450.png" class="lazyload" data-srcset="/p/1b72/1637135262247-ccfb963f-6436-48a4-88a7-9f91c1a87450.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h3 id="什么是服务化"><a href="#什么是服务化" class="headerlink" title="什么是服务化"></a>什么是服务化</h3><p>◇ 把传统的单机应⽤中通过JAR包依赖产⽣的本地⽅法调⽤，改造成通过RPC、HTTP产⽣的远程⽅法调⽤ 。<br>◇ 把模块从单体应⽤中拆分出来，独⽴成⼀个服务部署 。<br>◇ 模块就可以独⽴开发、测试、上线和运维，可以交由专门的团队来做，与主模块不耦合。</p>
+<h3 id="从单体到微服务架构"><a href="#从单体到微服务架构" class="headerlink" title="从单体到微服务架构"></a>从单体到微服务架构</h3><p>◇单体到微服务的架构图。在微服务架构中，无论请求是手机端还是web端，都先将请求发送到网关，再由网关将请求转发到对应的微服务模块中。<br><img src="/p/1b72/1637134734874-79b80c53-5584-4a39-bd81-eb55d900aea1.png" class="lazyload" data-srcset="/p/1b72/1637134734874-79b80c53-5584-4a39-bd81-eb55d900aea1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h3 id="什么是微服务"><a href="#什么是微服务" class="headerlink" title="什么是微服务"></a>什么是微服务</h3><p>◇微服务是一种架构风格<br>◇开发单个应用作为一系列小型服务的套件，其中每个服务都运行在自己的进程中，并且通过轻量级的机制实现彼此间的通信， 这通常是HTTP的资源API。<br>◇这些服务是围绕着业务功能构建的，并且可以通过完全<wavy>自动化的部署</wavy>机制进行独立部署<br>◇这些服务的集中式管理做到了最小化（例如docker相关技术），每一种服务都可以通过不同的编程语言进行编写，并且可以使用不同的数据存储技术。  </p>
+<h3 id="微服务的特点"><a href="#微服务的特点" class="headerlink" title="微服务的特点"></a>微服务的特点</h3><p>◇组件以<emp>服务形式</emp>来提供<br>◇产品而不是项目<br>◇轻量级通信、独立进程<br>◇分散治理、去中心化治理<br>◇容错性设计<br>◇会带来团队的组织架构的调整；如有原来水平团队变成垂直的团队，微服务下一个业务就有整套技术人员；<br><img src="/p/1b72/1637135262247-ccfb963f-6436-48a4-88a7-9f91c1a87450.png" class="lazyload" data-srcset="/p/1b72/1637135262247-ccfb963f-6436-48a4-88a7-9f91c1a87450.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="微服务优缺点"><a href="#微服务优缺点" class="headerlink" title="微服务优缺点"></a>微服务优缺点</h3><p><strong>优点</strong><br>◇服务简单、便于学习和上手，相对易于维护<br>◇独立部署，灵活扩展<br>◇技术栈丰富，包括开发工具，数据库，中间件等；<br><strong>缺点</strong><br>◇运维成本过高<br>◇接口可能不匹配;因为以前我们进行本地方法调用的时候，不会出现接口不匹配的问题，在本地可以直接查看接口的返回类型；但变成微服务之后，假设我们都不知道对方的代码，只能通过简单的描述，就有可能造成接口不匹配；<br>◇代码可能重复<br>◇架构复杂度提高</p>
 <p>◇在不同系统复杂度的情况下单体应用(Monolith)和微服务应用(Microservice)的优势区别<br><img src="/p/1b72/1637154816697-fc8ca31e-ad8b-47e5-b35a-0a67dd393543.png" class="lazyload" data-srcset="/p/1b72/1637154816697-fc8ca31e-ad8b-47e5-b35a-0a67dd393543.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h2 id="微服务的两大门派"><a href="#微服务的两大门派" class="headerlink" title="微服务的两大门派"></a>微服务的两大门派</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>◇Spring Cloud：众多子项目；比如说像网关、配置中心、智能路由等等；<br>◇Dubbo：高性能、轻量级的开源 Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡， 以及服务自动注册和发现 ；<br>◇Dubbo提供的能力只是Spring Cloud的一部分子集<br>◇Dubbo中无是指不提供该功能，但可以通过其他框架组合实现；比如说在Dubbo中分布式配置功能可以采用百度的disconf或者淘宝的diamond实现；利用京东开源的Hydra实现服务跟踪；当当开源的Elastic-Job实现批量任务等等；<br><img src="/p/1b72/1637155733539-83469425-a6d5-4e77-a50f-3499c5490cb5.png" class="lazyload" data-srcset="/p/1b72/1637155733539-83469425-a6d5-4e77-a50f-3499c5490cb5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="微服务的两大门派"><a href="#微服务的两大门派" class="headerlink" title="微服务的两大门派"></a>微服务的两大门派</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>◇Spring Cloud：众多子项目；比如说像网关、配置中心、智能路由等等；<br>◇Dubbo：高性能、轻量级的开源 Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡， 以及服务自动注册和发现 ；<br>◇Dubbo提供的能力只是Spring Cloud的一部分子集<br>◇表格中Dubbo中无是指不提供该功能，但可以通过其他框架组合实现；比如说在Dubbo中分布式配置功能可以采用百度的disconf或者淘宝的diamond实现；利用京东开源的Hydra实现服务跟踪；当当开源的Elastic-Job实现批量任务等等；</p>
+<table>
+<thead>
+<tr>
+<th>核心组件</th>
+<th>Dubbo</th>
+<th>SpringCloud</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>服务注册中心</td>
+<td>Zookeeper</td>
+<td>Eureka、 Nacos</td>
+</tr>
+<tr>
+<td>服务调用方式</td>
+<td>RPC</td>
+<td>REST API</td>
+</tr>
+<tr>
+<td>服务网关</td>
+<td>无</td>
+<td>Spring Cloud Gateway、Zuul</td>
+</tr>
+<tr>
+<td>断路器</td>
+<td>不完善</td>
+<td>Hystrix</td>
+</tr>
+<tr>
+<td>分布式配置</td>
+<td>无</td>
+<td>Spring Cloud Config、Nacos</td>
+</tr>
+<tr>
+<td>服务跟踪</td>
+<td>无</td>
+<td>Spring Cloud Sleuth</td>
+</tr>
+<tr>
+<td>消息总线</td>
+<td>无</td>
+<td>Spring Cloud Bus</td>
+</tr>
+<tr>
+<td>数据流</td>
+<td>无</td>
+<td>Spring Cloud Stream</td>
+</tr>
+<tr>
+<td>批量任务</td>
+<td>无</td>
+<td>Spring Cloud Task</td>
+</tr>
+</tbody></table>
 <h3 id="通信协议对比"><a href="#通信协议对比" class="headerlink" title="通信协议对比"></a>通信协议对比</h3><p>◇Dubbo基于RPC，Spring Cloud基于REST<br>◇RPC 服务提供方与调用方接口依赖方式太强<br>◇RPC服务对平台敏感，难以简单复用<br>◇ 效率RPC更高  </p>
 <h3 id="文档质量对比"><a href="#文档质量对比" class="headerlink" title="文档质量对比"></a>文档质量对比</h3><p>◇ Dubbo的文档可以说在国内开源框架中算是一流的，提供了中文与英文两种版本<br>◇ Spring Cloud文档体量大，更多的是偏向整合，更深入的使用方法还是需要查看其整合组件的详细文档  </p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>◇Dubbo诞生于阿里系，其他组件不够全面；而Spring Cloud专注于企业级的微服务框架，开发便利；生态上Spring Cloud更强大；<br>◇Dubbo就像组装电脑，有很高的自由度，但是需要承担兼容性的风险；Spring Cloud相当于品牌机，保证了一套系统的稳定性；<br>◇需要根据自身的研发水平和所处阶段选择</p>
 <h2 id="微服务拆分"><a href="#微服务拆分" class="headerlink" title="微服务拆分"></a>微服务拆分</h2><h3 id="什么时候进行服务化拆分"><a href="#什么时候进行服务化拆分" class="headerlink" title="什么时候进行服务化拆分"></a>什么时候进行服务化拆分</h3><p>◇第一阶段的主要目标是快速开发和验证想法，即采用单体应用模式快速开发应用上线；<br>◇进一步增加更多的新特性来吸引更多的目标用户<br>◇同时进行开发的人员超过10人(视业务大小决定人数)，这个时候就该考虑进行服务化拆分</p>
 <h3 id="不适合拆分的情况"><a href="#不适合拆分的情况" class="headerlink" title="不适合拆分的情况"></a>不适合拆分的情况</h3><p>◇小团队，技术基础比较薄弱<br>◇流量不高，压力小，业务变化也不大；比如企业内部的系统，虽然功能多，但是只是企业内部员工使用，流量不是很高；<br>◇对延迟很敏感的低延迟高并发系统；对于微服务而言，延迟是很高的，因为各个模块间的调用是通过网络通信完成的；</p>
 <h3 id="服务化拆分的两种姿势"><a href="#服务化拆分的两种姿势" class="headerlink" title="服务化拆分的两种姿势"></a>服务化拆分的两种姿势</h3><p>◇纵向拆分；按照业务维度去拆分，比如说关联程度比较近的拆分为一个微服务，功能比较独立的拆分为一个微服务；如社交APP，评论功能是一个微服务，消息通知是一个微服务，个人主页是一个微服务；<br>◇横向拆分；按照公共领域拆分；比如说上面的评论，消息通知，个人主页都有公共的需求，都需要用到用户模块；则把用户服务作为一个横向拆分出来，并且把功能提供给各个模块，这样一来用户服务就得到了大量的复用；<br>◇结合业务综合分析</p>
-<h2 id="微服务扩展"><a href="#微服务扩展" class="headerlink" title="微服务扩展"></a>微服务扩展</h2><h3 id="服务扩展"><a href="#服务扩展" class="headerlink" title="服务扩展"></a>服务扩展</h3><p>◇ x 轴-水平复制；就是单体应用的典型扩展方式，把整个系统作为一个整体重新部署几套然后在前面加几个负载均衡器即可；水平复制往往效果不好，而且造成资源浪费；<br>◇ y 轴-功能解耦 ；即指微服务的拆解，效率比X轴的维度高；<br>◇ z 轴-数据分区 ；在我们系统过大后，存储空间可能不足；所以就需要进行数据库的拆分；<br><img src="/p/1b72/1637158294647-b32edcc5-5f8b-49ab-9fdd-f125a602b175.png" class="lazyload" data-srcset="/p/1b72/1637158294647-b32edcc5-5f8b-49ab-9fdd-f125a602b175.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="微服务扩展"><a href="#微服务扩展" class="headerlink" title="微服务扩展"></a>微服务扩展</h2><h3 id="服务扩展"><a href="#服务扩展" class="headerlink" title="服务扩展"></a>服务扩展</h3><p>◇ x 轴-水平复制；就是单体应用的典型扩展方式，把整个系统作为一个整体重新部署几套然后在前面加几个负载均衡器即可；水平复制往往效果不好，而且造成资源浪费；<br>◇ y 轴-功能解耦 ；即指微服务的拆解，效率比X轴的维度高；<br>◇ z 轴-数据分区 ；在我们系统过大后，存储空间可能不足；所以就需要进行数据库的拆分；<br><img src="/p/1b72/image-20220527091247939.png" class="lazyload" data-srcset="/p/1b72/image-20220527091247939.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220527091247939"></p>
 <h3 id="自动按需扩展"><a href="#自动按需扩展" class="headerlink" title="自动按需扩展"></a>自动按需扩展</h3><p>◇ 根据CPU负载程度、特定时间（比如周末）、消息中间件的队 列长度、业务具体规则、预测等来决定是否扩展<br>◇ 自动分配一个新的服务实例，提高可用性<br>◇ 提高了可伸缩性（双11之后，自动减少服务器）<br>◇ 具有最佳使用率，节约成本  </p>
 <h2 id="微服务重要模块"><a href="#微服务重要模块" class="headerlink" title="微服务重要模块"></a>微服务重要模块</h2><p>◇服务描述；我们服务提供方需要把自己的服务描述出来，比如是什么类型的服务，接口是什么类型等等；<br>◇注册中⼼；服务提供方需要到注册中心进行注册；<br>◇服务框架；采用什么协议（TCP、UDP），传输的方式是同步还是异步，数据是否需要压缩等等内容由服务框架进行统一；<br>◇负载均衡；服务提供方有很多个，需要有负载均衡技术；<br>◇熔断和降级；保证整体的可用性，不因某一个服务瘫痪导致整个系统故障；<br>◇网关；当服务增多之后，用户是不可能每一个请求达到不同的地址上去，需要一个统一的网关接收用户的请求，然后进行分发；具有统一转换，权限控制等功能；</p>
 
@@ -519,10 +572,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-13T12:55:52+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-27T09:13:31+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月13日</p>
+    <p>更新于：2022年5月27日</p>
   </a>
 </div>
 
@@ -630,15 +683,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/p/8a2d.html'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>SpringCloud开发入门</p>
-          <p class='content'>课程安排
-Spring Cloud简介 
-项目整体设计 
-课程列表模块开发  
-课程价格模块开发
-服务注册与发现Eureka 
-服务间调用OpenFeign  
-负载均衡Ribbon 
-熔断器H...</p>
+          <p class='content'>Spring Cloud简介◇ 成熟的微服务框架，定位为开发人员提供工具，以快速构建分布式系统◇核心组件
+项目整体设计接口设计◇课程列表◇单个课程价格◇整合课程列表和价格；首先会通过远程调用获取...</p>
         </a>
       
       
@@ -692,7 +738,7 @@ RabbitMQ管理后台
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%A8%E8%AF%BE%E4%BB%8B%E7%BB%8D"><span class="toc-text">周课介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D"><span class="toc-text">微服务基础介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E7%82%B9"><span class="toc-text">要点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%93%E5%BA%94%E7%94%A8%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">单体应用的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%8C%96"><span class="toc-text">什么是服务化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E5%8D%95%E4%BD%93%E5%88%B0%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="toc-text">从单体到微服务架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="toc-text">什么是微服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">微服务的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">微服务优缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%B8%A4%E5%A4%A7%E9%97%A8%E6%B4%BE"><span class="toc-text">微服务的两大门派</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E5%AF%B9%E6%AF%94"><span class="toc-text">通信协议对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E8%B4%A8%E9%87%8F%E5%AF%B9%E6%AF%94"><span class="toc-text">文档质量对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86"><span class="toc-text">微服务拆分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E6%9C%8D%E5%8A%A1%E5%8C%96%E6%8B%86%E5%88%86"><span class="toc-text">什么时候进行服务化拆分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E9%80%82%E5%90%88%E6%8B%86%E5%88%86%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-text">不适合拆分的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%8C%96%E6%8B%86%E5%88%86%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%A7%BF%E5%8A%BF"><span class="toc-text">服务化拆分的两种姿势</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%A9%E5%B1%95"><span class="toc-text">微服务扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%89%A9%E5%B1%95"><span class="toc-text">服务扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%8C%89%E9%9C%80%E6%89%A9%E5%B1%95"><span class="toc-text">自动按需扩展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9D%97"><span class="toc-text">微服务重要模块</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D"><span class="toc-text">微服务基础介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E7%82%B9"><span class="toc-text">要点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BD%93%E5%BA%94%E7%94%A8%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">单体应用的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%8C%96"><span class="toc-text">什么是服务化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E5%8D%95%E4%BD%93%E5%88%B0%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="toc-text">从单体到微服务架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="toc-text">什么是微服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">微服务的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">微服务优缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%B8%A4%E5%A4%A7%E9%97%A8%E6%B4%BE"><span class="toc-text">微服务的两大门派</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E5%AF%B9%E6%AF%94"><span class="toc-text">通信协议对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E8%B4%A8%E9%87%8F%E5%AF%B9%E6%AF%94"><span class="toc-text">文档质量对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86"><span class="toc-text">微服务拆分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E6%9C%8D%E5%8A%A1%E5%8C%96%E6%8B%86%E5%88%86"><span class="toc-text">什么时候进行服务化拆分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E9%80%82%E5%90%88%E6%8B%86%E5%88%86%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-text">不适合拆分的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%8C%96%E6%8B%86%E5%88%86%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%A7%BF%E5%8A%BF"><span class="toc-text">服务化拆分的两种姿势</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%A9%E5%B1%95"><span class="toc-text">微服务扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%89%A9%E5%B1%95"><span class="toc-text">服务扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%8C%89%E9%9C%80%E6%89%A9%E5%B1%95"><span class="toc-text">自动按需扩展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9D%97"><span class="toc-text">微服务重要模块</span></a></li></ol>
     </div>
   </section>
 

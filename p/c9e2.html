@@ -439,13 +439,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.4k字</p>
+      <p>字数：1.8k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：4分钟</p>
+      <p>时长：6分钟</p>
     </a>
   </div>
 
@@ -460,17 +460,57 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   <h2 id="数据库的事务机制"><a href="#数据库的事务机制" class="headerlink" title="数据库的事务机制"></a>数据库的事务机制</h2><h3 id="避免写入直接操作数据文件"><a href="#避免写入直接操作数据文件" class="headerlink" title="避免写入直接操作数据文件"></a>避免写入直接操作数据文件</h3><p> ◇ 如果数据的写入直接操作数据文件是非常危险的事情<br><img src="/p/c9e2/1626917790269-93acb2ad-63b6-4dd4-be0c-2e9fc2a0efb0.png" class="lazyload" data-srcset="/p/c9e2/1626917790269-93acb2ad-63b6-4dd4-be0c-2e9fc2a0efb0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h3 id="利用日志来实现间接写入"><a href="#利用日志来实现间接写入" class="headerlink" title="利用日志来实现间接写入"></a>利用日志来实现间接写入</h3><p>◇ MySQL总共有5种日志，其中只有redo(重做)日志和undo(撤销)日志与事务有关<br><img src="/p/c9e2/1626917898437-0ccbca8d-0d06-4df1-a5bc-55e18b880fe0.png" class="lazyload" data-srcset="/p/c9e2/1626917898437-0ccbca8d-0d06-4df1-a5bc-55e18b880fe0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h3 id="事务机制（Transaction）"><a href="#事务机制（Transaction）" class="headerlink" title="事务机制（Transaction）"></a>事务机制（Transaction）</h3><p>◇ RDBMS = SQL语句 + 事务（ACID）<br>◇ 事务是一个或者多个SQL语句组成的整体，要么全部执行成功，要 么全都执行失败  </p>
+<h3 id="利用日志来实现间接写入"><a href="#利用日志来实现间接写入" class="headerlink" title="利用日志来实现间接写入"></a>利用日志来实现间接写入</h3><p>◇ MySQL总共有5种日志，其中redo(重做)日志和undo(回滚)日志与事务有关 。redo日志保证事务一致性，undo日志保证原子性。</p>
+<p><img src="/p/c9e2/1626917898437-0ccbca8d-0d06-4df1-a5bc-55e18b880fe0.png" class="lazyload" data-srcset="/p/c9e2/1626917898437-0ccbca8d-0d06-4df1-a5bc-55e18b880fe0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h3 id="事务机制（Transaction）"><a href="#事务机制（Transaction）" class="headerlink" title="事务机制（Transaction）"></a>事务机制（Transaction）</h3><p>◇ RDBMS = SQL语句 + 事务（ACID）  </p>
+<p>◇ 事务是一个或者多个SQL语句组成的整体，要么全部执行成功，要 么全都执行失败  </p>
 <h3 id="事务案例"><a href="#事务案例" class="headerlink" title="事务案例"></a>事务案例</h3><p>◇ 把10部门中MANGER员工调往20部门，其他岗位的员工调往30部门，然后删除10部门<br><img src="/p/c9e2/1626917996276-921161a2-38af-41f5-ae65-e38647751e68.png" class="lazyload" data-srcset="/p/c9e2/1626917996276-921161a2-38af-41f5-ae65-e38647751e68.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h3 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h3><p>◇ 默认情况下，MySQL执行每条SQL语句都会自动开启和提交事务<br>◇ 为了让多条SQL语句纳入到一个事务之下，可以手动管理事务  </p>
+<h3 id="管理事务"><a href="#管理事务" class="headerlink" title="管理事务"></a>管理事务</h3><p>◇ 默认情况下，MySQL执行每条SQL语句都会自动开启和提交事务  </p>
+<p>◇ 为了让多条SQL语句纳入到一个事务之下，可以手动管理事务  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">START</span> TRANSACTION ;<span class="operator">/</span><span class="operator">/</span>开启事务</span><br><span class="line"><span class="keyword">SQL</span>语句</span><br><span class="line">[ <span class="keyword">COMMIT</span> <span class="operator">|</span> <span class="keyword">ROLLBACK</span> ] ;<span class="operator">/</span><span class="operator">/</span>提交<span class="operator">|</span>回滚</span><br></pre></td></tr></table></figure>
 <h3 id="事务的ACID属性"><a href="#事务的ACID属性" class="headerlink" title="事务的ACID属性"></a>事务的ACID属性</h3><p><img src="/p/c9e2/1626918119445-1a0602c1-e9b0-4847-bfce-dcefc14db76d.png" class="lazyload" data-srcset="/p/c9e2/1626918119445-1a0602c1-e9b0-4847-bfce-dcefc14db76d.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h4 id="事务的原子性"><a href="#事务的原子性" class="headerlink" title="事务的原子性"></a>事务的原子性</h4><p>◇ 一个事务中的所有操作要么全部完成，要么全部失败。事务执行后 ，不允许停留在中间某个状态  </p>
-<h4 id="事务的一致性"><a href="#事务的一致性" class="headerlink" title="事务的一致性"></a>事务的一致性</h4><p>◇ 不管在任何给定的时间、并发事务有多少，事务必须保证运行结果 的一致性<br>◇ 事务可以并发执行，但是最终MySQL却串行执行<br><img src="/p/c9e2/1626918183199-9912d76a-7d0f-43f0-b79e-3a527aa25551.png" class="lazyload" data-srcset="/p/c9e2/1626918183199-9912d76a-7d0f-43f0-b79e-3a527aa25551.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h4 id="事务的隔离性"><a href="#事务的隔离性" class="headerlink" title="事务的隔离性"></a>事务的隔离性</h4><p>◇ 隔离性要求事务不受其他并发事务的影响，如同在给定的时间内，该事务是数据库唯一运行的事物<br>◇ 默认情况下A事务，只能看到日志中该事务的相关数据<br><img src="/p/c9e2/1626918249811-8534a704-899e-49cb-9c39-01d8f26737fc.png" class="lazyload" data-srcset="/p/c9e2/1626918249811-8534a704-899e-49cb-9c39-01d8f26737fc.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h4 id="事务的一致性"><a href="#事务的一致性" class="headerlink" title="事务的一致性"></a>事务的一致性</h4><p>◇ 不管在任何给定的时间、并发事务有多少，事务必须保证运行结果的一致性  </p>
+<p>◇ 事务可以并发执行，但是最终MySQL却串行执行<br><img src="/p/c9e2/1626918183199-9912d76a-7d0f-43f0-b79e-3a527aa25551.png" class="lazyload" data-srcset="/p/c9e2/1626918183199-9912d76a-7d0f-43f0-b79e-3a527aa25551.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h4 id="事务的隔离性"><a href="#事务的隔离性" class="headerlink" title="事务的隔离性"></a>事务的隔离性</h4><p>◇ 隔离性要求事务不受其他并发事务的影响，如同在给定的时间内，该事务是数据库唯一运行的事务</p>
+<p>◇ 默认情况下A事务，只能看到日志中该事务的相关数据<br><img src="/p/c9e2/1626918249811-8534a704-899e-49cb-9c39-01d8f26737fc.png" class="lazyload" data-srcset="/p/c9e2/1626918249811-8534a704-899e-49cb-9c39-01d8f26737fc.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h4 id="事务的持久性"><a href="#事务的持久性" class="headerlink" title="事务的持久性"></a>事务的持久性</h4><p> ◇事务一旦提交，结果便是永久性的。即便发生宕机，仍然可以依靠事务日志完成数据的持久化  </p>
 <h3 id="事务的四个隔离级别"><a href="#事务的四个隔离级别" class="headerlink" title="事务的四个隔离级别"></a>事务的四个隔离级别</h3><p><img src="/p/c9e2/1626918389326-5eab4721-6bd8-43a0-bf2e-6a779663c28e.png" class="lazyload" data-srcset="/p/c9e2/1626918389326-5eab4721-6bd8-43a0-bf2e-6a779663c28e.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<p>◇隔离级别造成的影响：①<strong>脏读</strong>表示 当一个事务正在访问数据并且对数据进行了修改，而这种修改还没有提交到数据库中，这时另外一个事务也访问了这个数据，然后使用了这个数据。因为这个数据是还没有提交的数据，那么另外一个事务读到的这个数据是“脏数据”，依据“脏数据”所做的操作可能是不正确的。②<strong>不可重复读</strong>：指在一个事务内多次读同一数据。在这个事务还没有结束时，另一个事务也访问该数据。那么，在第一个事务中的两次读数据之间，由于第二个事务的修改导致第一个事务两次读取的数据可能不太一样。这就发生了在一个事务内两次读到的数据是不一样的情况，因此称为不可重复读。③<strong>幻读</strong>：幻读与不可重复读类似。它发生在一个事务（T1）读取了几行数据，接着另一个并发事务（T2）插入了一些数据时。在随后的查询中，第一个事务（T1）就会发现多了一些原本不存在的记录，就好像发生了幻觉一样，所以称为幻读。</p>
+<table>
+<thead>
+<tr>
+<th align="center">隔离级别</th>
+<th align="center">脏读</th>
+<th align="center">不可重复读</th>
+<th align="center">幻读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">READ-UNCOMMITTED</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">READ-COMMITTED</td>
+<td align="center">×</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">REPEATABLE-READ</td>
+<td align="center">×</td>
+<td align="center">×</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">SERIALIZABLE</td>
+<td align="center">×</td>
+<td align="center">×</td>
+<td align="center">×</td>
+</tr>
+</tbody></table>
 <h3 id="修改事务隔离级别"><a href="#修改事务隔离级别" class="headerlink" title="修改事务隔离级别"></a>修改事务隔离级别</h3><p>◇在Navicat中开启两个sql面板可以模拟两个不同的事务；Mysql默认的隔离级别是REPEATABLE READ<br>◇ READ UNCOMMITTED 代表可以读取其他事务未提交的数据  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> SESSION TRANSACTION ISOLATION LEVEL </span><br><span class="line">READ UNCOMMITTED;</span><br></pre></td></tr></table></figure>
 <p>◇ READ COMMITTED 代表只能读取其他事务提交的数据  </p>
@@ -480,7 +520,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="业务案例"><a href="#业务案例" class="headerlink" title="业务案例"></a>业务案例</h3><p>①比如说购票场景里面，由于事务之间是隔离的，所以A、B两事务分别对第一条记录进行操作；A事务修改将其改为已售出，但是A事务未进行提交，因此真实的数据还是未售出状态；B事务将其改为已售出，并且很快进行提交；那么当A进行提交时，发现记录变成了已售出，就会发生回滚，即修改失败；虽然说没有产生有歧义的数据，但是动不动就购票失败，十分影响用户体验；因此在这个场景下我们应当允许事务去读取其他事务的临时状态；B事务可以看到A事务里的临时信息，即修改了第一条记录，但未提交；那么B就无法修改此记录；就不会引发数据冲突了；所以这里使用的隔离级别为:READ UNCOMMITTED<br><img src="/p/c9e2/1626918423470-5ed66a73-33cf-4fd7-8082-cdefb265ee8a.png" class="lazyload" data-srcset="/p/c9e2/1626918423470-5ed66a73-33cf-4fd7-8082-cdefb265ee8a.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>②对于银行转账之类的业务场景；就只能让当前事务去读取其他事务已经提交的数据，而不能够去读取其他事务的临时数据;比如说下面的Scott账户，假设B事务执行，需要支出100元，但是还没有提交；而这时A事务进行转账操作，由于可以看到B事务的临时数据，所以A事务看到Scott账户为4900元，提交后，账户变为5900元；但如果B事务由于某些原因回滚的话，原来的操作无效；而此时账户余额却是4900元，凭空少了100元；因此这种场景必须使用READ COMMITTED隔离级别；<br><img src="/p/c9e2/1626918537468-9c083613-aa6e-4b96-9e6a-3cb7625db4f6.png" class="lazyload" data-srcset="/p/c9e2/1626918537468-9c083613-aa6e-4b96-9e6a-3cb7625db4f6.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>③又如，A事务进行某商品的下单购票后未提交事务，但是B事务确将商品价格提高了；那么此时A事务应该根据原价购买；所以隔离级别使用REPEATABLE READ；即不受其他任何事务的影响，无论其他事务提交与否；<br><img src="/p/c9e2/1626918633199-35ba965c-25a8-41b6-b280-3a59d1b6d4ee.png" class="lazyload" data-srcset="/p/c9e2/1626918633199-35ba965c-25a8-41b6-b280-3a59d1b6d4ee.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="事务的序列化"><a href="#事务的序列化" class="headerlink" title="事务的序列化"></a>事务的序列化</h3><p>◇ 由于事务并发执行所带来的各种问题，前三种隔离级别只适用在某些业务场景中，但是序列化的隔离性，只有前面的会话结束后(事务提交后)才能执行下一个事务，即让事务逐一执行，不能够并发地执行事务；但是这样会大大降低数据库的并发能力，所以不太常用；  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> SESSION TRANSACTION ISOLATION LEVEL</span><br><span class="line">SERIALIZABLE;</span><br></pre></td></tr></table></figure>
-<h2 id="数据导入与导出"><a href="#数据导入与导出" class="headerlink" title="数据导入与导出"></a>数据导入与导出</h2><h3 id="数据导出与备份的区别"><a href="#数据导出与备份的区别" class="headerlink" title="数据导出与备份的区别"></a>数据导出与备份的区别</h3><p>◇ 数据导出，导出的纯粹是业务数据<br>◇ 数据备份，备份的是数据文件、日志文件、索引文件等等<br><img src="/p/c9e2/1626918828306-0b54f018-06c6-4391-8539-16724d411448.png" class="lazyload" data-srcset="/p/c9e2/1626918828306-0b54f018-06c6-4391-8539-16724d411448.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="数据导入与导出"><a href="#数据导入与导出" class="headerlink" title="数据导入与导出"></a>数据导入与导出</h2><h3 id="数据导出与备份的区别"><a href="#数据导出与备份的区别" class="headerlink" title="数据导出与备份的区别"></a>数据导出与备份的区别</h3><p>◇ 数据导出，导出的纯粹是业务数据  </p>
+<p>◇ 数据备份，备份的是数据文件、日志文件、索引文件等等<br><img src="/p/c9e2/1626918828306-0b54f018-06c6-4391-8539-16724d411448.png" class="lazyload" data-srcset="/p/c9e2/1626918828306-0b54f018-06c6-4391-8539-16724d411448.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="数据导出的分类"><a href="#数据导出的分类" class="headerlink" title="数据导出的分类"></a>数据导出的分类</h3><p><img src="/p/c9e2/1626918863615-44b06718-5e90-4bbd-99c0-489bbc76cba0.png" class="lazyload" data-srcset="/p/c9e2/1626918863615-44b06718-5e90-4bbd-99c0-489bbc76cba0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="导出SQL文件"><a href="#导出SQL文件" class="headerlink" title="导出SQL文件"></a>导出SQL文件</h3><p>◇ mysqldump用来把业务数据导出成SQL文件，其中也包括了表结构  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>p [ <span class="keyword">no</span><span class="operator">-</span>data ] 逻辑库 <span class="operator">&gt;</span> 路径</span><br></pre></td></tr></table></figure>
@@ -522,10 +563,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-21T22:32:31+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-23T21:54:27+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年2月21日</p>
+    <p>更新于：2022年5月23日</p>
   </a>
 </div>
 
@@ -633,7 +674,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/p/5708.html'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>IDEA开发工具入门</p>
-          <p class='content'>导学◇IntelliJ IDEA开发工具![image.png](IntelliJ IDEA开发工具入门/1627031307362-df459f62-a437-412b-98d4-032af3...</p>
+          <p class='content'>IDEA开发工具入门IntelliJ IDEA◇IDEA全称IntelliJ IDEA ,是Java编程公认的最好的IDE◇IDEA提供了大量的智能工具，例如语法提示，代码分析，格式化等◇IDE...</p>
         </a>
       
       

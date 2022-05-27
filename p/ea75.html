@@ -508,7 +508,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>◇配置好后，clean一下service-order模块<img src="/p/ea75/1645939173770-82d79ae5-b86e-44f4-ad08-22ca792f3f99.png" class="lazyload" data-srcset="/p/ea75/1645939173770-82d79ae5-b86e-44f4-ad08-22ca792f3f99.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇然后重新启动order模块，可以看到mapper配置文件存在了<br><img src="/p/ea75/1645939480775-ff963827-f869-4636-b9e6-f6072b442fa8.png" class="lazyload" data-srcset="/p/ea75/1645939480775-ff963827-f869-4636-b9e6-f6072b442fa8.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="5-Feign调用报错"><a href="#5-Feign调用报错" class="headerlink" title="5.Feign调用报错"></a>5.Feign调用报错</h3><p>◇Feign调用时报错，需要在统计模块中远程调用订单模块接口获取订单列表，测试时发现如下错误；</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">feign.codec.DecodeException</span>: <span class="string">Type definition error: [simple type, class com.baomidou.mybatisplus.core.metadata.IPage]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.baomidou.mybatisplus.core.metadata.IPage` (no Creators, like default construct, exist): abstract types either need to be mapped to concrete types, have custom deserializer, or contain additional type information</span></span><br><span class="line"> <span class="attr">at</span> <span class="string">[Source: (PushbackInputStream); line: 1, column: 1]</span></span><br></pre></td></tr></table></figure>
-<p>◇报错原因，feign返回复杂对象时需要有无参构造函数，而在MyBatis-Plus中，IPage是接口，而Page是其实现类，所以解决方法是将IPage接口对象转换为Page。</p>
+<p>◇报错原因，feign返回复杂对象时需要有无参构造函数，而在MyBatis-Plus中，IPage是接口，接口是没有构造方法的。而Page是其实现类，所以解决方法是将IPage接口对象转换为Page。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;inner/&#123;page&#125;/&#123;limit&#125;&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Page&lt;OrderInfo&gt; <span class="title">OrderList</span><span class="params">(<span class="meta">@PathVariable</span> Long page, <span class="meta">@PathVariable</span> Long limit, <span class="meta">@RequestBody</span> OrderQueryVo orderQueryVo)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//设置分页参数:页号,每页记录数</span></span><br><span class="line">    Page&lt;OrderInfo&gt; pageParam = <span class="keyword">new</span> Page&lt;&gt;(page,limit);</span><br><span class="line">    IPage&lt;OrderInfo&gt; pageModel = orderService.selectPage(pageParam, orderQueryVo);</span><br><span class="line">    <span class="comment">/*远程服务调用需要返回Page类型*/</span></span><br><span class="line">    BeanUtils.copyProperties(pageModel,pageParam);</span><br><span class="line">    <span class="keyword">return</span> pageParam;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -545,10 +545,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-04T12:16:58+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-27T12:03:40+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月4日</p>
+    <p>更新于：2022年5月27日</p>
   </a>
 </div>
 
@@ -662,15 +662,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='next' href='/p/8a2d.html'>
           <p class='title'>SpringCloud开发入门<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>课程安排
-Spring Cloud简介 
-项目整体设计 
-课程列表模块开发  
-课程价格模块开发
-服务注册与发现Eureka 
-服务间调用OpenFeign  
-负载均衡Ribbon 
-熔断器H...</p>
+          <p class='content'>Spring Cloud简介◇ 成熟的微服务框架，定位为开发人员提供工具，以快速构建分布式系统◇核心组件
+项目整体设计接口设计◇课程列表◇单个课程价格◇整合课程列表和价格；首先会通过远程调用获取...</p>
         </a>
       
     </div>

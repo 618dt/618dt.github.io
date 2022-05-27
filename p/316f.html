@@ -439,7 +439,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.2k字</p>
+      <p>字数：1.4k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -462,7 +462,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <h3 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h3><p> ◇ 介绍Maven的核心特性<br> ◇ 掌握Maven的依赖管理<br> ◇ 掌握Maven的打包方式  </p>
 <h3 id="Maven介绍"><a href="#Maven介绍" class="headerlink" title="Maven介绍"></a>Maven介绍</h3><p> ◇ Maven 是项目管理工具,对软件项目提供构建与依赖管理<br> ◇ Maven是Apache下的Java开源项目<br> ◇ Maven为Java项目提供了统一的管理方式，已成为业界标准  </p>
 <h3 id="Maven核心特性"><a href="#Maven核心特性" class="headerlink" title="Maven核心特性"></a>Maven核心特性</h3><p>◇ 项目设置遵循统一的规则，保证不同开发环境的兼容性 Maven核心特性<br>◇ 强大的依赖管理，项目依赖组件自动下载、自动更新<br>◇ 可扩展的插件机制，使用简单，功能丰富  </p>
-<h3 id="Maven的安装与配置"><a href="#Maven的安装与配置" class="headerlink" title="Maven的安装与配置"></a>Maven的安装与配置</h3><h3 id="Maven的坐标"><a href="#Maven的坐标" class="headerlink" title="Maven的坐标"></a>Maven的坐标</h3><p> ◇ GroupId：机构或者团体的英文，采用”逆向域名”形式书写<br> ◇ ArtifactId：项目名称,说明其用途，例如：cms、oa…<br> ◇ Version：版本号，一般采用”版本+单词”形式，例如：1.0.0.RELEASE  </p>
+<h3 id="Maven的安装与配置"><a href="#Maven的安装与配置" class="headerlink" title="Maven的安装与配置"></a>Maven的安装与配置</h3><p>◇Maven是由Java语言编写的程序，所以安装Maven之前需要安装JDK或JRE；然后配置JDK的环境变量（可以配置用户变量，也可以配置系统变量）</p>
+<p><img src="/p/316f/image-20220524152244936.png" class="lazyload" data-srcset="/p/316f/image-20220524152244936.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220524152244936"></p>
+<p>◇继续添加Path路径，可以如图所示使用%通配符，也可以直接指定  F:\JAVA\JDK\install\bin</p>
+<p><img src="/p/316f/image-20220524153151724.png" class="lazyload" data-srcset="/p/316f/image-20220524153151724.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220524153151724"></p>
+<p>◇配置好相关环境变量后，进入<a target="_blank" rel="noopener" href="https://maven.apache.org/">Maven官网</a>点击下载链接进行压缩包的下载即可。</p>
+<p><img src="/p/316f/image-20220524153811232.png" class="lazyload" data-srcset="/p/316f/image-20220524153811232.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220524153811232"></p>
+<p>◇解压后的目录如下，bin可执行文件夹，boot引导文件夹，conf配置文件夹，lib依赖文件夹。</p>
+<p><img src="/p/316f/image-20220524154211391.png" class="lazyload" data-srcset="/p/316f/image-20220524154211391.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220524154211391"></p>
+<p>◇使用Maven也需要配置环境变量，将maven的bin文件夹目录配置即可。接下来进入cmd，输入mvn -v命令,能查看到版本表示配置成功。</p>
+<p><img src="/p/316f/image-20220524155814867.png" class="lazyload" data-srcset="/p/316f/image-20220524155814867.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220524155814867"></p>
+<h3 id="Maven的坐标"><a href="#Maven的坐标" class="headerlink" title="Maven的坐标"></a>Maven的坐标</h3><p> ◇ GroupId：机构或者团体的英文，采用”逆向域名”形式书写<br> ◇ ArtifactId：项目名称,说明其用途，例如：cms、oa…<br> ◇ Version：版本号，一般采用”版本+单词”形式，例如：1.0.0.RELEASE  </p>
 <h3 id="Maven项目标准结构"><a href="#Maven项目标准结构" class="headerlink" title="Maven项目标准结构"></a>Maven项目标准结构</h3><p><img src="/p/316f/1627634963647-8798bed9-4a2c-4e9b-8873-7bb418fdba6d.png" class="lazyload" data-srcset="/p/316f/1627634963647-8798bed9-4a2c-4e9b-8873-7bb418fdba6d.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="Maven依赖管理"><a href="#Maven依赖管理" class="headerlink" title="Maven依赖管理"></a>Maven依赖管理</h3><p>◇Maven利用dependency(依赖)自动下载、管理第三发jar<br>◇在pom.xml文件中配置项目依赖的第三方组件<br>◇maven自动将依赖从远程仓库下载至本地仓库，并在工程中引用<br>◇<a target="_blank" rel="noopener" href="https://search.maven.org/">maven中央仓库检索网站</a><br>◇pinyin4j将汉字转换为拼音<br> 配置</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.belerweb<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pinyin4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -519,10 +529,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-21T22:32:31+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-24T19:56:51+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年2月21日</p>
+    <p>更新于：2022年5月24日</p>
   </a>
 </div>
 
@@ -628,17 +638,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/p/177d.html'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>工厂模式</p>
-          <p class='content'>课程介绍◇ 介绍工厂模式的用途与特点◇ 介绍设计模式◇ 掌握工厂模式的项目应用  
-设计模式◇ 设计模式是前辈总结的设计经验◇ 设计模式的目标是代码更容易理解,更容易维护◇ 通过设计模式可以让代...</p>
+        <a class='prev' href='/p/7c7c.html'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Java反射</p>
+          <p class='content'>课程介绍◇介绍反射及作用◇讲解反射四个核心类◇反射在项目中的应用 
+主要知识点◇反射的作用◇Class类◇Constructor构造方法类◇Method方法类◇Field成员变量类  
+什么是反...</p>
         </a>
       
       
         <a class='next' href='/p/8791.html'>
           <p class='title'>JDBC入门<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>课程介绍◇JDBC快速入门◇精讲JDBC开发细节◇连接池与JDBC进阶使用  
-主要知识点◇JDBC使用步骤◇数据库查询方法◇数据库写入方法◇SQL注入攻击的应对◇连接池的使用◇Apache C...</p>
+          <p class='content'>主要知识点◇JDBC使用步骤◇数据库查询方法◇数据库写入方法◇SQL注入攻击的应对◇连接池的使用◇Apache Commons DBUtils  
+什么是JDBC◇Java数据库连接-Java ...</p>
         </a>
       
     </div>

@@ -459,25 +459,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h2 id="数据操作语言：普通查询"><a href="#数据操作语言：普通查询" class="headerlink" title="数据操作语言：普通查询"></a>数据操作语言：普通查询</h2><h3 id="记录查询"><a href="#记录查询" class="headerlink" title="记录查询"></a>记录查询</h3><p>◇ 最基本的查询语句是由 SELECT 和 FROM 关键字组成的<br>◇ SELECT语句屏蔽了物理层的操作，用户不必关心数据的真 实存储，交由数据库高效的查找数据  </p>
+  <h2 id="数据操作语言：普通查询"><a href="#数据操作语言：普通查询" class="headerlink" title="数据操作语言：普通查询"></a>数据操作语言：普通查询</h2><h3 id="记录查询"><a href="#记录查询" class="headerlink" title="记录查询"></a>记录查询</h3><p>◇ 最基本的查询语句是由 SELECT 和 FROM 关键字组成的<br>◇ SELECT语句屏蔽了物理层的操作，用户不必关心数据的真实存储，交由数据库高效的查找数据  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t_student;</span><br><span class="line"><span class="keyword">SELECT</span> id,name,sex <span class="keyword">FROM</span> t_student;</span><br></pre></td></tr></table></figure>
-<h3 id="使用列别名"><a href="#使用列别名" class="headerlink" title="使用列别名"></a>使用列别名</h3><p>◇ 通常情况下，SELECT子句中使用了表达式，那么这列的名 字就默认为表达式，因此需要一种对列名重命名的机制  </p>
+<h3 id="使用列别名"><a href="#使用列别名" class="headerlink" title="使用列别名"></a>使用列别名</h3><p>◇ 通常情况下，SELECT子句中使用了表达式，那么这列的名字就默认为表达式，因此需要一种对列名重命名的机制  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"> ename,</span><br><span class="line"> sal <span class="operator">*</span> <span class="number">12</span> <span class="keyword">AS</span> &quot;annual_salary&quot;</span><br><span class="line"> <span class="keyword">FROM</span></span><br><span class="line"> emp;</span><br></pre></td></tr></table></figure>
 <p>◇ 重命名只在显示输出的时候使用，数据表列名不会真的改变<br>◇ 查询语句的子句执行顺序<br><img src="/p/f427/1625994166757-969465a0-9e0f-4a0b-ad16-e6d3ae59731c.png" class="lazyload" data-srcset="/p/f427/1625994166757-969465a0-9e0f-4a0b-ad16-e6d3ae59731c.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h2 id="数据操作语言：数据分页"><a href="#数据操作语言：数据分页" class="headerlink" title="数据操作语言：数据分页"></a>数据操作语言：数据分页</h2><h3 id="数据分页"><a href="#数据分页" class="headerlink" title="数据分页"></a>数据分页</h3><p>◇ 比如我们查看朋友圈，只会加载少量部分信息，不用一次性加载全 部朋友圈，那样只会浪费CPU时间、内存和网络带宽<br>◇ 如果结果集的记录很多，则可以使用LIMIT关键字限定结果集数量。  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> …… <span class="keyword">FROM</span> …… LIMIT 起始位置 , 偏移量 ;</span><br><span class="line"><span class="keyword">SELECT</span> empno,ename <span class="keyword">FROM</span> t_emp LIMIT <span class="number">0</span>,<span class="number">20</span>;<span class="operator">/</span><span class="operator">/</span><span class="number">20</span>是偏移量而不是终止的</span><br></pre></td></tr></table></figure>
 <h3 id="数据分页的简写用法"><a href="#数据分页的简写用法" class="headerlink" title="数据分页的简写用法"></a>数据分页的简写用法</h3><p>◇如果LIMIT子句只有一个参数，它表示的是偏移量，起始值默认为0<br>◇执行顺序： FROM -&gt; SELECT -&gt; LIMIT  </p>
-<h2 id="数据操作语言：结果集排序"><a href="#数据操作语言：结果集排序" class="headerlink" title="数据操作语言：结果集排序"></a>数据操作语言：结果集排序</h2><h3 id="结果集排序"><a href="#结果集排序" class="headerlink" title="结果集排序"></a>结果集排序</h3><p>◇ 如果没有设置，查询语句不会对结果集进行排序。也就是说，如果 想让结果集按照某种顺序排列，就必须使用ORDER BY子句。  </p>
+<h2 id="数据操作语言：结果集排序"><a href="#数据操作语言：结果集排序" class="headerlink" title="数据操作语言：结果集排序"></a>数据操作语言：结果集排序</h2><h3 id="结果集排序"><a href="#结果集排序" class="headerlink" title="结果集排序"></a>结果集排序</h3><p>◇ 如果没有设置，查询语句不会对结果集进行排序。也就是说，如果想让结果集按照某种顺序排列，就必须使用ORDER BY子句。  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> …… <span class="keyword">FROM</span> …… <span class="keyword">ORDER</span> <span class="keyword">BY</span> 列名 [ <span class="keyword">ASC</span> <span class="operator">|</span> <span class="keyword">DESC</span> ] ;</span><br></pre></td></tr></table></figure>
 <h3 id="排序关键字"><a href="#排序关键字" class="headerlink" title="排序关键字"></a>排序关键字</h3><p> ◇ASC代表升序（默认），DESC代表降序 如果排序列是数字类型，数据库就按照数字大小排序，如果是日期 类型就按照日期大小排序，如果是字符串就按照字符集序号排序。  </p>
 <h3 id="排序字段内容相同的情况"><a href="#排序字段内容相同的情况" class="headerlink" title="排序字段内容相同的情况"></a>排序字段内容相同的情况</h3><p>◇ 默认情况下，如果两条数据排序字段内容相同，那么排序会是什么 样子？<br>◇ 如果排序字段内容相同，MySQL会按照主键大小来排序两条数据  </p>
-<h3 id="多个排序字段"><a href="#多个排序字段" class="headerlink" title="多个排序字段"></a>多个排序字段</h3><p> ◇我们可以使用ORDER BY规定首要排序条件和次要排序条件。数据 库会先按照首要排序条件排序，如果遇到首要排序内容相同的记录 ，那么就会启用次要排序条件接着排序  </p>
+<h3 id="多个排序字段"><a href="#多个排序字段" class="headerlink" title="多个排序字段"></a>多个排序字段</h3><p> ◇我们可以使用ORDER BY规定首要排序条件和次要排序条件。数据库会先按照首要排序条件排序，如果遇到首要排序内容相同的记录 ，那么就会启用次要排序条件接着排序  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno,ename,sal,hiredate</span><br><span class="line"><span class="keyword">FROM</span> t_emp</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> sal <span class="keyword">DESC</span>,hiredate <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="排序-分页"><a href="#排序-分页" class="headerlink" title="排序+分页"></a>排序+分页</h3><p>◇ ORDER BY子句书写的时候放在LIMIT子句的前面<br> FROM -&gt; SELECT -&gt; ORDER BY -&gt; LIMIT  </p>
 <h2 id="数据操作语言：去除重复记录"><a href="#数据操作语言：去除重复记录" class="headerlink" title="数据操作语言：去除重复记录"></a>数据操作语言：去除重复记录</h2><p>◇ 假如我们要查询员工表有多少种职业， 如果我们需要去除重复的数据，可以使用DISTINCT关键字来实现  ；</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> 字段 <span class="keyword">FROM</span> …… ;</span><br></pre></td></tr></table></figure>
 <p>◇ 注意事项  ： ①使用DISTINCT的SELECT子句中只能查询一列数据，如果查询多列， 去除重复记录就会失效。<br>② DISTINCT关键字只能在SELECT子句中使用一次  ；</p>
-<h2 id="数据操作语言：条件查询"><a href="#数据操作语言：条件查询" class="headerlink" title="数据操作语言：条件查询"></a>数据操作语言：条件查询</h2><h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><p>◇ 很多时候，用户感兴趣的并不是逻辑表里的全部记录，而只是它们 当中能够满足某一种或某几种条件的记录。这类条件要用WHERE子 句来实现数据的筛选  </p>
+<h2 id="数据操作语言：条件查询"><a href="#数据操作语言：条件查询" class="headerlink" title="数据操作语言：条件查询"></a>数据操作语言：条件查询</h2><h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><p>◇ 很多时候，用户感兴趣的并不是逻辑表里的全部记录，而只是它们 当中能够满足某一种或某几种条件的记录。这类条件要用WHERE子 句来实现数据的筛选。  </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> …… <span class="keyword">FROM</span> …… <span class="keyword">WHERE</span> 条件 [ <span class="keyword">AND</span> <span class="operator">|</span> <span class="keyword">OR</span> ] 条件 …… ;</span><br></pre></td></tr></table></figure>
 <h3 id="四类运算符"><a href="#四类运算符" class="headerlink" title="四类运算符"></a>四类运算符</h3><p> WHERE语句中的条件运算会用到以下四种运算符：<br><img src="/p/f427/1625997158623-77abf14a-54c7-475f-b681-9b41a645994f.png" class="lazyload" data-srcset="/p/f427/1625997158623-77abf14a-54c7-475f-b681-9b41a645994f.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><p><img src="/p/f427/1626506515565-3a9d08ca-5c97-4fbd-84e7-3fcdfa11bca4.png" class="lazyload" data-srcset="/p/f427/1626506515565-3a9d08ca-5c97-4fbd-84e7-3fcdfa11bca4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
@@ -485,11 +485,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p><img src="/p/f427/1626506615665-ab58a3e7-4c84-4cb3-b3ce-b8d089816b3e.png" class="lazyload" data-srcset="/p/f427/1626506615665-ab58a3e7-4c84-4cb3-b3ce-b8d089816b3e.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="二进制按位运算"><a href="#二进制按位运算" class="headerlink" title="二进制按位运算"></a>二进制按位运算</h3><p>◇ 二进制位运算的实质是将参与运算的两个操作数，按对应的二进制数逐位进行逻辑运算。<br><img src="/p/f427/1626506691986-8cb9c71e-23fe-4243-a98f-61ecaeb2037e.png" class="lazyload" data-srcset="/p/f427/1626506691986-8cb9c71e-23fe-4243-a98f-61ecaeb2037e.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="按位运算符"><a href="#按位运算符" class="headerlink" title="按位运算符"></a>按位运算符</h3><p><img src="/p/f427/1626506705766-5f082cda-69bc-4213-8776-6b307ec394b4.png" class="lazyload" data-srcset="/p/f427/1626506705766-5f082cda-69bc-4213-8776-6b307ec394b4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
-<h3 id="WHERE子句的注意事项"><a href="#WHERE子句的注意事项" class="headerlink" title="WHERE子句的注意事项"></a>WHERE子句的注意事项</h3><p>◇ WHERE子句中，条件执行的顺序是从左到右的。所以我们应该把索引条件，或者筛选掉记录最多的条件写在最左侧  </p>
+<h3 id="WHERE子句的注意事项"><a href="#WHERE子句的注意事项" class="headerlink" title="WHERE子句的注意事项"></a>WHERE子句的注意事项</h3><p>◇ WHERE子句中，条件执行的顺序是从左到右的。所以我们应该把索引条件，或者筛选掉记录最多的条件写在最左侧。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno,ename <span class="keyword">FROM</span> t_emp</span><br><span class="line"><span class="keyword">WHERE</span> ename <span class="operator">=</span> &quot;FORD&quot; <span class="keyword">AND</span> sal <span class="operator">&gt;=</span> <span class="number">2000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> empno,ename <span class="keyword">FROM</span> t_emp</span><br><span class="line"><span class="keyword">WHERE</span> deptno <span class="operator">=</span> <span class="number">10</span> <span class="keyword">AND</span> sal <span class="operator">&gt;=</span> <span class="number">2000</span>;</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="各种子句的执行顺序"><a href="#各种子句的执行顺序" class="headerlink" title="各种子句的执行顺序"></a>各种子句的执行顺序</h3><p> 条件查询中，WHERE子句应该是第几个执行？ FROM -&gt; WHERE -&gt; SELECT -&gt; ORDER BY -&gt; LIMIT  </p>
+<h3 id="各种子句的执行顺序"><a href="#各种子句的执行顺序" class="headerlink" title="各种子句的执行顺序"></a>各种子句的执行顺序</h3><p> 条件查询中，WHERE子句应该是第几个执行？ FROM -&gt; WHERE -&gt; SELECT -&gt; ORDER BY -&gt; LIMIT 。 </p>
 
   
   
@@ -524,10 +524,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-21T22:32:31+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-23T20:50:02+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年2月21日</p>
+    <p>更新于：2022年5月23日</p>
   </a>
 </div>
 
@@ -635,15 +635,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/p/1648.html'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>数据库的高级查询</p>
-          <p class='content'>数据操作语言：聚合函数什么是聚合函数◇ 聚合函数在数据的查询分析中，应用十分广泛。聚合函数可以对数 据求和、求最大值和最小值、求平均值等等。◇ 求公司员工的平均月收入是多少？  
-12--IFN...</p>
+          <p class='content'>数据操作语言：聚合函数什么是聚合函数◇ 聚合函数在数据的查询分析中，应用十分广泛。聚合函数可以对数据求和、求最大值和最小值、求平均值等等。◇ 求公司员工的平均月收入是多少？  
+12--IFNU...</p>
         </a>
       
       
         <a class='next' href='/p/77e3.html'>
-          <p class='title'>数据库范式<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>概念◇ 构造数据库必须遵循一定的规则，这种规则就是范式◇ 目前关系数据库有6种范式，一般情况下，只满足第三范式即可  
-第一范式：原子性◇ 第一范式是数据库的基本要求，不满足这一点就不是关系数据...</p>
+          <p class='title'>数据库范式与索引<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>范式概念◇ 构造数据库必须遵循一定的规则，这种规则就是范式◇ 目前关系数据库有6种范式，一般情况下，只满足第三范式即可  
+第一范式：原子性◇ 第一范式是数据库的基本要求，不满足这一点就不是关系...</p>
         </a>
       
     </div>

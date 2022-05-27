@@ -439,13 +439,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：4.2k字</p>
+      <p>字数：4.5k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：16分钟</p>
+      <p>时长：17分钟</p>
     </a>
   </div>
 
@@ -485,22 +485,165 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="文件输入与输出"><a href="#文件输入与输出" class="headerlink" title="文件输入与输出"></a>文件输入与输出</h3><p>◇文件输入：&lt; (重写) 或者 &lt;&lt; (追加)          ◇文件输出：&gt; (重写) 或者 &gt;&gt; (追加)<br>◇echo “xxxx” &gt;&gt; log.txt 将xxxx文本追加写入到log.txt文件中<br>◇合并文件：cat hello.txt myname.txt &gt;&gt; full.txt<br>◇tail full.txt –显示文件尾部内容;   tail -n 2 full.txt –显示文件最后两行<br>◇tail -f full.txt –动态监测文件末尾所产生的新行; ctrl+c退出<br>◇grep lcg test.txt –查找test.txt文件中包含lcg字符串的文本行,字符串可以是正则表达式<br>◇grep -v lcg test.txt –查找test.txt文件中不包含lcg字符串的文本行<br>◇ll | grep -E “log[0-9]{1,5}.txt” –进行文件的筛选，查看所有日志文件 -E表示使用扩展正则表达式；{1,5}表示数字位数为1~5；</p>
 <h2 id="文件打包与压缩"><a href="#文件打包与压缩" class="headerlink" title="文件打包与压缩"></a>文件打包与压缩</h2><h3 id="Linux压缩程序-gzip"><a href="#Linux压缩程序-gzip" class="headerlink" title="Linux压缩程序-gzip"></a>Linux压缩程序-gzip</h3><p>◇gzip是Linux系统的文件压缩程序<br>◇gzip压缩包文件扩展名.gz<br>◇大流量的网站默认都在使用gzip进行数据压缩传输   </p>
 <h3 id="tar打包与压缩"><a href="#tar打包与压缩" class="headerlink" title="tar打包与压缩"></a>tar打包与压缩</h3><p>◇tar是Linux系统将多个文件打包和压缩的工具<br>◇tar本质是打包软件，扩展名.tar<br>◇tar可结合gzip或其他压缩工具实现打包压缩，扩展名.tar.gz<br>◇压缩命令: tar zcvf tomcat.tar.gz /usr/local/tomcat<br>◇解压缩命令: tar zxvf tomcat.tar.gz -C /usr/local/tomcat   </p>
-<h3 id="tar常用可选项"><a href="#tar常用可选项" class="headerlink" title="tar常用可选项"></a>tar常用可选项</h3><img src="/p/c40f/1630068871801-23d4fefb-c44f-409e-bb11-51dd710ab2f9.png" class="lazyload" data-srcset="/p/c40f/1630068871801-23d4fefb-c44f-409e-bb11-51dd710ab2f9.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png">
-
+<h3 id="tar常用可选项"><a href="#tar常用可选项" class="headerlink" title="tar常用可选项"></a>tar常用可选项</h3><h3 id><a href="#" class="headerlink" title></a></h3><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>z</td>
+<td>通过gzip压缩或解压</td>
+</tr>
+<tr>
+<td>c</td>
+<td>创建新的tar.gz文件</td>
+</tr>
+<tr>
+<td>v</td>
+<td>显示执行过程</td>
+</tr>
+<tr>
+<td>f</td>
+<td>指定压缩文件名称</td>
+</tr>
+<tr>
+<td>x</td>
+<td>解压缩tar.gz文件</td>
+</tr>
+<tr>
+<td>-C</td>
+<td>指定解压缩目录</td>
+</tr>
+</tbody></table>
 <h2 id="安装与卸载应用程序"><a href="#安装与卸载应用程序" class="headerlink" title="安装与卸载应用程序"></a>安装与卸载应用程序</h2><h3 id="为CentOS安装应用程序"><a href="#为CentOS安装应用程序" class="headerlink" title="为CentOS安装应用程序"></a>为CentOS安装应用程序</h3><p>◇在CentOS中安装第三方应用程序包含两种方式:<br>◇rpm:Red Hat软件包管理器,相当于应用程序安装文件的执行者<br>◇编译安装:用户自己从网站下载程序源码进行编译安装 </p>
 <h3 id="yum与rpm的关系"><a href="#yum与rpm的关系" class="headerlink" title="yum与rpm的关系"></a>yum与rpm的关系</h3><p>◇rpm安装过程中,需要用户自己解决依赖问题<br>◇yum通过引入软件仓库,联网下载rpm包及依赖,并依次自动安装<br>◇yum是rpm的前端程序,其目的就是简化rpm的安装过程</p>
 <h3 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h3><p>◇yum search 应用名 #在仓库中查询是否存在指定应用<br>◇yum install -y 应用名 #全自动下载安装应用及其依赖<br>◇yum info 应用名 #查看软件详细信息<br>◇yum list installed 应用名 #查看已安装的应用程序<br>◇rpm -ql 应用名 #查看安装后输出的文件清单<br>◇yum remove -y 应用名 #全自动卸载指定应用  ，-y表示遇到询问都用y</p>
 <h2 id="编译方式安装"><a href="#编译方式安装" class="headerlink" title="编译方式安装"></a>编译方式安装</h2><h3 id="编译方式安装应用程序"><a href="#编译方式安装应用程序" class="headerlink" title="编译方式安装应用程序"></a>编译方式安装应用程序</h3><p>◇如yum仓库未提供rpm,往往需要采用编译安装方式<br>◇编译安装是指从应用官网下载源码后,对源码进行编译后使用<br>◇编译命令: make #使用对应编译器对源码编译生成可执行文件  </p>
 <h3 id="yum与编译安装比较"><a href="#yum与编译安装比较" class="headerlink" title="yum与编译安装比较"></a>yum与编译安装比较</h3><p><img src="/p/c40f/1630070373099-9af554f6-920f-4c76-9782-70dc5c1dc783.png" class="lazyload" data-srcset="/p/c40f/1630070373099-9af554f6-920f-4c76-9782-70dc5c1dc783.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h3 id="编译安装Redis"><a href="#编译安装Redis" class="headerlink" title="编译安装Redis"></a>编译安装Redis</h3><p>◇利用xftp将下载好的压缩包文件上传到linux；然后解压；进入redis-4.0.14目录；安装gcc编译器：yum install -y gcc;<br>◇有时候第一次make编译出错后，可能改变了原来的文件结构，因此纠正错误后下一次编译时需要将解压后的目录删除重新解压；当出现Hint: It’s a good idea to run ‘make test’ ;)时代表编译成功；<br>◇编译安装后的应用程序redis-server存放在src中，在启动redis-server前需要加载上一级目录下的redis.conf配置文件;即启动命令为:./src/redis-server redis.conf  启动后ctrl+c退回命令状态</p>
-<h2 id="Linux进阶应用"><a href="#Linux进阶应用" class="headerlink" title="Linux进阶应用"></a>Linux进阶应用</h2><h3 id="Linux系统管理命令"><a href="#Linux系统管理命令" class="headerlink" title="Linux系统管理命令"></a>Linux系统管理命令</h3><p>◇使用ifconfig查看网卡ip<br><img src="/p/c40f/1630146548264-3229c8fc-d16f-4ace-9c4b-4d140a726bc0.png" class="lazyload" data-srcset="/p/c40f/1630146548264-3229c8fc-d16f-4ace-9c4b-4d140a726bc0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇netstat 查看网络端口号：netstat -tulpn 或 netstat -ano<br>◇Recv-Q:接收队列；Send-Q:发送队列; LISTEN表示网络状态正在被监听;PID:进程编号；Program name创建网络连接的应用<br><img src="/p/c40f/1630146738224-1f08c511-0871-4f93-8fdc-1b45678b64a5.png" class="lazyload" data-srcset="/p/c40f/1630146738224-1f08c511-0871-4f93-8fdc-1b45678b64a5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇netstat 常用选项<br><img src="/p/c40f/1630146946866-e7e838d8-a463-417b-9b9c-0603f83dfba4.png" class="lazyload" data-srcset="/p/c40f/1630146946866-e7e838d8-a463-417b-9b9c-0603f83dfba4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇查看进程: ps -ef ，箭头处5412指PID；杀掉进程：kill -9 PID<br>◇一般使用应用程序退出来关闭进程，而不是强制杀掉进程，因为可能造成数据丢失<br>◇ps -ef | grep vim ; | 表示通道，即ps -ef查询产生的数据像通过通道一样送入到后一个指令<br><img src="/p/c40f/1630147070833-32dca895-ace6-45ad-a972-0cb3f0471b45.png" class="lazyload" data-srcset="/p/c40f/1630147070833-32dca895-ace6-45ad-a972-0cb3f0471b45.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h2 id="Linux进阶应用"><a href="#Linux进阶应用" class="headerlink" title="Linux进阶应用"></a>Linux进阶应用</h2><h3 id="Linux系统管理命令"><a href="#Linux系统管理命令" class="headerlink" title="Linux系统管理命令"></a>Linux系统管理命令</h3><p>◇使用ifconfig查看网卡ip<br><img src="/p/c40f/1630146548264-3229c8fc-d16f-4ace-9c4b-4d140a726bc0.png" class="lazyload" data-srcset="/p/c40f/1630146548264-3229c8fc-d16f-4ace-9c4b-4d140a726bc0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇netstat 查看网络端口号：netstat -tulpn 或 netstat -ano<br>◇Recv-Q:接收队列；Send-Q:发送队列; LISTEN表示网络状态正在被监听;PID:进程编号；Program name创建网络连接的应用<br><img src="/p/c40f/1630146738224-1f08c511-0871-4f93-8fdc-1b45678b64a5.png" class="lazyload" data-srcset="/p/c40f/1630146738224-1f08c511-0871-4f93-8fdc-1b45678b64a5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇netstat 常用选项</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>t</td>
+<td>显示tcp传输协议的连接状况</td>
+</tr>
+<tr>
+<td>u</td>
+<td>显示udp传输协议的连接状况</td>
+</tr>
+<tr>
+<td>l</td>
+<td>显示处于监听状态的网络连接</td>
+</tr>
+<tr>
+<td>p</td>
+<td>显示应用PID和程序名称</td>
+</tr>
+<tr>
+<td>n</td>
+<td>显示ip地址</td>
+</tr>
+<tr>
+<td>a</td>
+<td>显示所有连接</td>
+</tr>
+<tr>
+<td>o</td>
+<td>显示计时器</td>
+</tr>
+</tbody></table>
+<p>◇查看进程: ps -ef ，箭头处5412指PID；杀掉进程：kill -9 PID<br>◇一般使用应用程序退出来关闭进程，而不是强制杀掉进程，因为可能造成数据丢失<br>◇ps -ef | grep vim ; | 表示通道，即ps -ef查询产生的数据像通过通道一样送入到后一个指令<br><img src="/p/c40f/1630147070833-32dca895-ace6-45ad-a972-0cb3f0471b45.png" class="lazyload" data-srcset="/p/c40f/1630147070833-32dca895-ace6-45ad-a972-0cb3f0471b45.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
 <h2 id="应用服务化"><a href="#应用服务化" class="headerlink" title="应用服务化"></a>应用服务化</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>◇ 应用服务化是指让应用程序以服务方式在系统后台运行<br>◇ Linux系统对服务化应用进行统一管理<br>◇ 服务管理命令：systemctl    </p>
-<h3 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a>systemctl</h3><p><img src="/p/c40f/1630147494122-9ac16bd2-3b54-497a-be4c-2ef65b16ca12.png" class="lazyload" data-srcset="/p/c40f/1630147494122-9ac16bd2-3b54-497a-be4c-2ef65b16ca12.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇.pid文件用来保存进程编号<br>◇将redis服务化，需要在/usr/lib/systemd/system目录下创建 vim redis.service；在文件中写入配置：</p>
+<h3 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a>systemctl</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>start</td>
+<td>启动服务</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>停止服务</td>
+</tr>
+<tr>
+<td>restart</td>
+<td>重启服务</td>
+</tr>
+<tr>
+<td>enable</td>
+<td>设置开机启动</td>
+</tr>
+<tr>
+<td>disable</td>
+<td>禁止开启启动</td>
+</tr>
+<tr>
+<td>status</td>
+<td>查看服务状态</td>
+</tr>
+<tr>
+<td>daemon-reload</td>
+<td>重载服务配置文件</td>
+</tr>
+<tr>
+<td>list-unit-files</td>
+<td>列出所有服务</td>
+</tr>
+</tbody></table>
+<p>◇.pid文件用来保存进程编号<br>◇将redis服务化，需要在/usr/lib/systemd/system目录下创建 vim redis.service；在文件中写入配置：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Redis</span><br><span class="line">After=syslog.target network.target remote-fs.target nss-lookup.target #表示在这些服务启动以后才能启动redis</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking #forking代表后台运行</span><br><span class="line">PIDFile=/run/redis_6379.pid</span><br><span class="line">#说明启动时执行server，加载配置文件</span><br><span class="line">ExecStart=/home/lcg/0/redis-4.0.14/src/redis-server /home/lcg/0/redis-4.0.14/redis.conf</span><br><span class="line">#关闭,-s采用正常流程进行退出；-9表示强制退出</span><br><span class="line">ExecStop=/bin/kill -s QUIT $MAINPID</span><br><span class="line">PrivateTmp=True #为每一个服务设置私有的Tmp临时文件目录</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target #将当前的redis服务分配到multi-user服务组上；</span><br></pre></td></tr></table></figure>
 <p>◇systemctl daemon-reload #对所有service进行重载;<br>◇systemctl start redis #启动服务； systemctl status redis #查看状态</p>
 <h2 id="Linux用户与权限"><a href="#Linux用户与权限" class="headerlink" title="Linux用户与权限"></a>Linux用户与权限</h2><h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><p>◇ Linux是多用户多任务系统,包含两个概念:用户与用户组<br>◇ 用户与账户是同一概念,用于登录系统与区分资源权限<br>◇ 用户让系统变的更安全,同时也保护了用户的个人数字资产</p>
 <h3 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h3><p>◇ 用户组就是将用户分组,隶属用户自动拥有组权限<br>◇ 一个用户可隶属于多个组,用户可任意切换当前组<br>◇ 用户组的出现让用户权限管理变更轻松 </p>
-<h3 id="用户与用户组常用命令"><a href="#用户与用户组常用命令" class="headerlink" title="用户与用户组常用命令"></a>用户与用户组常用命令</h3><p><img src="/p/c40f/1630152748335-c52d7d9a-f0cc-4e31-a1ef-204bfebbaead.png" class="lazyload" data-srcset="/p/c40f/1630152748335-c52d7d9a-f0cc-4e31-a1ef-204bfebbaead.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇分组：usermod -g [组名] [用户名]<br>◇让用户拥有多个组： usermod -G [组名1],[组名2] [用户名];通过newgrp进行切换<br>◇将用户连接系统: 打开-&gt;创建系统副本：然后用新建的用户密码登录<br>◇groups #查看用户隶属于哪个组<br>◇chown用法：chown [用户名]:[组名] [文件名]</p>
+<h3 id="用户与用户组常用命令"><a href="#用户与用户组常用命令" class="headerlink" title="用户与用户组常用命令"></a>用户与用户组常用命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>useradd</td>
+<td>创建新用户</td>
+</tr>
+<tr>
+<td>passwd</td>
+<td>修改密码</td>
+</tr>
+<tr>
+<td>usermod</td>
+<td>修改用户信息/分配组(覆盖原组)</td>
+</tr>
+<tr>
+<td>groupadd</td>
+<td>创建新的用户组</td>
+</tr>
+<tr>
+<td>chown</td>
+<td>更改文件的属主或属组</td>
+</tr>
+<tr>
+<td>chmod</td>
+<td>更改文件的访问权限</td>
+</tr>
+<tr>
+<td>newgrp</td>
+<td>切换用户当前组</td>
+</tr>
+</tbody></table>
+<p>◇分组：usermod -g [组名] [用户名]<br>◇让用户拥有多个组： usermod -G [组名1],[组名2] [用户名];通过newgrp进行切换<br>◇将用户连接系统: 打开-&gt;创建系统副本：然后用新建的用户密码登录<br>◇groups #查看用户隶属于哪个组<br>◇chown用法：chown [用户名]:[组名] [文件名]</p>
 <h2 id="项目内部文件权限管理实践"><a href="#项目内部文件权限管理实践" class="headerlink" title="项目内部文件权限管理实践"></a>项目内部文件权限管理实践</h2><h3 id="文件权限代码表"><a href="#文件权限代码表" class="headerlink" title="文件权限代码表"></a>文件权限代码表</h3><p><img src="/p/c40f/1630153162614-19019fff-aa2c-483e-83e3-46715e47ab51.png" class="lazyload" data-srcset="/p/c40f/1630153162614-19019fff-aa2c-483e-83e3-46715e47ab51.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇每个颜色表示一组，共三组；eg:drwxr-xr-x; 其中-代表没有对应属性，此处即没有w(完整的一组是rwx)<br>◇在目录上r-x不允许写是指不准修改目录名</p>
 <h3 id="chmod命令"><a href="#chmod命令" class="headerlink" title="chmod命令"></a>chmod命令</h3><p>◇ chmod 750: 组用户可读写，其他用户不允许访问<br>◇ chmod 777: 所有用户拥有完整权限<br>◇ chmod 700: 只有属主拥有完整权限<br>◇chmod  750 dev-document/(文件名/) #示例操作，</p>
 <h3 id="sudo超级管理员命令"><a href="#sudo超级管理员命令" class="headerlink" title="sudo超级管理员命令"></a>sudo超级管理员命令</h3><p>◇ sudo可以让普通用户拥有超级管理员的执行权限<br>◇ 普通用户要进行经过超级管理员授权才能使用<br>◇ 授权命令：visudo<br>◇普通模式下输入：100gg 快速定位到100行,无法再屏幕上看到命令；在此处的root ALL-(ALL) ALL下增加一行：<br>[用户名] ALL-(ALL) ALL 即可授权用户拥有sudo命令；第一个ALL代表用户可以从任意计算机进行连接；第二个ALL表示切换用户，最后一个ALL代表运行执行所有命令；<br>◇:wq保存文件后，使用命令visudo -c进行文件的格式检查;</p>
@@ -508,14 +651,41 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="firwall-cmd"><a href="#firwall-cmd" class="headerlink" title="firwall-cmd"></a>firwall-cmd</h3><p>◇ systemctl start|restart firewalld #启动防火墙<br>◇ firewall-cmd –state | –reload #查看状态,重载防火墙<br>◇ firewall-cmd –zone=public –permanent –add-port=8502/tcp  </p>
 <h3 id="对外开放Tomcat"><a href="#对外开放Tomcat" class="headerlink" title="对外开放Tomcat"></a>对外开放Tomcat</h3><p>◇解压apache-tomcat-9.0.34.tar.gz；进入apache-tomcat-9.0.34/bin目录启动startup.sh文件：./startup.sh<br>◇增加放行端口：firewall-cmd –zone=public –permanent –add-port=8080/tcp #zone代表区域；permanent表示永久更改；将add改成remove即可去除端口;8000-9000可以用来进行端口范围的设置<br>◇将防火墙进行重载</p>
 <h2 id="Bash-Shell"><a href="#Bash-Shell" class="headerlink" title="Bash Shell"></a>Bash Shell</h2><h3 id="什么是Shell"><a href="#什么是Shell" class="headerlink" title="什么是Shell"></a>什么是Shell</h3><p>◇ Shell是一个用c语言编写的脚本解释器,是用户通过代码操作 Linux的桥梁<br>◇ Shell脚本描述要执行的任务,完成系列复杂操作,文件通常以.sh后缀<br>◇ Shell脚本通过Shell解释器执行,按解释器分类分为多种类型  </p>
-<h3 id="Linux-Shell-分类"><a href="#Linux-Shell-分类" class="headerlink" title="Linux Shell 分类"></a>Linux Shell 分类</h3><p><img src="/p/c40f/1630222283043-b5cd5a06-bbf9-4590-96b0-7028756802c4.png" class="lazyload" data-srcset="/p/c40f/1630222283043-b5cd5a06-bbf9-4590-96b0-7028756802c4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"></p>
+<h3 id="Linux-Shell-分类"><a href="#Linux-Shell-分类" class="headerlink" title="Linux Shell 分类"></a>Linux Shell 分类</h3><table>
+<thead>
+<tr>
+<th>Shell种类</th>
+<th>Shell解释器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bourne Shell</td>
+<td>/usr/bin/sh或/bin/sh</td>
+</tr>
+<tr>
+<td>Bourne Again Shell</td>
+<td>/bin/bash(默认)</td>
+</tr>
+<tr>
+<td>C Shell</td>
+<td>/usr/bin/csh</td>
+</tr>
+<tr>
+<td>K Shell</td>
+<td>/usr/bin/ksh</td>
+</tr>
+<tr>
+<td>Shell for Root</td>
+<td>/sbin/sh</td>
+</tr>
+</tbody></table>
 <h3 id="一键发布Tomcat应用程序"><a href="#一键发布Tomcat应用程序" class="headerlink" title="一键发布Tomcat应用程序"></a>一键发布Tomcat应用程序</h3><p>◇vim deploy_tomcat.sh创建脚本</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;准备下载Tomcat9&quot;</span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.52/bin/apache-tomcat-9.0.52.tar.gz</span><br><span class="line">echo &quot;正在解压Tomcat9&quot;</span><br><span class="line">tar zxf apache-tomcat-9.0.52.tar.gz</span><br><span class="line">echo &quot;防火墙开放8080端口&quot;</span><br><span class="line">firewall-cmd --zone=public --permanent --add-port=8080/tcp</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">echo &quot;启动Tomact&quot;</span><br><span class="line">cd ./apache-tomcat-9.0.52/bin</span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure>
 <p>◇启动脚本文件：/bin/bash deploy_tomcat.sh;或./deploy.tomcat.sh</p>
 <h2 id="部署OA项目"><a href="#部署OA项目" class="headerlink" title="部署OA项目"></a>部署OA项目</h2><h3 id="部署架构"><a href="#部署架构" class="headerlink" title="部署架构"></a>部署架构</h3><p><img src="/p/c40f/1630243029737-67057a7c-0650-4d8c-b630-bd8eab42b589.png" class="lazyload" data-srcset="/p/c40f/1630243029737-67057a7c-0650-4d8c-b630-bd8eab42b589.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image.png"><br>◇创建两个虚拟机CentosDB,CentosWEB，均最小化安装(不要图形界面);然后在界面输入: yum install -y net-tools.x86_64 #安装ifconfig等命令;<br>◇使用Xshell进行远程连接；</p>
 <h3 id="Centos安装MySQL8"><a href="#Centos安装MySQL8" class="headerlink" title="Centos安装MySQL8"></a>Centos安装MySQL8</h3><p>◇yum search mysql-community #查看是否安装了mysql社区版<br>◇mkdir mysql #在/usr/local目录下新建目录存放mysql<br>◇wget <a target="_blank" rel="noopener" href="https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm">https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm</a> #获取下载<br>◇yum install -y wget #安装wget 命令<br>◇yum localinstall -y mysql80-community-release-el7-3.noarch.rpm #从本地安装rpm文件<br>◇以上只是安装了mysql的安装源，还没有完成mysql的安装；<br>◇yum install -y mysql-community-server #进行安装   ctrl+c可以停止安装<br>◇cd /var/cache/yum/x86_64/7/mysql80-community/packages/ #进入yum下载的缓存路径<br>◇进入官网找到Mysql Red Hat Enterprise Linux/ Oracle Linux；选择系统版本Linux 7 X86_64； 下载RPM Bundle；然后将这一组rpm文件传到缓存路径中；此时重新执行yum install -y mysql-community-server命令；以此可解决跨国服务器下载缓慢问题；<br>◇systemctl start mysqld #启动服务  systemctl status mysqld #查看服务状态<br>◇systemctl enable mysqld #设置为开机启动</p>
 <h3 id="初始化MySQL8"><a href="#初始化MySQL8" class="headerlink" title="初始化MySQL8"></a>初始化MySQL8</h3><p>◇vi  /var/log/mysqld.log #进入mysql日志 在第3~4行可以看到自动生成的密码<br>◇mysql -uroot -p #输入密码进行登录<br>◇alter user ‘root‘@’localhost’ identified with mysql_native_password by ‘newpassword’(需要包含字母大小写以及数字，特殊符号，长度大于8位) 回车加上’;’ 即可修改，with mysql_native_password做与navicat的兼容考虑；<br>◇默认的root用户只能从本机登录；use mysql #使用数据库； select host,user from user;#查询主机和用户<br>◇update user set host=’%’ where user=’root’;#将root用户的host改为%,即任意设备都可以使用root用户连接mysql服务器; flush privileges #使刚才修改的权限立即生效<br>◇exit #退出mysql<br>◇放行3306端口并重载，使之能够远程访问mysql；<br>◇打开Navicat，新建连接：主机即虚拟机的IP地址；</p>
-<h3 id="部署配置Web应用服务"><a href="#部署配置Web应用服务" class="headerlink" title="部署配置Web应用服务"></a>部署配置Web应用服务</h3><p>◇yum search jdk #查看仓库中包含哪些版本的jdk;openjdk表示开源jdk<br>◇yum install -y java-1.8.0-openjdk #安装jdk<br>◇java -version #查看<br>◇安装Tomcat;<br>◇将oa项目的war包传到虚拟机中，解压；<br>◇将解压后的oa目录移动：mv lcg_oa ./apache-tomcat-9.0.34/webapps/<br>◇进入webapps目录，vim ./lcg_oa/WEB-INF/classes/mybatis-config.xml(yum install vim-common#安装vim基础包，yum install vim-enhanced#安装增强包)<br>◇/root全文查找，在连接字符串的地方进行调整；将localhost改为mysql服务器的IP地址，密码改为相应的密码<br>◇回到上一层目录进行Tomcat的配置: vim ./conf/server.xml -&gt;搜索/8080-&gt;将端口改为80-&gt;按pagedown跳到最后<br>-&gt;在Host标签上增加<Context path="/" docbase="lcg_oa">#将oa这个web应用映射的上下文路径指向根路径-&gt;:wq保存<br>◇启动tomcat：./bin/startup.sh<br>◇放行80端口，并重载<br>◇在虚拟机DB中，屏蔽掉任意主机都能访问的3306端口；重载；<br>◇firewall-cmd –permanent –zone=public –add-rich-rule=”rule family=”ipv4” source address=”web服务器的IP地址” port protocol=”tcp” port=”3306” accept” #-rich-rule利用规则放行端口，这样就能放行指定主机指定端口的访问;</Context></p>
+<h3 id="部署配置Web应用服务"><a href="#部署配置Web应用服务" class="headerlink" title="部署配置Web应用服务"></a>部署配置Web应用服务</h3><p>◇yum search jdk #查看仓库中包含哪些版本的jdk;openjdk表示开源jdk<br>◇yum install -y java-1.8.0-openjdk #安装jdk<br>◇java -version #查看<br>◇安装Tomcat;<br>◇将oa项目的war包传到虚拟机中，解压；<br>◇将解压后的oa目录移动：mv lcg_oa ./apache-tomcat-9.0.34/webapps/<br>◇进入webapps目录，vim ./lcg_oa/WEB-INF/classes/mybatis-config.xml  (yum install vim-common#安装vim基础包，yum install vim-enhanced#安装增强包)<br>◇/root全文查找，在连接字符串的地方进行调整；将localhost改为mysql服务器的IP地址，密码改为相应的密码<br>◇回到上一层目录进行Tomcat的配置: vim ./conf/server.xml -&gt;搜索/8080-&gt;将端口改为80-&gt;按pagedown跳到最后<br>-&gt;在Host标签上增加&lt;Context path=”/“ docBase=”lcg_oa”/&gt;#将oa这个web应用映射的上下文路径指向根路径-&gt;:wq保存<br>◇启动tomcat：./bin/startup.sh<br>◇放行80端口，并重载<br>◇在虚拟机DB中，屏蔽掉任意主机都能访问的3306端口；重载；<br>◇firewall-cmd –permanent –zone=public –add-rich-rule=”rule family=”ipv4” source address=”web服务器的IP地址” port protocol=”tcp” port=”3306” accept” #-rich-rule利用规则放行端口，这样就能放行指定主机指定端口的访问;</p>
 
   
   
@@ -550,10 +720,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-26T14:45:50+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-24T22:12:39+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月26日</p>
+    <p>更新于：2022年5月24日</p>
   </a>
 </div>
 
@@ -661,15 +831,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/p/d40.html'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Redis入门</p>
-          <p class='content'>课程介绍◇Redis介绍与安装◇掌握在Java中操作Redis◇掌握Redis的常用命令与数据类型  
-Redis介绍◇Redis是Key-Value型NoSQL数据库 ,即每一个数据都有键和值...</p>
+          <p class='content'>Redis介绍◇Redis是Key-Value型NoSQL数据库 ,即每一个数据都有键和值；◇Redis将数据存储在内存中，同时也能持久化到磁盘◇Redis常用于缓存，利用内存的高效提高程序的处...</p>
         </a>
       
       
-        <a class='next' href='/p/d371.html'>
-          <p class='title'>项目完整实现<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>动态显示功能菜单第一部分：实现底层◇sql语句
-123456789101112-- 如何获取编号为 1的用户拥有哪些功能？SELECT DISTINCT n.* FROM	sys_role_us...</p>
+        <a class='next' href='/p/fb2c.html'>
+          <p class='title'>MyBaits进阶<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>MyBatis日志管理什么是日志◇日志文件是用于记录系统操作事件的记录文件或文件集合◇日志保存历史数据,是诊断问题以及理解系统活动的重要依据  
+SLF4j与Logback
+代码示例​◇配置依赖...</p>
         </a>
       
     </div>
@@ -712,7 +882,7 @@ Redis介绍◇Redis是Key-Value型NoSQL数据库 ,即每一个数据都有键和
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E7%AE%80%E4%BB%8B"><span class="toc-text">内容简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">主要知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">什么是操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">Linux操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%97%E6%AC%A2%E8%BF%8E"><span class="toc-text">Linux为什么受欢迎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-text">Linux发行版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%8F%91%E8%A1%8C%E7%89%88%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="toc-text">Linux发行版选择建议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS-%E7%A4%BE%E5%8C%BA%E4%BC%81%E4%B8%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">CentOS - 社区企业操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="toc-text">CentOS版本选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85CentOS-7-7"><span class="toc-text">安装CentOS 7.7</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-7-%E8%BF%90%E8%A1%8C%E8%A6%81%E6%B1%82"><span class="toc-text">CentOS 7 运行要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFCPU%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-text">开启CPU虚拟化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VMware-Workstation%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">安装VMware Workstation虚拟机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95"><span class="toc-text">Linux系统目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95"><span class="toc-text">常见系统目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-text">Linux远程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">SSH客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Xshell%E4%B8%8EXftp"><span class="toc-text">Xshell与Xftp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Xshell%E4%B8%8EXftp%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">Xshell与Xftp安装与配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux文件操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-text">Linux命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux文件操作核心命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-text">vim文本编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-text">vim三种模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E9%87%8D%E8%A6%81%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">vim重要快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E6%96%87%E6%9C%AC%E5%B7%A5%E5%85%B7"><span class="toc-text">Linux文本工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E5%B7%A5%E5%85%B7"><span class="toc-text">常用文本工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-text">文件输入与输出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E4%B8%8E%E5%8E%8B%E7%BC%A9"><span class="toc-text">文件打包与压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%8E%8B%E7%BC%A9%E7%A8%8B%E5%BA%8F-gzip"><span class="toc-text">Linux压缩程序-gzip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar%E6%89%93%E5%8C%85%E4%B8%8E%E5%8E%8B%E7%BC%A9"><span class="toc-text">tar打包与压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar%E5%B8%B8%E7%94%A8%E5%8F%AF%E9%80%89%E9%A1%B9"><span class="toc-text">tar常用可选项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">安装与卸载应用程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BACentOS%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">为CentOS安装应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E4%B8%8Erpm%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">yum与rpm的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">yum常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85"><span class="toc-text">编译方式安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">编译方式安装应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E4%B8%8E%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E6%AF%94%E8%BE%83"><span class="toc-text">yum与编译安装比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis"><span class="toc-text">编译安装Redis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E8%BF%9B%E9%98%B6%E5%BA%94%E7%94%A8"><span class="toc-text">Linux进阶应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux系统管理命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%8C%96"><span class="toc-text">应用服务化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemctl"><span class="toc-text">systemctl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90"><span class="toc-text">Linux用户与权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7"><span class="toc-text">用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-text">用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E7%BB%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">用户与用户组常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%86%85%E9%83%A8%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E5%AE%9E%E8%B7%B5"><span class="toc-text">项目内部文件权限管理实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%BB%A3%E7%A0%81%E8%A1%A8"><span class="toc-text">文件权限代码表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod%E5%91%BD%E4%BB%A4"><span class="toc-text">chmod命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sudo%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E5%91%BD%E4%BB%A4"><span class="toc-text">sudo超级管理员命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS7%E9%98%B2%E7%81%AB%E5%A2%99firewall"><span class="toc-text">CentOS7防火墙firewall</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-text">什么是防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#firwall-cmd"><span class="toc-text">firwall-cmd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%A4%96%E5%BC%80%E6%94%BETomcat"><span class="toc-text">对外开放Tomcat</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash-Shell"><span class="toc-text">Bash Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFShell"><span class="toc-text">什么是Shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-Shell-%E5%88%86%E7%B1%BB"><span class="toc-text">Linux Shell 分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83Tomcat%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">一键发布Tomcat应用程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2OA%E9%A1%B9%E7%9B%AE"><span class="toc-text">部署OA项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84"><span class="toc-text">部署架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Centos%E5%AE%89%E8%A3%85MySQL8"><span class="toc-text">Centos安装MySQL8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96MySQL8"><span class="toc-text">初始化MySQL8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AEWeb%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">部署配置Web应用服务</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E7%AE%80%E4%BB%8B"><span class="toc-text">内容简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">主要知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">什么是操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">Linux操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%97%E6%AC%A2%E8%BF%8E"><span class="toc-text">Linux为什么受欢迎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-text">Linux发行版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%8F%91%E8%A1%8C%E7%89%88%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="toc-text">Linux发行版选择建议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS-%E7%A4%BE%E5%8C%BA%E4%BC%81%E4%B8%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">CentOS - 社区企业操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="toc-text">CentOS版本选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85CentOS-7-7"><span class="toc-text">安装CentOS 7.7</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-7-%E8%BF%90%E8%A1%8C%E8%A6%81%E6%B1%82"><span class="toc-text">CentOS 7 运行要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFCPU%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-text">开启CPU虚拟化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VMware-Workstation%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">安装VMware Workstation虚拟机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95"><span class="toc-text">Linux系统目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95"><span class="toc-text">常见系统目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-text">Linux远程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">SSH客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Xshell%E4%B8%8EXftp"><span class="toc-text">Xshell与Xftp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Xshell%E4%B8%8EXftp%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">Xshell与Xftp安装与配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux文件操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-text">Linux命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux文件操作核心命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-text">vim文本编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-text">vim三种模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E9%87%8D%E8%A6%81%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">vim重要快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E6%96%87%E6%9C%AC%E5%B7%A5%E5%85%B7"><span class="toc-text">Linux文本工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E5%B7%A5%E5%85%B7"><span class="toc-text">常用文本工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-text">文件输入与输出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E4%B8%8E%E5%8E%8B%E7%BC%A9"><span class="toc-text">文件打包与压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%8E%8B%E7%BC%A9%E7%A8%8B%E5%BA%8F-gzip"><span class="toc-text">Linux压缩程序-gzip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar%E6%89%93%E5%8C%85%E4%B8%8E%E5%8E%8B%E7%BC%A9"><span class="toc-text">tar打包与压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar%E5%B8%B8%E7%94%A8%E5%8F%AF%E9%80%89%E9%A1%B9"><span class="toc-text">tar常用可选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">安装与卸载应用程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BACentOS%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">为CentOS安装应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E4%B8%8Erpm%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">yum与rpm的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">yum常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85"><span class="toc-text">编译方式安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">编译方式安装应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E4%B8%8E%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E6%AF%94%E8%BE%83"><span class="toc-text">yum与编译安装比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis"><span class="toc-text">编译安装Redis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E8%BF%9B%E9%98%B6%E5%BA%94%E7%94%A8"><span class="toc-text">Linux进阶应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux系统管理命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%8C%96"><span class="toc-text">应用服务化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemctl"><span class="toc-text">systemctl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E6%9D%83%E9%99%90"><span class="toc-text">Linux用户与权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7"><span class="toc-text">用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-text">用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E7%BB%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">用户与用户组常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%86%85%E9%83%A8%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E5%AE%9E%E8%B7%B5"><span class="toc-text">项目内部文件权限管理实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%BB%A3%E7%A0%81%E8%A1%A8"><span class="toc-text">文件权限代码表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod%E5%91%BD%E4%BB%A4"><span class="toc-text">chmod命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sudo%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E5%91%BD%E4%BB%A4"><span class="toc-text">sudo超级管理员命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS7%E9%98%B2%E7%81%AB%E5%A2%99firewall"><span class="toc-text">CentOS7防火墙firewall</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-text">什么是防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#firwall-cmd"><span class="toc-text">firwall-cmd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%A4%96%E5%BC%80%E6%94%BETomcat"><span class="toc-text">对外开放Tomcat</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash-Shell"><span class="toc-text">Bash Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFShell"><span class="toc-text">什么是Shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-Shell-%E5%88%86%E7%B1%BB"><span class="toc-text">Linux Shell 分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83Tomcat%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">一键发布Tomcat应用程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2OA%E9%A1%B9%E7%9B%AE"><span class="toc-text">部署OA项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84"><span class="toc-text">部署架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Centos%E5%AE%89%E8%A3%85MySQL8"><span class="toc-text">Centos安装MySQL8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96MySQL8"><span class="toc-text">初始化MySQL8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AEWeb%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">部署配置Web应用服务</span></a></li></ol></li></ol>
     </div>
   </section>
 
