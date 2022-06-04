@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2022/1 - 才刚的博客</title>
+  <title>分类：Java虚拟机 - 才刚的博客</title>
   
 
   
@@ -104,7 +104,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -355,7 +355,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper  dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/imgs/bg.jpg"></div>
           
@@ -386,29 +386,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-	
-		
+  
+    
+      
   <section class="post-list">
     
       
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
       
     
     
@@ -422,19 +410,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/p/c9e2.html">
-        MySQL综合应用
+      <a href="/p/89f2.html">
+        Java内存区域
       </a>
     </h2>
   
   <div class='md'>
     
       
-        数据库的事务机制避免写入直接操作数据文件 ◇ 如果数据的写入直接操作数据文件是非常危险的事情
-利用日志来实现间接写入◇ MySQL总共有5种日志，其中redo(重做)日志和undo(回滚)日志与事务有关 。redo日志保证事务一致性，undo日志保证原子性。
+        运行时数据区域◇JVM包含两个子系统和两个组件，共4个组成部分，两个子系统分别为：类加载器(ClassLoader) 、执行引擎(Execution Engine)、两个组件分别为：运行时数据区(Runtime Data Area)、本地接口(Native interface)。如下图所示：
 
-事务机制（Transaction）◇ RDBMS = SQL语句 + 事务（ACID）  
-◇ 事务是一个或者多个SQL语句组成的整...
+◇运行时数据区域分为几个区域，其中线程共享的区域有：方法区、堆区。线程私有的区域有：虚拟机栈、本地...
       
     
   </div>
@@ -442,355 +428,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2022-01-28</time>
+        <time>2022-06-03</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a><span class="sep"></span><a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/">MySQL基础</a>
+          <a class="category-link" href="/categories/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java虚拟机</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/p/c9e2.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/8500.html">
-        MySQL基本函数
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        MySQL的函数 ◇像编程语言利用函数封装业务功能一样，数据库也把一些复杂的功能封装到函数里，供使用者调用 ◇也可以自定义函数
-数字函数数字函数（一）
-数字函数（二）◇三角函数的参数为弧度
-日期函数获取系统时间函数◇NOW()函数能获得系统日期和时间，格式yyyy-MM-dd hh:mm:ss◇CURDATE()函数能获得当前系统日期，格式yyyy-MM-dd◇CURTIME()函数能获得当...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-01-28</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a><span class="sep"></span><a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/">MySQL基础</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/8500.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/a881.html">
-        MySQL基本操作
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        数据操作语言：INSERT语句INSERT语句 ◇ INSERT语句可以向数据表写入记录，可以是一条记录，也可以是多条记录  
-1234INSERT INTO 表名 ( 字段1, 字段2, …… ) VALUES ( 值1, 值2, …… ) ;INSERT INTO 表名 ( 字段1, 字段2, …… ) VALUES ( 值1, 值2, …… ) , ( 值1, 值2, …… ) ;--...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-01-28</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a><span class="sep"></span><a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/">MySQL基础</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/a881.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/1648.html">
-        数据库的高级查询
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        数据操作语言：聚合函数什么是聚合函数◇ 聚合函数在数据的查询分析中，应用十分广泛。聚合函数可以对数据求和、求最大值和最小值、求平均值等等。◇ 求公司员工的平均月收入是多少？  
-12--IFNULL(comm,0)判断如果comm字段为空则返回0,否则返回comm值SELECT AVG(sal+IFNULL(comm,0)) FROM t_emp;
-SUM函数 ◇ SUM函数用于求和，只能用...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-01-28</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a><span class="sep"></span><a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/">MySQL基础</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/1648.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/f427.html">
-        数据库的基本查询
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        数据操作语言：普通查询记录查询◇ 最基本的查询语句是由 SELECT 和 FROM 关键字组成的◇ SELECT语句屏蔽了物理层的操作，用户不必关心数据的真实存储，交由数据库高效的查找数据  
-12SELECT * FROM t_student;SELECT id,name,sex FROM t_student;
-使用列别名◇ 通常情况下，SELECT子句中使用了表达式，那么这列的名字就默认...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-01-28</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a><span class="sep"></span><a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/">MySQL基础</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/f427.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/77e3.html">
-        数据库范式与索引
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        范式概念◇ 构造数据库必须遵循一定的规则，这种规则就是范式◇ 目前关系数据库有6种范式，一般情况下，只满足第三范式即可  
-第一范式：原子性◇ 第一范式是数据库的基本要求，不满足这一点就不是关系数据库◇ 数据表的每一列都是不可分割的基本数据项，同一列中不能有多个值，也不能存在重复的属性。
-第二范式：唯一性◇ 数据表中的每条记录必须是唯一的。为了实现区分，通常要为表加上一个列用来存储唯一标识，...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-01-28</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a><span class="sep"></span><a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/">MySQL基础</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/77e3.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/a804.html">
-        SQL简介
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        学习目标◇ 管理逻辑库和数据表
-◇创建、删除、修改逻辑库和数据表◇ 了解常用的数据类型和约束  
-◇字符串、整数、浮点数、精确数字、日期、枚举。主键约束、非空 约束、唯一约束、外键约束等◇ 掌握索引运行机制和使用原则  
-◇排序为什么可以提高数据检索速度？怎么创建和删除索引？什么条 件下使用索引？  
-什么是SQL语言 ？◇ SQL 是用于访问和处理数据的标准的计算机语言
-SQL语言分类
-S...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-01-28</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a><span class="sep"></span><a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/">MySQL基础</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/a804.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/p/f849.html">
-        数据库简介
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        学习目标了解关系型数据库的重要性  -为什么会出现关系型数据库？有哪些常见的关系型数据库？掌握MySQL的安装和配置  -怎么安装MySQL数据库？怎么配置MySQL的字符集、端口号、IP 地址绑定、数据目录等等？实践用户创建、分配权限和密码找回
-  -如何创建root之外的帐户并分配权限？忘记数据库密码，应该如何找回？  
-操作系统中数据存放的载体◇ Windows、Linux和MacOS...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-01-28</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/">Java数据库</a><span class="sep"></span><a class="category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%9F%BA%E7%A1%80/">MySQL基础</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/p/f849.html'>
+          <a class='readmore' href='/p/89f2.html'>
             阅读全文
           </a>
         </div>
@@ -810,7 +456,8 @@ S...
   
 
 
-	
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -1184,14 +831,14 @@ S...
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
